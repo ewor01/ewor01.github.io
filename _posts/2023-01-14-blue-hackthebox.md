@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Blue - Hack The Box
-excerpt: "Blue es una maquina donde estaremos explotando la famosa vulnerabilidad eternalblue MS17-010, donde miraremos tecnicas de evasion de defender y un par de cosas mas."
+excerpt: "Blue es una maquina donde estaremos explotando la famosa vulnerabilidad eternalblue MS17-010 pero manualmente haciendo uso de un exploit en github, luego de comprometer la maquina, practicaremos técnicas de evasión de defender y un par de cosas más."
 date: 2023-01-15
 classes: wide
 header:
@@ -9,10 +9,12 @@ header:
   teaser_home_page: true
   icon: /assets/images/hackthebox.webp
 categories:
-  - hackthebox
-  - OSCP
-  - Fácil
-  - Windows
+
+- hackthebox
+- OSCP
+- Fácil
+- Windows
+
 tags:
 
 - SMB Enumeration
@@ -34,9 +36,6 @@ Habilidades:
 - Obtaining credentials stored in memory [MIMIKATZ + Windows Defender Evasion] (EXTRA)
 - Enabling RDP from CrackMapExec (EXTRA)
 - Windows Persistence techniques (EXTRA)
-- Windows Persistence - Playing with debugger [When a user opens a program] (EXTRA)
-- Windows Persistence - Playing with Gflags [When a user closes a program] (EXTRA)
-- Windows Persistence - Playing with WMI Events [Executing tasks at regular intervals of time] (EXTRA)
 - Persistence + Windows Defender Evasion [Playing with Ebowla] (EXTRA)
 
 # IP de la Maquina
@@ -369,4 +368,7 @@ Si todo sale bien nos mostrara la credencial
 
 Hay que tener en cuenta que a veces en entornos empresariales comprometes un equipo no privilegiado pero en la memoria consigues las credenciales de un administrador del dominio, y esto es importante ya que con esto tenemos acceso a todos los equipos de la red.
 
-Listo con esto tendríamos varias maneras y caminos los cuales nos servirán mucho para otras maquinas, recuerden que la practica hace al maestro
+Listo con esto tendríamos varias maneras y caminos los cuales nos servirán mucho para otras máquinas, recuerden que la practica hace al maestro.
+
+Les dejo la resolución de la misma por s4vitar [Ver video](https://www.youtube.com/watch?v=92XycxcAXkI)
+
