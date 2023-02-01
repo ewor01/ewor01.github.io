@@ -108,6 +108,12 @@ Desarrollo de sistema de inventarios utilizando como lenguaje de programación C
 - Podcast One Podcast - (Cosas impactantes de la deepweb): [Ver podcast](https://www.youtube.com/watch?v=uxphCzfOD14) 
 - Podcast One Podcast - (La deepweb): [Ver podcast](https://www.youtube.com/watch?v=2shy9UKnyUY&t=50s)
 
+## Herramientas
+
+Creador de las siguientes herramientas:
+
+- [Notup](https://ewor01.notion.site/ewor01/Gu-a-por-ewor01-fd09caf6aba74b67b405a9a5bf9644f9) (Herramienta hecha en Notion, ideal para la realización de writeup sobre maquinas estilo CTF de cualquier plataforma. Basado en la siguiente [web](https://infosecmachines.io/) Siguiendo la excelente metodología de nuestro maestro: [s4vitar](https://twitter.com/s4vitar)
+
 ## Asistencias
 Asistente en los siguientes eventos de ciberseguridad:
 
@@ -130,4 +136,4 @@ Asistente en los siguientes eventos de ciberseguridad:
 
 # Correo y contacto directo
 
-¿Quieres ponerte en contacto conmigo?, puedes hacerlo a través de la dirección de correo `ewor80@hotmail.com`. **No hackeo cuentas de Instagram, Facebook o cualquier red social XD.**
+¿Quieres ponerte en contacto conmigo?, puedes hacerlo a través de la dirección de correo `ewor80@hotmail.com`. **No hackeo cuentas de Instagram, Facebook o cualquier red social XD. Solo se hace hacking etico sobre entornos controlados.**
