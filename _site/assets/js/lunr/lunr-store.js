@@ -13,4 +13,9 @@ var store = [{
         "excerpt":"Certificaciones a aplicar: eJPT Dificultad: Fácil Habilidades: Information Leakage Abusing Tomcat [Intrusion &amp; Privilege Escalation] IP de la Maquina 10.10.10.95 Reconocimiento Identificando el sistema operativo. whichSystem.py 10.10.10.95 Escaneo de los puertos y guardamos en formato grep en el ficherito allPorts. nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.10.95...","categories": ["hackthebox","eJTP","Fácil","Windows"],
         "tags": ["Information Leakage","Tomcat"],
         "url": "http://localhost:4000/jerry-hackthebox/",
-        "teaser":"http://localhost:4000/assets/images/htb-writeup-jerry/Jerry.png"}]
+        "teaser":"http://localhost:4000/assets/images/htb-writeup-jerry/Jerry.png"},{
+        "title": "Horizontall - Hack The Box",
+        "excerpt":"Certificaciones a aplicar: eJPT, eWPT Dificultad: Fácil Habilidades: Information Leakage Port Forwarding Strapi CMS Exploitation Laravel Exploitation IP de la Maquina 10.10.11.105 Reconocimiento Identificando el sistema operativo. whichSystem.py 10.10.11.105 Escaneo de los puertos y guardamos en formato grep en el ficherito allPorts. nmap -p- --open -sS --min-rate 5000 -vvv -n...","categories": ["hackthebox","eJTP","eWPT","Fácil","Linux"],
+        "tags": ["Information Leakage","Port Forwarding","Strapi CMS Exploitation","Laravel Exploitation"],
+        "url": "http://localhost:4000/horizontall-hackthebox/",
+        "teaser":"http://localhost:4000/assets/images/htb-writeup-horizontall/Horizontall.png"}]
