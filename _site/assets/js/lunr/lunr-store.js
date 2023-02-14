@@ -18,4 +18,9 @@ var store = [{
         "excerpt":"Certificaciones a aplicar: eJPT, eWPT Dificultad: Fácil Habilidades: Information Leakage Port Forwarding Strapi CMS Exploitation Laravel Exploitation IP de la Maquina 10.10.11.105 Reconocimiento Identificando el sistema operativo. whichSystem.py 10.10.11.105 Escaneo de los puertos y guardamos en formato grep en el ficherito allPorts. nmap -p- --open -sS --min-rate 5000 -vvv -n...","categories": ["hackthebox","eJTP","eWPT","Fácil","Linux"],
         "tags": ["Information Leakage","Port Forwarding","Strapi CMS Exploitation","Laravel Exploitation"],
         "url": "http://localhost:4000/horizontall-hackthebox/",
-        "teaser":"http://localhost:4000/assets/images/htb-writeup-horizontall/Horizontall.png"}]
+        "teaser":"http://localhost:4000/assets/images/htb-writeup-horizontall/Horizontall.png"},{
+        "title": "¿Cómo crear una contraseña segura?",
+        "excerpt":"¿Cómo crear una contraseña segura? Cuanto más avanza Internet, más importante es proteger nuestra información personal. Hoy en día se comparte todo y nuestras fotos, documentos y conversaciones se guardan en la nube. Es la era de la información y estamos conectados todo el día, incluso desde varios dispositivos a...","categories": ["password","secure"],
+        "tags": ["contraseñas seguras"],
+        "url": "http://localhost:4000/contrase%C3%B1as-seguras/",
+        "teaser":"http://localhost:4000/assets/images/contrase%C3%B1as-seguras/contrase%C3%B1as_seguras.png"}]
