@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-13T23:39:20-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ewor01 | Ciberseguridad y Hacking Ético</title><subtitle>Artículos sobre ciberseguridad, CTFs, investigaciones, herramientas, charlas, etc.</subtitle><author><name>ewor01</name></author><entry><title type="html">¿Cómo crear una contraseña segura?</title><link href="http://localhost:4000/contrase%C3%B1as-seguras/" rel="alternate" type="text/html" title="¿Cómo crear una contraseña segura?" /><published>2023-02-13T00:00:00-06:00</published><updated>2023-02-13T00:00:00-06:00</updated><id>http://localhost:4000/contrase%C3%B1as-seguras</id><content type="html" xml:base="http://localhost:4000/contrase%C3%B1as-seguras/">&lt;p align=&quot;center&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-20T02:51:06-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ewor01 | Ciberseguridad y Hacking Ético</title><subtitle>Artículos sobre ciberseguridad, CTFs, investigaciones, herramientas, charlas, etc.</subtitle><author><name>ewor01</name></author><entry><title type="html">¿Cómo crear una contraseña segura?</title><link href="http://localhost:4000/contrase%C3%B1as-seguras/" rel="alternate" type="text/html" title="¿Cómo crear una contraseña segura?" /><published>2023-02-13T00:00:00-06:00</published><updated>2023-02-13T00:00:00-06:00</updated><id>http://localhost:4000/contrase%C3%B1as-seguras</id><content type="html" xml:base="http://localhost:4000/contrase%C3%B1as-seguras/">&lt;p align=&quot;center&quot;&gt;
 &lt;img src=&quot;/assets/images/contraseñas-seguras/contraseñas_seguras.png&quot; /&gt;
 &lt;/p&gt;
 
@@ -767,7 +767,7 @@ ssty rows 37 columns 183
   &lt;li&gt;Compromiso de sistema interno.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Como podemos observar primero lograron entrar mediante un &lt;code&gt;phishing&lt;/code&gt;, utilizaron un documento de Excel que contenía código malicioso, el cual al ejecutarse explotaba una vulnerabilidad de flash que había en aquel entonces, y así lograron llegar hasta los sistemas internos de la empresa. Aquí es donde miramos la importancia de que el personal y tanto nosotros mismos estemos muy bien capacitados en todos estos temas para poder evitar este tipo de ataques.&lt;/p&gt;
+&lt;p&gt;Como podemos observar primero lograron entrar mediante un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;phishing&lt;/code&gt;, utilizaron un documento de Excel que contenía código malicioso, el cual al ejecutarse explotaba una vulnerabilidad de flash que había en aquel entonces, y así lograron llegar hasta los sistemas internos de la empresa. Aquí es donde miramos la importancia de que el personal y tanto nosotros mismos estemos muy bien capacitados en todos estos temas para poder evitar este tipo de ataques.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
 &lt;img src=&quot;/assets/images/ingeniería-social/rsa.png&quot; /&gt;
@@ -782,7 +782,7 @@ ssty rows 37 columns 183
   &lt;li&gt;Obtención de información sensible sobre XBOX.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;En este otro ejemplo, miramos que el punto de entrada fue un &lt;code&gt;vishing&lt;/code&gt;, así lograron persuadir y obtener el número de seguro social de los empleados y luego esta información la utilizaron en proveedores que los empleados tenían para obtener el acceso a sus cuentas. En este caso no fue tan crítico porque no comprometieron ningún sistema pero se dio lo que se conoce como data leak ya que se filtró información sobre la nueva Xbox que iba a salir en ese entonces, dando a conocer así las características que iba a poseer dicha consola.&lt;/p&gt;
+&lt;p&gt;En este otro ejemplo, miramos que el punto de entrada fue un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vishing&lt;/code&gt;, así lograron persuadir y obtener el número de seguro social de los empleados y luego esta información la utilizaron en proveedores que los empleados tenían para obtener el acceso a sus cuentas. En este caso no fue tan crítico porque no comprometieron ningún sistema pero se dio lo que se conoce como data leak ya que se filtró información sobre la nueva Xbox que iba a salir en ese entonces, dando a conocer así las características que iba a poseer dicha consola.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
 &lt;img src=&quot;/assets/images/ingeniería-social/microsoft.png&quot; /&gt;
@@ -798,10 +798,10 @@ ssty rows 37 columns 183
 &lt;/ul&gt;
 
 &lt;p&gt;Dirigidos:
-Son aquellos ataques en el que se tienes una empresa o una persona como objetivo, siguiendo una metodología para que el ataque logre ser más efectivo. Por ejemplo el ataque que hicieron a la empresa &lt;code&gt;Uber&lt;/code&gt; el cual consistió en un &lt;code&gt;phishing&lt;/code&gt;, y a partir de aquí los ciberdelincuentes lograron vulnerar sus sistemas.&lt;/p&gt;
+Son aquellos ataques en el que se tienes una empresa o una persona como objetivo, siguiendo una metodología para que el ataque logre ser más efectivo. Por ejemplo el ataque que hicieron a la empresa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Uber&lt;/code&gt; el cual consistió en un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;phishing&lt;/code&gt;, y a partir de aquí los ciberdelincuentes lograron vulnerar sus sistemas.&lt;/p&gt;
 
 &lt;p&gt;No Dirigidos:
-Por lo general este tipo de ataque se realiza de manera masiva enviando millones de &lt;code&gt;phishing&lt;/code&gt; a usuarios al azar, con la finalidad de hacerse con la mayor cantidad de información posible y así obtener una recompensa mayor. Cabe mencionar que estos ataques son menos efectivos que los Dirigidos ya que no estudian a fondo su víctima.&lt;/p&gt;
+Por lo general este tipo de ataque se realiza de manera masiva enviando millones de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;phishing&lt;/code&gt; a usuarios al azar, con la finalidad de hacerse con la mayor cantidad de información posible y así obtener una recompensa mayor. Cabe mencionar que estos ataques son menos efectivos que los Dirigidos ya que no estudian a fondo su víctima.&lt;/p&gt;
 
 &lt;p&gt;La metodología que utilizan los ciberdelincuentes para un ataque dirigido seria la siguiente:&lt;/p&gt;
 
@@ -818,17 +818,17 @@ Por lo general este tipo de ataque se realiza de manera masiva enviando millones
 &lt;p&gt;Como observamos siguen una metodología bien elaborada con la finalidad de que el ataque resulte ser muy efectivo para que logren caer los empleados de las empresas y así hacerse con sus datos para luego comprometer toda la empresa. Esto nos lleva a que los empleados de una empresa y nosotros como usuarios de cualquier tecnología debemos estar capacitados en temas de ciberseguridad para así lograr mitigar estos ataques ya que no hay otra manera de evitarlos, la única forma es estar debidamente informados.
 Esta metodología también la utilizan los pentester en ejercicios de red team para simular completamente un ataque de ingeniería social usando las mismas técnicas que un ciberdelincuente, de esta manera estarían preparando al personal de una empresa para cualquier tipo de ataque de este tipo y haciendo más segura la empresa.&lt;/p&gt;
 
-&lt;p&gt;En el primer punto usan técnicas &lt;code&gt;OSINT&lt;/code&gt; para recolectar la mayor cantidad de información posible sobre el objetivo.&lt;/p&gt;
+&lt;p&gt;En el primer punto usan técnicas &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OSINT&lt;/code&gt; para recolectar la mayor cantidad de información posible sobre el objetivo.&lt;/p&gt;
 
-&lt;p&gt;En el segundo ya una vez reunida esa información la analizan y miran cual podría ser el mejor vector de ataque si un &lt;code&gt;phishing&lt;/code&gt;, &lt;code&gt;vishing&lt;/code&gt;, &lt;code&gt;baiting&lt;/code&gt;, etc. o también puede usar todas las que ellos crean convenientes.&lt;/p&gt;
+&lt;p&gt;En el segundo ya una vez reunida esa información la analizan y miran cual podría ser el mejor vector de ataque si un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;phishing&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vishing&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;baiting&lt;/code&gt;, etc. o también puede usar todas las que ellos crean convenientes.&lt;/p&gt;
 
-&lt;p&gt;Después lo que hacen es analizar cuál podría ser el empleado o los empleados elegidos para atacar, ya que por ejemplo sería más efectivo si utilizan a alguien de &lt;code&gt;recursos humanos&lt;/code&gt; que si eligen a alguien de &lt;code&gt;IT&lt;/code&gt;, ya que al ser del departamento &lt;code&gt;IT&lt;/code&gt; podría darse cuenta más rápido y evitar que logren comprometer la empresa.&lt;/p&gt;
+&lt;p&gt;Después lo que hacen es analizar cuál podría ser el empleado o los empleados elegidos para atacar, ya que por ejemplo sería más efectivo si utilizan a alguien de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;recursos humanos&lt;/code&gt; que si eligen a alguien de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IT&lt;/code&gt;, ya que al ser del departamento &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IT&lt;/code&gt; podría darse cuenta más rápido y evitar que logren comprometer la empresa.&lt;/p&gt;
 
-&lt;p&gt;Aquí en este punto van a ver cómo hacer caer a los empleados, haciéndoles creer que son parte del &lt;code&gt;equipo de soporte&lt;/code&gt; o que son algún &lt;code&gt;proveedor&lt;/code&gt; con la finalidad de que los empleados les den acceso o sus datos para colarse dentro de la empresa.&lt;/p&gt;
+&lt;p&gt;Aquí en este punto van a ver cómo hacer caer a los empleados, haciéndoles creer que son parte del &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;equipo de soporte&lt;/code&gt; o que son algún &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;proveedor&lt;/code&gt; con la finalidad de que los empleados les den acceso o sus datos para colarse dentro de la empresa.&lt;/p&gt;
 
-&lt;p&gt;Ya en este punto crean todo lo que van a utilizar como por ejemplo en que área dejaran las &lt;code&gt;USB&lt;/code&gt; tiradas en caso de ser un &lt;code&gt;baiting&lt;/code&gt;, si es un &lt;code&gt;phishing&lt;/code&gt; pues elaborar cuidadosamente y lo más parecido posible la plantilla de correo y al sitio donde serán redirigidos los empleados o el documento que van a adjuntar para lograr tener la mayor efectividad.&lt;/p&gt;
+&lt;p&gt;Ya en este punto crean todo lo que van a utilizar como por ejemplo en que área dejaran las &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;USB&lt;/code&gt; tiradas en caso de ser un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;baiting&lt;/code&gt;, si es un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;phishing&lt;/code&gt; pues elaborar cuidadosamente y lo más parecido posible la plantilla de correo y al sitio donde serán redirigidos los empleados o el documento que van a adjuntar para lograr tener la mayor efectividad.&lt;/p&gt;
 
-&lt;p&gt;Ya aquí ejecutan las &lt;code&gt;pruebas&lt;/code&gt; para ver si serán efectivas y en caso de serla estaríamos llegando al último punto que sería la &lt;code&gt;intrusión&lt;/code&gt; en la red interna de la empresa y ya con esto estarían logrando su objetivo.&lt;/p&gt;
+&lt;p&gt;Ya aquí ejecutan las &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pruebas&lt;/code&gt; para ver si serán efectivas y en caso de serla estaríamos llegando al último punto que sería la &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;intrusión&lt;/code&gt; en la red interna de la empresa y ya con esto estarían logrando su objetivo.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
 &lt;img src=&quot;/assets/images/ingeniería-social/ataquessocial2.jpg&quot; /&gt;
@@ -841,24 +841,24 @@ Esta metodología también la utilizan los pentester en ejercicios de red team p
 No todos los proveedores de correos vienen debidamente configurados así que es nuestra responsabilidad configurarlos correctamente para así poder filtrar la mayor parte de correos y tener un poco más segura nuestra bandeja de entrada.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Investigue la &lt;code&gt;fuente&lt;/code&gt;:
+    &lt;p&gt;Investigue la &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fuente&lt;/code&gt;:
 Siempre que se reciba un enlace, un mensaje, un correo, etc. Es muy importante verificar de donde proviene y no importa si es por parte de un amigo hay que estar seguro que en realidad es el quien n os envía y no un ciberdelincuente que pudo haber quitado el acceso a la cuenta de nuestro amigo.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Si algo parece demasiado bueno para ser cierto, seguramente sea &lt;code&gt;falso&lt;/code&gt;:
-Esto es algo muy común en estos tipos de ataques ya que por lo general te dirán que te ganaste algo sin siquiera estar participando, a partir de este momento deberíamos de alertarnos ya que seguramente se trate de un ataque de ingeniería social, es muy común también que las personas caigan más debido a estas técnicas ya que depende de nuestro nivel de economía en que nos encontremos seremos tentados a caer en este tipo de engaños pero recuerda como dicen por ahí &lt;code&gt;nada es gratis&lt;/code&gt; y si lo es tiene un precio tu &lt;code&gt;información&lt;/code&gt;.&lt;/p&gt;
+    &lt;p&gt;Si algo parece demasiado bueno para ser cierto, seguramente sea &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;falso&lt;/code&gt;:
+Esto es algo muy común en estos tipos de ataques ya que por lo general te dirán que te ganaste algo sin siquiera estar participando, a partir de este momento deberíamos de alertarnos ya que seguramente se trate de un ataque de ingeniería social, es muy común también que las personas caigan más debido a estas técnicas ya que depende de nuestro nivel de economía en que nos encontremos seremos tentados a caer en este tipo de engaños pero recuerda como dicen por ahí &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nada es gratis&lt;/code&gt; y si lo es tiene un precio tu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;información&lt;/code&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Utilice software de &lt;code&gt;seguridad&lt;/code&gt; y confianza:
+    &lt;p&gt;Utilice software de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seguridad&lt;/code&gt; y confianza:
 Nunca este de mas tener de la mano un buen software antivirus y anti malware, para así tener una mayor protección ante este tipo de ataques, aunque sin duda alguna la mejor defensa siempre será estar concientizado ante este tipo de ataques y sobre ciberseguridad, recuerda la ciberseguridad no es un gasto es una inversión como el seguro de un auto, no adquieres el seguro porque vas a chocar el auto si no que en caso de que suceda estas preparado para lo que pueda pasarle a este, es lo mismo a la hora de invertir en ciberseguridad para tu empresa, no quiere decir que pasaras bajo constate ataque, pero en caso de recibir uno tu personal estará debidamente capacitado y podrán evitar que comprometan la empresa.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Utilice el sentido &lt;code&gt;común&lt;/code&gt;:
-Es algo muy curioso y parece sencillo de usar, pero a veces digo que el sentido común no parece tan común ya que algunos simplemente no lo usan. Siempre hay que estar &lt;code&gt;alerta&lt;/code&gt; ante cualquier &lt;code&gt;msj&lt;/code&gt; sospechoso que recibamos y más si es mediante una &lt;code&gt;red social&lt;/code&gt;, nunca abrir &lt;code&gt;links&lt;/code&gt; que te envíen por ahí a menos que sepas su procedencia, así que ya sabes si recibes algo y no estás seguro es mejor que no hagas clic ya que podrían robar tu información personal o tus cuentas.&lt;/p&gt;
+    &lt;p&gt;Utilice el sentido &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;común&lt;/code&gt;:
+Es algo muy curioso y parece sencillo de usar, pero a veces digo que el sentido común no parece tan común ya que algunos simplemente no lo usan. Siempre hay que estar &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;alerta&lt;/code&gt; ante cualquier &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;msj&lt;/code&gt; sospechoso que recibamos y más si es mediante una &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;red social&lt;/code&gt;, nunca abrir &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;links&lt;/code&gt; que te envíen por ahí a menos que sepas su procedencia, así que ya sabes si recibes algo y no estás seguro es mejor que no hagas clic ya que podrían robar tu información personal o tus cuentas.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Sobre todo y no menos importante informarse y concientizarse sobre &lt;code&gt;ciberseguridad&lt;/code&gt;:
-Creo que este es uno de los puntos más importantes, ya que al menos para mí hoy en día es imprescindible que &lt;code&gt;todos&lt;/code&gt; y si me refiero a todos aquellos que utilicemos un dispositivo para navegar por internet y que poseamos redes sociales, etc. En fin usar cualquier dispositivo tecnológico debemos aprender sobre ciberseguridad ya que la tecnología cada día crece a pasos agigantados y así como salen dispositivos nuevos, redes sociales nuevas y así con cada cosa, también salen nuevos ataques, nuevas técnicas que utilizan los ciberdelincuentes para hacerse con nuestros datos. Por eso es importante que aprendamos ya que al hacerlo sabremos lo peligros a los cuales nos enfrentamos e igual conoceremos multitud de ataques que existen y seremos más cuidadosos a la hora de navegar por internet.&lt;/p&gt;
+    &lt;p&gt;Sobre todo y no menos importante informarse y concientizarse sobre &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ciberseguridad&lt;/code&gt;:
+Creo que este es uno de los puntos más importantes, ya que al menos para mí hoy en día es imprescindible que &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;todos&lt;/code&gt; y si me refiero a todos aquellos que utilicemos un dispositivo para navegar por internet y que poseamos redes sociales, etc. En fin usar cualquier dispositivo tecnológico debemos aprender sobre ciberseguridad ya que la tecnología cada día crece a pasos agigantados y así como salen dispositivos nuevos, redes sociales nuevas y así con cada cosa, también salen nuevos ataques, nuevas técnicas que utilizan los ciberdelincuentes para hacerse con nuestros datos. Por eso es importante que aprendamos ya que al hacerlo sabremos lo peligros a los cuales nos enfrentamos e igual conoceremos multitud de ataques que existen y seremos más cuidadosos a la hora de navegar por internet.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -868,7 +868,7 @@ Creo que este es uno de los puntos más importantes, ya que al menos para mí ho
 
 &lt;p&gt;Ahora conociendo todo esto nos haremos la siguiente interrogante ¿Por qué es tan peligrosa la ingeniería social?&lt;/p&gt;
 
-&lt;p&gt;La ingeniería social puede ocurrirle a cualquiera, ya sea en persona, por teléfono o en línea, y también es un método bastante fácil cuando se realizan estafas, fraudes u otros delitos. Los &lt;code&gt;ciberdelincuentes&lt;/code&gt; no necesitan tener grandes conocimientos técnicos; solo tienen que ser capaces de engañarle para que les entregues datos sensibles. El hecho de que todos estemos en riesgo hace que sea una estafa potencialmente &lt;code&gt;devastadora&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;La ingeniería social puede ocurrirle a cualquiera, ya sea en persona, por teléfono o en línea, y también es un método bastante fácil cuando se realizan estafas, fraudes u otros delitos. Los &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ciberdelincuentes&lt;/code&gt; no necesitan tener grandes conocimientos técnicos; solo tienen que ser capaces de engañarle para que les entregues datos sensibles. El hecho de que todos estemos en riesgo hace que sea una estafa potencialmente &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;devastadora&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Las redes sociales han ayudado a los ciberdelincuentes a ser más habilidosos, creando perfiles falsos que parecen ser reales, o incluso suplantando a personas reales. Es importante estar alerta ante perfiles extraños o desconocidos en redes sociales.&lt;/p&gt;
 
@@ -1217,7 +1217,7 @@ payload_type &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; EXE
 &lt;p&gt;Lo hacemos de la siguiente manera&lt;/p&gt;
 
 &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;privilege::debug&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sekurlsa::logonPasswords&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sekurlsa::logonPasswords&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Si todo sale bien nos mostrara la credencial&lt;/p&gt;

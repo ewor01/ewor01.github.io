@@ -8,7 +8,7 @@ date: 2023-01-20
 <br>
 
 <p align="center">
-<img src="/assets/images/about/ewor01.jpeg">
+<img src="/assets/images/about/ewor01.png">
 </p>
 
 Mi nombre es Edwin Romero ingeniero en ciencias de la computación (aka **ewor01**), actualmente hago Stream en **Twitch** sobre ciberseguridad y hacking ético.
@@ -71,17 +71,41 @@ El MVC o Modelo-Vista-Controlador es un patrón de arquitectura de software que,
 También como gestor de base de datos se utilizó MySQL. La aplicación consiste en permitir un mejor seguimiento de los problemas manifestados por los compañeros. 
 En pocas palabras, el sistema de gestiones Helpdesk le permite archivar y rastrear cada problema; evaluar su prioridad, su nivel de progreso y asignar responsables. [Ver app](https://helpdesk.coopnuevavida.com/)
 
-- Soporte Técnico (cooperativa Nueva Vida)
+- Entrevista para puesto Pentester-Junior (Devel Cybersecurity)
 
-Instalación de 6 puntos de red.
-Instalación de Pc’s.
-Instalación de impresoras.
-Mantenimiento preventivo:
-El cual contribuye a que el equipo funcione en manera óptima y así aumentar su periodo de vida.
-Mantenimiento correctivo:
-Mantenimiento que se realiza cuando el equipo ya presenta problemas.
-Instalación de software.
+Realice una entrevista para el puesto pentester-junior para dicha empresa, en la cual realice todas las pruebas necesarias para aplicar al puesto, las cuales consistian en una prueba técnica supervisada y una rueba práctica.
 
+- Prueba técnica supervisada con el suiguiente reglamento:
+ 
+1. Tiempo máximo 1.5 horas. 
+2. Deberá hacerse mediante teams, compartiendo su pantalla con personal de RRHH para supervisar la prueba.
+3. Validar que la cámara esté encendida, validar que el aspirante esté compartiendo su pantalla. 
+4. Validar que el aspirante no esté hacienda uso de un monitor extendido.
+
+Esta prueba tiene como objetivo identificar los conocimientos sobre tecnología y seguridad informática.
+
+- Prueba práctica con el siguiente reglamento: 
+
+Usted es un Pentester que ha sido contratado para identificar y explotar vulnerabilidades para la empresa “Banco Feliz S.A”. Debe realizar un informe de análisis de vulnerabilidades donde:
+
+1. Identifique la vulnerabilidad.
+2. Documente, con evidencias visuales la explotación (si aplica).
+3. Describa de una manera sencilla, técnica y concisa en qué consiste la vulnerabilidad, cómo la explotó y cómo solucionarla.
+4. Incluir URLs de referencia (si aplica) sobre cómo corregir la vulnerabilidad.
+5. El informe no debe ser algo extenso, puede ser entre 6 y 20 páginas.
+6. Para la parte web, deberá identificar vulnerabilidades en donde deba hacer uso de un proxy HTTP.
+
+Para hacerlo, deberá instalar varias máquinas virtuales en donde podrá identificar vulnerabilidades de diferentes tipos y tecnologías.
+Las máquinas utilizadas fueron la Metasploitable2 y OWASP Broken Web Applications Project.
+
+Todas las pruebas y demas requerimientos los aprobe satisfactoriamente, pero lastimosamente no me dieron el puesto, el cual puede ser comprobado con la siguiente imagen:
+
+<p align="center">
+<img src="/assets/images/about/Devel.png">
+</p>
+
+El informe que realicé es el siguiente: <a href="/assets/files/Devel.pdf">Ver informe</a>
+ 
 ## Educación
 
 - Universidad Católica, Honduras – Ingeniería en Ciencias de la Computación 
@@ -117,8 +141,13 @@ Creador de las siguientes herramientas:
 ## Asistencias
 Asistente en los siguientes eventos de ciberseguridad:
 
+- Cybersecurity Day - Campus Internacional de Ciberguridad (Online 2023)
 - Conferencia de Seguridad Informática – DragonJAR (Online 2022)
 - Intelcon 2022 – GINSEG CIBERINTELIGENCIA (Online 2022)
+
+<p align="center">
+<img src="/assets/images/about/Cybersecurity-Day.png">
+</p>
 
 <p align="center">
 <img src="/assets/images/about/dragonjar.png">
