@@ -71,40 +71,29 @@ El MVC o Modelo-Vista-Controlador es un patrón de arquitectura de software que,
 También como gestor de base de datos se utilizó MySQL. La aplicación consiste en permitir un mejor seguimiento de los problemas manifestados por los compañeros. 
 En pocas palabras, el sistema de gestiones Helpdesk le permite archivar y rastrear cada problema; evaluar su prioridad, su nivel de progreso y asignar responsables. [Ver app](https://helpdesk.coopnuevavida.com/)
 
-- Entrevista para puesto Pentester-Junior (Devel Cybersecurity)
+- Entrevista para puesto Pentester-Junior (Empresa X)
 
-Realice una entrevista para el puesto pentester-junior para dicha empresa, en la cual realice todas las pruebas necesarias para aplicar al puesto, las cuales consistian en una prueba técnica supervisada y una rueba práctica.
+Realice una entrevista para el puesto pentester-junior para x empresa, en la cual realice todas las pruebas necesarias para aplicar al puesto, las cuales consistian en una prueba técnica supervisada y una rueba práctica.
 
-- Prueba técnica supervisada con el suiguiente reglamento:
- 
-1. Tiempo máximo 1.5 horas. 
-2. Deberá hacerse mediante teams, compartiendo su pantalla con personal de RRHH para supervisar la prueba.
-3. Validar que la cámara esté encendida, validar que el aspirante esté compartiendo su pantalla. 
-4. Validar que el aspirante no esté hacienda uso de un monitor extendido.
+- Prueba técnica supervisada.
 
-Esta prueba tiene como objetivo identificar los conocimientos sobre tecnología y seguridad informática.
+Esta prueba tiene como objetivo identificar los conocimientos sobre tecnología, ciberseguridad y pentesting.
 
-- Prueba práctica con el siguiente reglamento: 
+- Prueba práctica. 
 
-Usted es un Pentester que ha sido contratado para identificar y explotar vulnerabilidades para la empresa “Banco Feliz S.A”. Debe realizar un informe de análisis de vulnerabilidades donde:
+Esta prueba tiene como objetivo identificar los conocimientos prácticos a la hora de enfrentarse a una máquina como: Identificar diferentes servicios, explotar las vulnerabilidades de diferentes tipos para esos servicios y realizar un informe de análisis de vulnerabilidades profesional.
 
-1. Identifique la vulnerabilidad.
-2. Documente, con evidencias visuales la explotación (si aplica).
-3. Describa de una manera sencilla, técnica y concisa en qué consiste la vulnerabilidad, cómo la explotó y cómo solucionarla.
-4. Incluir URLs de referencia (si aplica) sobre cómo corregir la vulnerabilidad.
-5. El informe no debe ser algo extenso, puede ser entre 6 y 20 páginas.
-6. Para la parte web, deberá identificar vulnerabilidades en donde deba hacer uso de un proxy HTTP.
+Para hacerlo, tenia ques instalar 2 máquinas virtuales las cuales fueron:
 
-Para hacerlo, deberá instalar varias máquinas virtuales en donde podrá identificar vulnerabilidades de diferentes tipos y tecnologías.
-Las máquinas utilizadas fueron la Metasploitable2 y OWASP Broken Web Applications Project.
+[Metasploitable2](https://sourceforge.net/projects/metasploitable/) y [OWASP Broken Web Applications Project](https://sourceforge.net/projects/owaspbwa/).
+
+Un ejemplo del informe que realicé: <a href="/assets/files/Devel.pdf">Ver informe</a>
 
 Todas las pruebas y demas requerimientos los aprobe satisfactoriamente, pero lastimosamente no me dieron el puesto, el cual puede ser comprobado con la siguiente imagen:
 
 <p align="center">
 <img src="/assets/images/about/Devel.png">
 </p>
-
-El informe que realicé es el siguiente: <a href="/assets/files/Devel.pdf">Ver informe</a>
  
 ## Educación
 
