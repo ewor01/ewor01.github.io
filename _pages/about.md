@@ -115,6 +115,7 @@ Desarrollo de sistema de inventarios utilizando como lenguaje de programación C
 
 ## Apariciones
 
+- Charla Team whoami - (Retos para conseguir un puesto de ethical hacker con c0d3r17): [Ver video](https://youtu.be/6azrrjRFdEI?si=pXinqx3T9QYZUJsA)
 - Charla Team whoami - (Experiencias hacking con c0d3r17): [Ver Video](https://www.youtube.com/watch?v=JFSYGdSUNpI&t=1090s)
 - Charla Comunitaria - (Ingeniería Social) En el canal más grande de habla hispana de s4vitar [Enlace](https://twitch.tv/s4vitaar) La charla no se subió debido a los temas que se trataron y algunas herramientas que se utilizaron.
 - Podcast One Podcast - (piratería informática): [Ver podcast](https://www.youtube.com/watch?v=XYuWT86ix-E)
