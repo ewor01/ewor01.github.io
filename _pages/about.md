@@ -84,8 +84,8 @@ Esta prueba tiene como objetivo identificar los conocimientos teóricos sobre te
 Prueba práctica: 
 Esta prueba tiene como objetivo identificar los conocimientos prácticos que se realizan en pentesting, como ser: Identificar los diferentes puertos, los servicios que corren en esos puertos, encontrar diferentes tipos de vulnerabilidades para esos servicios, explotar esas vulnerabilidades y realizar un informe profesional de todos los hallazgos.
 Para hacer esta prueba fue necesario instalar 2 máquinas virtuales, las cuales fueron:
-[Metasploitable2](https://sourceforge.net/projects/metasploitable/) 
-[OWASP Broken Web Applications Project](https://sourceforge.net/projects/owaspbwa/)
+- [Metasploitable2](https://sourceforge.net/projects/metasploitable/) 
+- [OWASP Broken Web Applications Project](https://sourceforge.net/projects/owaspbwa/)
 
 Ejemplo del informe que realicé: <a href="/assets/files/Devel.pdf">Ver informe</a>
 
@@ -156,4 +156,4 @@ Asistente en los siguientes eventos de ciberseguridad:
 # Correo y contacto directo
 
 Estoy buscando oportunidades para adquirir **experiencia profesional** como pentester junior y estoy dispuesto a aceptar cualquier desafío que me permita desarrollar mis habilidades y conocimientos en este campo. 
-Si estás buscando a alguien con una **pasión por la ciberseguridad y un gran interés en aprender**, no duden en ponerse en contacto conmigo a través de la dirección de correo `ewor80@hotmail.com`.
+Si estás buscando a alguien con una **pasión por la ciberseguridad y un gran interés en aprender**, no duden en ponerse en contacto conmigo a través de la dirección de correo `ewor80@hotmail.com`
