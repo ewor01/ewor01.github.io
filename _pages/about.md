@@ -15,8 +15,7 @@ Mi nombre es Edwin Romero ingeniero en ciencias de la computación (aka **ewor01
 
 Estos son los cursos que actualmente dispongo:
 
-- Curso de Investigaciones OSINT - OIHEC Organización Internacional de Hackers
-y Expertos en Ciberseguridad - Online 2021 
+- Curso de Investigaciones OSINT - OIHEC Organización Internacional de Hackers y Expertos en Ciberseguridad - Online 2021 
 - Curso Ethical Hacking Professional - Seguridad Cero - Online 2020
 - Ciberinteligencia - Hacking Publico & Sistemas Informáticos  - Online 2020
 - Curso Online Ethical Hacking - Seguridad Cero - Online 2020
@@ -57,7 +56,7 @@ y Expertos en Ciberseguridad - Online 2021
 <img src="/assets/images/about/Cyber-Secure-Nation.jpg">
 </p>
 
-- Charla de Ciberseguridad básico, capacite a 62 empleados de la cooperativa Nueva Vida (Empresa de finanzas en mi país.) en los siguientes temas :
+- Charla de Ciberseguridad básico, concienticé a 62 empleados de la cooperativa Nueva Vida (Empresa de finanzas en mi país.) en los siguientes temas :
 
 Conceptos básicos sobre seguridad de la información, seguridad informática y ciberseguridad.
 Malware y tipos de malware.
@@ -67,27 +66,22 @@ Ingeniería Social y tipos de ataques mediante ingeniería social.
 - Desarrollo web (cooperativa Nueva Vida)
 
 Aplicación web Helpdesk, en la cual se utilizó el framework LARAVEL que posee la  metodología MVC (Modelo, Vista y Controlador). 
-El MVC o Modelo-Vista-Controlador es un patrón de arquitectura de software que, utilizando 3 componentes (Vistas, Modelos y Controladores) separa la lógica de la aplicación de la lógica de la vista en una aplicación. 
-También como gestor de base de datos se utilizó MySQL. La aplicación consiste en permitir un mejor seguimiento de los problemas manifestados por los compañeros. 
+El MVC o Modelo-Vista-Controlador es un patrón de arquitectura de software que, utilizando 3 componentes (Vistas, Modelos y Controladores) separa la lógica de la aplicación de la interfaz que se muestra al usuario. 
+Como gestor de base de datos se utilizó MySQL. La aplicación consiste en permitir un mejor seguimiento de los problemas dentro de la empresa manifestados por los compañeros. 
 En pocas palabras, el sistema de gestiones Helpdesk le permite archivar y rastrear cada problema; evaluar su prioridad, su nivel de progreso y asignar responsables. [Ver app](https://helpdesk.coopnuevavida.com/)
 
 - Entrevista para puesto Pentester-Junior (Empresa X)
 
-Realice una entrevista para el puesto pentester-junior para x empresa, en la cual realice todas las pruebas necesarias para aplicar al puesto, las cuales consistian en una prueba técnica supervisada y una rueba práctica.
+Realice una entrevista para el puesto pentester-junior para empresa X, en la cual realice todas las pruebas necesarias para aplicar al puesto, las cuales consistian en una prueba técnica supervisada y una prueba práctica.
 
-- Prueba técnica supervisada.
+Prueba técnica (teórica) supervisada:
+Esta prueba tiene como objetivo identificar los conocimientos teóricos sobre tecnología, ciberseguridad y pentesting.
 
-Esta prueba tiene como objetivo identificar los conocimientos sobre tecnología, ciberseguridad y pentesting.
-
-- Prueba práctica. 
-
-Esta prueba tiene como objetivo identificar los conocimientos prácticos a la hora de enfrentarse a una máquina como: Identificar diferentes servicios, explotar las vulnerabilidades de diferentes tipos para esos servicios y realizar un informe de análisis de vulnerabilidades profesional.
-
-Para hacerlo, tenia ques instalar 2 máquinas virtuales las cuales fueron:
-
+Prueba práctica: 
+Esta prueba tiene como objetivo identificar los conocimientos prácticos a la hora de enfrentarse a una máquina como: Identificar diferentes puertos, los servicios que corren en esos puertos, explotar las vulnerabilidades de diferentes tipos para esos servicios y realizar un informe de análisis de vulnerabilidades profesional.
+Para hacer esta prueba fue necesario instalar 2 máquinas virtuales, las cuales fueron:
 [Metasploitable2](https://sourceforge.net/projects/metasploitable/) y [OWASP Broken Web Applications Project](https://sourceforge.net/projects/owaspbwa/).
-
-Un ejemplo del informe que realicé: <a href="/assets/files/Devel.pdf">Ver informe</a>
+Ejemplo del informe que realicé: <a href="/assets/files/Devel.pdf">Ver informe</a>
 
 Todas las pruebas y demas requerimientos los aprobe satisfactoriamente, pero lastimosamente no me dieron el puesto, el cual puede ser comprobado con la siguiente imagen:
 
@@ -107,7 +101,7 @@ Creación de servidor de correos utilizando un servidor Linux.
 Creación de servidor de archivos utilizando un servidor Linux.
 
 - Desarrollo de software:
-Desarrollo de un aplicación web que consistía en que varias ONG’S recibieran ayudas monetarias mediante la  implementación de pagos en línea utilizando PayPal como gestor de los pagos, se desarrolló con boostrap 4 utilizando un plantilla HTML ya creada y como base de datos se utilizó firebase de google la cual es una base de datos NoSQL.
+Desarrollo de una aplicación web que consistía en que varias ONG’S recibieran ayudas monetarias mediante la implementación de pagos en línea utilizando PayPal como gestor de los pagos, se desarrolló con boostrap 4 utilizando un plantilla HTML la cual se adpato al proyecto y como base de datos se utilizó firebase de google la cual es una base de datos NoSQL.
 
 - Programación orientada a objetos:
 Desarrollo de sistema de inventarios utilizando como lenguaje de programación C# y como gestor de base de datos SQL, el sistema consistía en la creación de un CRUD (Create, Read, Update, Delete) es el que resume las funciones requeridas por un usuario para crear y gestionar datos. sistema de control de inventarios es posible saber cuánta mercancía se tiene en determinado momento y qué productos están por acabarse (eventual quiebre de stock), así como determinar los niveles de rotación de los productos e identificar aquellos próximos a cumplir su fecha de caducidad.
@@ -131,7 +125,7 @@ Creador de las siguientes herramientas:
 ## Asistencias
 Asistente en los siguientes eventos de ciberseguridad:
 
-- Cybersecurity Day - Campus Internacional de Ciberguridad (Online 2023)
+- Cybersecurity Day – Campus Internacional de Ciberguridad (Online 2023)
 - Conferencia de Seguridad Informática – DragonJAR (Online 2022)
 - Intelcon 2022 – GINSEG CIBERINTELIGENCIA (Online 2022)
 
@@ -155,4 +149,4 @@ Asistente en los siguientes eventos de ciberseguridad:
 
 # Correo y contacto directo
 
-¿Quieres ponerte en contacto conmigo?, puedes hacerlo a través de la dirección de correo `ewor80@hotmail.com`. **No hackeo cuentas de Instagram, Facebook o cualquier red social XD. Solo se hace hacking etico sobre entornos controlados.**
+¿Quieres ponerte en contacto conmigo?, puedes hacerlo a través de la dirección de correo `ewor80@hotmail.com`. **No hackeo cuentas de Instagram, Facebook o cualquier red social. Solo se hace hacking ético sobre entornos controlados**
