@@ -11,7 +11,11 @@ date: 2023-01-20
 <img src="/assets/images/about/ewor01.png">
 </p>
 
-Mi nombre es Edwin Romero ingeniero en ciencias de la computación (aka **ewor01**), actualmente hago Stream en **Twitch** sobre ciberseguridad y hacking ético.
+Mi nombre es Edwin Romero (aka **ewor01**), me gustaría presentarme como un pentester junior sin experiencia profesional en el sector, 
+pero con una gran pasión por la ciberseguridad y un gran interés por aprender y desarrollar mis habilidades en este campo. 
+Soy ingeniero en ciencias de la computación y he estado aprendiendo sobre **pentesting y ciberseguridad** en mi tiempo libre. 
+Además, realizo directos en **twitch** para ayudar a las personas a que aprendan sobre temas de ciberseguridad y hacking ético. 
+Lo que me ha permitido desarrollar mis habilidades de comunicación y compartir mis conocimientos con otros.
 
 Estos son los cursos que actualmente dispongo:
 
@@ -63,28 +67,29 @@ Malware y tipos de malware.
 Vulnerabilidades y tipos de vulnerabilidades.
 Ingeniería Social y tipos de ataques mediante ingeniería social.
 
-- Desarrollo web (cooperativa Nueva Vida)
+- Desarrollo web (Cooperativa Nueva Vida)
 
 Aplicación web Helpdesk, en la cual se utilizó el framework LARAVEL que posee la  metodología MVC (Modelo, Vista y Controlador). 
 El MVC o Modelo-Vista-Controlador es un patrón de arquitectura de software que, utilizando 3 componentes (Vistas, Modelos y Controladores) separa la lógica de la aplicación de la interfaz que se muestra al usuario. 
 Como gestor de base de datos se utilizó MySQL. La aplicación consiste en permitir un mejor seguimiento de los problemas dentro de la empresa manifestados por los compañeros. 
 En pocas palabras, el sistema de gestiones Helpdesk le permite archivar y rastrear cada problema; evaluar su prioridad, su nivel de progreso y asignar responsables. [Ver app](https://helpdesk.coopnuevavida.com/)
 
-- Entrevista para puesto Pentester-Junior (Empresa X)
+- Entrevista para puesto Pentester-Junior (empresa X)
 
-Realice una entrevista para el puesto pentester-junior para empresa X, en la cual realice todas las pruebas necesarias para aplicar al puesto, las cuales consistian en una prueba técnica supervisada y una prueba práctica.
+Realice una entrevista para el puesto pentester-junior para la empresa X, en la cual realice todas las pruebas necesarias para aplicar al puesto, las cuales consistian en una prueba técnica supervisada y una prueba práctica.
 
 Prueba técnica (teórica) supervisada:
 Esta prueba tiene como objetivo identificar los conocimientos teóricos sobre tecnología, ciberseguridad y pentesting.
 
 Prueba práctica: 
-Esta prueba tiene como objetivo identificar los conocimientos prácticos a la hora de enfrentarse a una máquina como: Identificar diferentes puertos, los servicios que corren en esos puertos, explotar las vulnerabilidades de diferentes tipos para esos servicios y realizar un informe de análisis de vulnerabilidades profesional.
+Esta prueba tiene como objetivo identificar los conocimientos prácticos que se realizan en pentesting, como ser: Identificar los diferentes puertos, los servicios que corren en esos puertos, encontrar diferentes tipos de vulnerabilidades para esos servicios, explotar esas vulnerabilidades y realizar un informe profesional de todos los hallazgos.
 Para hacer esta prueba fue necesario instalar 2 máquinas virtuales, las cuales fueron:
-[Metasploitable2](https://sourceforge.net/projects/metasploitable/) y [OWASP Broken Web Applications Project](https://sourceforge.net/projects/owaspbwa/).
+[Metasploitable2](https://sourceforge.net/projects/metasploitable/) 
+[OWASP Broken Web Applications Project](https://sourceforge.net/projects/owaspbwa/)
 
 Ejemplo del informe que realicé: <a href="/assets/files/Devel.pdf">Ver informe</a>
 
-Todas las pruebas y demas requerimientos los aprobe satisfactoriamente, pero lastimosamente no me dieron el puesto, el cual puede ser comprobado con la siguiente imagen:
+Todas las pruebas y demas requerimientos los aprobe satisfactoriamente, pero lastimosamente no me dieron el puesto. Lo cual puede ser comprobado con la siguiente imagen del correo recibido por parte de la empresa:
 
 <p align="center">
 <img src="/assets/images/about/Devel.png">
@@ -146,8 +151,9 @@ Asistente en los siguientes eventos de ciberseguridad:
 
 - Creador de contenido de ciberseguridad y hacking ético en la plataforma de Youtube ([Enlace](https://youtube.com/ewor161))
 - Streamer de ciberseguridad y hacking ético en la plataforma de Twitch ([Enlace](https://twitch.tv/ewor01))
-- Primer canal de ciberseguridad de mi país (Honduras).
+- Primer canal de ciberseguridad de mi país (Honduras)
 
 # Correo y contacto directo
 
-¿Quieres ponerte en contacto conmigo?, puedes hacerlo a través de la dirección de correo `ewor80@hotmail.com`. **No hackeo cuentas de Instagram, Facebook o cualquier red social. Solo se hace hacking ético sobre entornos controlados**
+Estoy buscando oportunidades para adquirir **experiencia profesional** como pentester junior y estoy dispuesto a aceptar cualquier desafío que me permita desarrollar mis habilidades y conocimientos en este campo. 
+Si estás buscando a alguien con una **pasión por la ciberseguridad y un gran interés en aprender**, no duden en ponerse en contacto conmigo a través de la dirección de correo `ewor80@hotmail.com`.
