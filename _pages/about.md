@@ -81,6 +81,7 @@ Prueba práctica:
 Esta prueba tiene como objetivo identificar los conocimientos prácticos a la hora de enfrentarse a una máquina como: Identificar diferentes puertos, los servicios que corren en esos puertos, explotar las vulnerabilidades de diferentes tipos para esos servicios y realizar un informe de análisis de vulnerabilidades profesional.
 Para hacer esta prueba fue necesario instalar 2 máquinas virtuales, las cuales fueron:
 [Metasploitable2](https://sourceforge.net/projects/metasploitable/) y [OWASP Broken Web Applications Project](https://sourceforge.net/projects/owaspbwa/).
+
 Ejemplo del informe que realicé: <a href="/assets/files/Devel.pdf">Ver informe</a>
 
 Todas las pruebas y demas requerimientos los aprobe satisfactoriamente, pero lastimosamente no me dieron el puesto, el cual puede ser comprobado con la siguiente imagen:
