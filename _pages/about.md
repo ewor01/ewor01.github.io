@@ -126,7 +126,7 @@ Desarrollo de sistema de inventarios utilizando como lenguaje de programación C
 
 Creador de las siguientes herramientas:
 
-- [Notup](https://ewor01.notion.site/ewor01/Gu-a-por-ewor01-fd09caf6aba74b67b405a9a5bf9644f9) (Herramienta hecha en Notion, ideal para la realización de writeup sobre maquinas estilo CTF de cualquier plataforma. Basado en la siguiente [web](https://infosecmachines.io/) Siguiendo la excelente metodología de nuestro maestro: [s4vitar](https://twitter.com/s4vitar)
+- [HackNotes](https://ewor01.notion.site/ewor01/Gu-a-por-ewor01-fd09caf6aba74b67b405a9a5bf9644f9) (Es una herramienta de productividad diseñada en Notion para simplificar y agilizar el proceso de documentación de tus resoluciones de máquinas y desafíos en plataformas de hacking como: Hack The Box, TryHackMe, Proving Grounds, etc. Esta basada en esta web: [infosecmachines](https://infosecmachines.io/) hecha por: [Javier Molines](https://github.com/JavierMolines), Siguiendo la excelente metodología de nuestro maestro: [s4vitar](https://twitter.com/s4vitar).
 
 ## Asistencias
 Asistente en los siguientes eventos de ciberseguridad:
