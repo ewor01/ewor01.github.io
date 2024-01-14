@@ -53,6 +53,12 @@ Estos son los cursos que actualmente dispongo:
 
 
 ## Experiencia
+- Speaker en el evento de Ciberseguridad Cyber Secure Conference 2023 - [Ver Charla](https://)
+
+<p align="center">
+<img src="/assets/images/about/Cyber-Secure-Nation.jpg">
+</p>
+
 
 - Speaker en el evento de Ciberseguridad Cyber Secure Conference 2022 - [Ver Charla](https://youtu.be/cAcId5gqJnU)
 

