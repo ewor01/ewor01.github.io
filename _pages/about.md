@@ -19,6 +19,7 @@ Lo que me ha permitido desarrollar mis habilidades de comunicación y compartir 
 
 Estos son los cursos que actualmente dispongo:
 
+- Personalización de entorno en Linux - Hack4u - Online 2022
 - Curso de Investigaciones OSINT - OIHEC Organización Internacional de Hackers y Expertos en Ciberseguridad - Online 2021 
 - Curso Ethical Hacking Professional - Seguridad Cero - Online 2020
 - Ciberinteligencia - Hacking Publico & Sistemas Informáticos  - Online 2020
@@ -26,6 +27,9 @@ Estos son los cursos que actualmente dispongo:
 - Curso Completo de Hacking Ético - Udemy - Online  2019
 - Hacking Web y Pentesting - Udemy - Online 2019
 
+<p align="center">
+<img src="/assets/images/about/Personalizacion-Linux.png">
+</p>
 
 <p align="center">
 <img src="/assets/images/about/Osint-OIHEC.png">
@@ -53,10 +57,10 @@ Estos son los cursos que actualmente dispongo:
 
 
 ## Experiencia
-- Speaker en el evento de Ciberseguridad Cyber Secure Conference 2023 - [Ver Charla](https://)
+- Speaker en el evento de Ciberseguridad Cyber Secure Conference 2023 - [Ver Charla](https://www.youtube.com/watch?v=vZCkHLXZCvQ)
 
 <p align="center">
-<img src="/assets/images/about/Cyber-Secure-Nation.jpg">
+<img src="/assets/images/about/Cyber-Secure-2023.png">
 </p>
 
 
@@ -132,7 +136,9 @@ Desarrollo de sistema de inventarios utilizando como lenguaje de programación C
 
 Creador de las siguientes herramientas:
 
-- [HackNotes](https://ewor01.notion.site/ewor01/Gu-a-por-ewor01-fd09caf6aba74b67b405a9a5bf9644f9) (Es una herramienta de productividad diseñada en Notion para simplificar y agilizar el proceso de documentación de tus resoluciones de máquinas y desafíos en plataformas de hacking como: Hack The Box, TryHackMe, Proving Grounds, etc. Esta basada en esta web: [infosecmachines](https://infosecmachines.io/) hecha por: [Javier Molines](https://github.com/JavierMolines), Siguiendo la excelente metodología de nuestro maestro: [s4vitar](https://twitter.com/s4vitar).
+- [HackNotes](https://ewor01.notion.site/ewor01/Gu-a-por-ewor01-fd09caf6aba74b67b405a9a5bf9644f9) (Es una herramienta de productividad diseñada en Notion para simplificar y agilizar el proceso de documentación de tus resoluciones de máquinas y desafíos en plataformas de hacking como: Hack The Box, TryHackMe, Proving Grounds, etc. Esta basada en esta web: [infosecmachines](https://infosecmachines.io/) hecha por: [Javier Molines](https://github.com/JavierMolines), Siguiendo la excelente metodología de nuestro maestro: [s4vitar](https://twitter.com/s4vitar), Esta herramienta es esencial para mantener un registro ordenado y completo de tus actividades de práctica de hacking ético, lo que te permite aprender, mejorar tus habilidades y avanzar en tu carrera de ciberseguridad. ¡Simplifica tu documentación y enfócate en lo que realmente importa: fortalecer tus habilidades de hacking ético! “Happy Hacking”
+
+- [CyberTrack](https://ewor01.notion.site/CyberTrack-by-ewor01-2180be6bb6854b55be9cdcc012f89180) (Este listado te permitirá mantener un registro organizado de tu preparación en hacking ético y te ayudará a seguir un plan de estudio efectivo a medida que te preparas para certificaciones.  Cabe mencionar  que se agradece mucho por el conocimiento que aportan a la comunidad y se toman como referencias a varios creadores de contenido y expertos en ciberseguridad como ser: (s4vitar), (Xerosec ), (Securiters ). Mantén un control detallado de tu preparación para certificaciones de seguridad cibernética, personalizando tu ruta de aprendizaje mejorando continuamente tus habilidades.)
 
 ## Asistencias
 Asistente en los siguientes eventos de ciberseguridad:
@@ -140,6 +146,7 @@ Asistente en los siguientes eventos de ciberseguridad:
 - Cybersecurity Day – Campus Internacional de Ciberguridad (Online 2023)
 - Conferencia de Seguridad Informática – DragonJAR (Online 2022)
 - Intelcon 2022 – GINSEG CIBERINTELIGENCIA (Online 2022)
+- III Congreso de Ciberseguridad – FOROS SANTANDER (Online 2022)
 
 <p align="center">
 <img src="/assets/images/about/Cybersecurity-Day.png">
@@ -151,6 +158,10 @@ Asistente en los siguientes eventos de ciberseguridad:
 
 <p align="center">
 <img src="/assets/images/about/IntelCon.png">
+</p>
+
+<p align="center">
+<img src="/assets/images/about/Congreso-Ciberseguridad.png">
 </p>
 
 ## Otros
