@@ -140,6 +140,8 @@ Creador de las siguientes herramientas:
 
 - [CyberTrack](https://ewor01.notion.site/CyberTrack-by-ewor01-2180be6bb6854b55be9cdcc012f89180) (Este listado te permitirá mantener un registro organizado de tu preparación en hacking ético y te ayudará a seguir un plan de estudio efectivo a medida que te preparas para certificaciones.  Cabe mencionar  que se agradece mucho por el conocimiento que aportan a la comunidad y se toman como referencias a varios creadores de contenido y expertos en ciberseguridad como ser: (s4vitar), (Xerosec ), (Securiters ). Mantén un control detallado de tu preparación para certificaciones de seguridad cibernética, personalizando tu ruta de aprendizaje mejorando continuamente tus habilidades.)
 
+- [nmapScanner](https://github.com/ewor01/nmapScanner) (Cliente de terminal hecho en Bash, para decubrir que puertos estan abiertos en una maquina y descubrir los servicios que corren para esos puertos, ideal para ahorrar tiempo a la hora de hacer pentesting. Este script realiza escaneos de puertos utilizando Nmap y proporciona funciones adicionales para analizar y copiar puertos abiertos a la clipboard. La funcion extractPorts que utilizamos para copiar los puertos a la clipboard fue creada por [s4vitar](https://twitter.com/s4vitar).)
+
 ## Asistencias
 Asistente en los siguientes eventos de ciberseguridad:
 
