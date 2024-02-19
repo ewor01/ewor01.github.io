@@ -23,4 +23,9 @@ var store = [{
         "excerpt":"¿Cómo crear una contraseña segura? Cuanto más avanza Internet, más importante es proteger nuestra información personal. Hoy en día se comparte todo y nuestras fotos, documentos y conversaciones se guardan en la nube. Es la era de la información y estamos conectados todo el día, incluso desde varios dispositivos a...","categories": ["password","secure"],
         "tags": ["contraseñas seguras"],
         "url": "http://localhost:4000/contrase%C3%B1as-seguras/",
-        "teaser":"http://localhost:4000/assets/images/contrase%C3%B1as-seguras/contrase%C3%B1as_seguras.png"}]
+        "teaser":"http://localhost:4000/assets/images/contrase%C3%B1as-seguras/contrase%C3%B1as_seguras.png"},{
+        "title": "Personalización de Entorno en Kali Linux para Pentesting",
+        "excerpt":"Personalización de Entorno en Kali Linux para Pentesting Resumen Este tutorial te guiará paso a paso a través de la personalización de tu entorno en Kali Linux, utilizando herramientas como bspwm, sxhkd, polybar, Powerlevel10k, zsh, y Kitty, etc. Estas personalizaciones están diseñadas para mejorar la eficiencia y hacer más cómodas...","categories": ["kali linux","bspwm","polybar","kitty","p10k","zsh","picom","nvim"],
+        "tags": ["entorno personalizado","kali linux personalizado"],
+        "url": "http://localhost:4000/entorno-personalizado/",
+        "teaser":"http://localhost:4000/assets/images/entorno-personalizado/entorno-personalizado.png"}]

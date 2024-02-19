@@ -1,4 +1,609 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-14T17:45:16-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ewor01 | Ciberseguridad y Hacking Ético</title><subtitle>Artículos sobre ciberseguridad, CTFs, investigaciones, herramientas, charlas, etc.</subtitle><author><name>ewor01</name></author><entry><title type="html">¿Cómo crear una contraseña segura?</title><link href="http://localhost:4000/contrase%C3%B1as-seguras/" rel="alternate" type="text/html" title="¿Cómo crear una contraseña segura?" /><published>2023-02-13T00:00:00-06:00</published><updated>2023-02-13T00:00:00-06:00</updated><id>http://localhost:4000/contrase%C3%B1as-seguras</id><content type="html" xml:base="http://localhost:4000/contrase%C3%B1as-seguras/">&lt;p align=&quot;center&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-02-19T04:52:37-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ewor01 | Ciberseguridad y Hacking Ético</title><subtitle>Artículos sobre ciberseguridad, CTFs, investigaciones, herramientas, charlas, etc.</subtitle><author><name>ewor01</name></author><entry><title type="html">Personalización de Entorno en Kali Linux para Pentesting</title><link href="http://localhost:4000/entorno-personalizado/" rel="alternate" type="text/html" title="Personalización de Entorno en Kali Linux para Pentesting" /><published>2024-02-19T00:00:00-06:00</published><updated>2024-02-19T00:00:00-06:00</updated><id>http://localhost:4000/entorno-personalizado</id><content type="html" xml:base="http://localhost:4000/entorno-personalizado/">&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/entorno-personalizado/entorno-personalizado.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h1 id=&quot;personalización-de-entorno-en-kali-linux-para-pentesting&quot;&gt;Personalización de Entorno en Kali Linux para Pentesting&lt;/h1&gt;
+
+&lt;h2 id=&quot;resumen&quot;&gt;Resumen&lt;/h2&gt;
+
+&lt;p&gt;Este tutorial te guiará paso a paso a través de la personalización de tu entorno en Kali Linux, utilizando herramientas como bspwm, sxhkd, polybar, Powerlevel10k, zsh, y Kitty, etc. Estas personalizaciones están diseñadas para mejorar la eficiencia y hacer más cómodas las tareas de pentesting. Créditos para &lt;a href=&quot;https://twitter.com/s4vitar&quot;&gt;s4vitar&lt;/a&gt; ya que es el creador del entorno y quien nos aporta mucho a la comunidad de ciberseguridad.&lt;/p&gt;
+
+&lt;h2 id=&quot;dependencias-necesarias&quot;&gt;Dependencias Necesarias&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Kali Linux instalado&lt;/strong&gt;: Asegúrate de tener Kali Linux instalado en tu máquina.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Conexión a internet&lt;/strong&gt;: Necesitarás acceso a Internet para descargar e instalar paquetes.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Archivos necesarios para la configuración&lt;/strong&gt;: Estos archivos están en un comprimido y organizados por carpetas, cada una con sus respectivos nombres, para que se puedan guiar y no se confundan a la hora de copiarlos. &lt;a href=&quot;https://ewor01.github.io/assets/files/entornoPersonalizadoKaliLinux.rar&quot;&gt;Descargar&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;pasos&quot;&gt;Pasos&lt;/h2&gt;
+
+&lt;h2 id=&quot;actualización-del-sistema-operativo&quot;&gt;Actualización del sistema operativo&lt;/h2&gt;
+
+&lt;p&gt;Actualizaremos nuestro sistema operativo mediante los siguientes comandos:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;instalamos paquetes necesarios:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;build-essential git vim libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Luego si todo esta bien, nos colocamos como usuario sin privilegios y clonamos los siguientes repositorios en nuestra carpeta de descargas.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/baskerville/bspwm.git
+git clone https://github.com/baskerville/sxhkd.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Entramos en cada directorio y hacemos los siguientes pasos para ambos:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;bspwm
+make
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make &lt;span class=&quot;nb&quot;&gt;install
+
+cd &lt;/span&gt;sxhkd
+make
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Por si hay algún problema con el paquete libxinerama instalarlo aparte:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libxinerama1 libxinerama-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Creamos los directorios del bspwm y sxhkd dentro del directorio config:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; ~/.config/&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;bspwm,sxhkd&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ahora nos copiamos el archivo bspwmrc que esta dentro del directorio bspwm/examples:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;bspwmrc ~/.config/bspwm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Hacemos lo mismo para el sxhkdrc que esta en la misma ruta:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;sxhkdrc ~/.config/sxhkd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;instalamos-y-configuramos-kitty&quot;&gt;Instalamos y Configuramos kitty&lt;/h2&gt;
+
+&lt;p&gt;Procedemos a instalar la kitty la cual usaremos como terminal&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;kitty
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;modificando-el-sxhkdrc&quot;&gt;Modificando el sxhkdrc&lt;/h2&gt;
+
+&lt;p&gt;Luego en el sxhkdrc sustituimos la terminal por la kitty usando la ruta absoluta:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;which kitty
+/usr/bin/kitty
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Sustituimos esto en el archivo como lo mencionamos arriba y debería quedar así:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# terminal emulator&lt;/span&gt;
+super + Return
+        /usr/bin/kitty
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Modificaremos a nuestro gusto el sxhkd solo agregaremos una configuración y una carpeta que crearemos dentro de ~/.config/bspwm que se llame scripts, el nombre del script sera bspwm_resize le daremos permisos de ejecución y lo llamaremos desde el sxhkdrc:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Custom move/resize&lt;/span&gt;
+alt + super + &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;Left,Down,Up,Right&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        /home/tu_usuario/.config/bspwm/scripts/bspwm_resize &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;west,south,north,east&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;El contenido del script es el siguiente, este script nos permitirá redimensionar los tamaños de las ventanas:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env dash&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;bspc query &lt;span class=&quot;nt&quot;&gt;-N&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; focused.floating &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /dev/null&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+        &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;20
+&lt;span class=&quot;k&quot;&gt;else
+        &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;100
+&lt;span class=&quot;k&quot;&gt;fi
+
+case&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in
+        &lt;/span&gt;west&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;right&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;falldir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;left&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$step&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0&lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+        east&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;right&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;falldir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;left&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$step&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0&lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+        north&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;top&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;falldir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;bottom&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$step&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+        south&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;top&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;falldir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;bottom&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$step&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt;
+
+bspc node &lt;span class=&quot;nt&quot;&gt;-z&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$dir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$y&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; bspc node &lt;span class=&quot;nt&quot;&gt;-z&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$falldir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$y&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Si nos da un problema cuando estamos como root hacemos control c cuando tire el error y luego ponemos compaudit y la ruta que nos de se la asignamos a root:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;chown &lt;/span&gt;root:root y la ruta
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Instalamos otros paquetes:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libuv1-dev libnl-genl-3-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;instalación-de-polybar&quot;&gt;Instalación de polybar:&lt;/h2&gt;
+
+&lt;p&gt;Luego nos vamos a nuestro directorio de descargas y nos clonamos el siguiente repositorio para instalar la polybar:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone &lt;span class=&quot;nt&quot;&gt;--recursive&lt;/span&gt; https://github.com/polybar/polybar]&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;https://github.com/polybar/polybar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Entramos al directorio de la polybar y creamos un directorio llamado build, entramos al directorio y hacemos cmake:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;build
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
+cmake ..
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Hacemos lo siguiente:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;make &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nproc&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ahora hacemos un sudo make install y queda lista la polybar:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Instalamos otros paquetes necesarios:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-ls1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Clonamos el siguiente repositorio para instalar picom y jugar con las transparencias:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/ibhagwan/picom.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Entramos al directorio y escribimos los siguientes comandos:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git submodule update &lt;span class=&quot;nt&quot;&gt;--init&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--recursive&lt;/span&gt;
+meson &lt;span class=&quot;nt&quot;&gt;--buildtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;release &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Si nos da algún error de deprecated instalamos el siguiente paquete:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libpcre3 libpcre3-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;luego ya todo tiene que estar correcto, hay un error de libev pero no afecta.&lt;/p&gt;
+
+&lt;p&gt;Continuamos ejecutando los siguientes comandos:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ninja &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; build
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;ninja &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; build &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Instalamos rofi y bspwm:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;rofi
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;bspwm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Probamos el entorno que todo vaya bien, hacemos un kill -9 -1 y entramos pero antes de iniciar sesión debemos seleccionar bspwm como entorno. Ya probado que todo nos funciona bien, procedemos con la instalación de la fuente.&lt;/p&gt;
+
+&lt;h2 id=&quot;instalación-de-la-fuente&quot;&gt;Instalación de la fuente&lt;/h2&gt;
+
+&lt;p&gt;Nos dirigimos a la pagina para descargar la fuente llamada (hack nerd font):
+&lt;a href=&quot;https://www.nerdfonts.com/font-downloads&quot;&gt;Ver pagina&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Nos situamos en el directorio /usr/local/share/fonts y nos ponemos como super usuario para mover el archivo descargado a ese directorio:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mv&lt;/span&gt; /home/su nombre de usuario/Downloads/Hack.zip &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;luego hacemos unzip para descomprimir el contenido y borramos el comprimido:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;unzip Hack.zip
+&lt;span class=&quot;nb&quot;&gt;rm &lt;/span&gt;Hack.zip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Hacemos que nos funcione la clipboard bidireccional agregando este comando al final del archivo bspwmrc:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vmware-user-suid-wrapper &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;configuración-de-la-kitty&quot;&gt;Configuración de la kitty&lt;/h2&gt;
+
+&lt;p&gt;Copiaremos 2 archivos que meteremos dentro de ~/.config/kitty
+uno es color.ini y el otro es kitty.conf (los cuales estan en los archivos que les deje al inicio).&lt;/p&gt;
+
+&lt;p&gt;Nos ponemos como root y como el tiene otra kitty nos pasamos los archivos de configuración&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; /home/su usuario/.config/kitty/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Instalamos feh:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;feh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nos creamos una carpeta dentro del escritorio con nuestro nombre de usuario luego otra que se llame Fondos y ahi dentro colocamos el fondo que queremos tener
+ahora agregamos este comando al bspwmrc:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;feh &lt;span class=&quot;nt&quot;&gt;--bg-fill&lt;/span&gt; /home/ewor01/Desktop/ewor01/Fondos/fondo.png &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Instalamos un paquete para visualizar imágenes desde la kitty:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;imagemagick
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Para visualizar una imagen desde la kitty utilizamos el siguiente comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kitty +kitten icat imagen.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Instalamos scub para eliminar archivos y hacer mas difícil el rescate de estos:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;scrub
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;configuración-de-la-polybar&quot;&gt;Configuración de la polybar&lt;/h2&gt;
+
+&lt;p&gt;Ahora nos dirigimos al directorio Downloads y clonamos el siguiente repositorio:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/VaughnValle/blue-sky.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Creamos el directorio de polybar y copiamos todo dentro del directorio situados dentro de /blue-sky/polybar:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; ~/.config/polybar
+&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; ~/.config/polybar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ponemos este comando en el bspwmrc de la siguiente manera:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;~/.config/polybar/./launch.sh&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.config/bspwm/bspwmrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nos dirigimos dentro del directorio blue-sky/polybar/fonts y copiaremos las fuentes en /usr/share/fonts/truetype como super usuario:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo cp&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; /usr/share/fonts/truetype
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Aplicamos este comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fc-cache &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Configuramos la polybar y todos sus módulos.
+creamos un directorio llamado picom dentro de ~/.config como usuario normal:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;picom
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nos pasamos el archivo picom.conf y ahora configuramos picom a nuestro gusto si queremos blur o no y luego en kitty.conf agregamos lo siguiente dependiendo la opacidad que queramos:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;background_opacity 0.95
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;modificando-la-polybar&quot;&gt;Modificando la polybar&lt;/h2&gt;
+
+&lt;p&gt;Buscamos font-6 en current.ini de los archivos de la polybar de nuestra configuración y agregamos estas líneas para que nos salga el icono que queramos en la parte izquierda:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;font-7 = &quot;&lt;/span&gt;Hack Nerd Font Mono:size&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;35&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;8.0&lt;span class=&quot;s2&quot;&gt;&quot;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Estos valores ya dependerá del gusto y icono que coloquen, pero para que funcione agregar esas líneas debajo de font-6.&lt;/p&gt;
+
+&lt;h2 id=&quot;privacidad-de-firefox-y-algunos-plugins&quot;&gt;Privacidad de firefox y algunos plugins&lt;/h2&gt;
+
+&lt;p&gt;Si queremos vamos a hacer que firefox no recuerde nuestro historial mas que todo es depende las opciones de cada persona si gustan lo hacen o no.
+Nos dirigimos a Settings &amp;gt; Privacy &amp;amp; Security &amp;gt; Luego buscamos donde dice History y colocamos never remember history, reinician y listo.&lt;/p&gt;
+
+&lt;p&gt;Instalamos un plugin llamado darkreader en firefox para colocar modo oscuro en las paginas que queramos.
+Instalamos otro plugin llamado wappalyzer que nos ayudara en pentesting web a identificar las tecnologías que utilizan las webs.&lt;/p&gt;
+
+&lt;h2 id=&quot;instalación-de-powerlevel10k&quot;&gt;Instalación de powerlevel10k&lt;/h2&gt;
+
+&lt;p&gt;Instalamos la Powerlevel10k
+nos dirigimos al repositorio:
+&lt;a href=&quot;https://github.com/romkatv/powerlevel10k&quot;&gt;ver repositorio&lt;/a&gt;)
+y buscamos las instrucciones donde dice Manual y hay un comando que se los dejo igual:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone &lt;span class=&quot;nt&quot;&gt;--depth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;source ~/powerlevel10k/powerlevel10k.zsh-theme&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Esto hay que hacerlo tanto como usuario normal y como root. Una vez clonada procedemos a instalarla:
+colocamos zsh y comenzamos a configurar a nuestro gusto.&lt;/p&gt;
+
+&lt;h2 id=&quot;configurando-p10k&quot;&gt;Configurando p10k&lt;/h2&gt;
+
+&lt;p&gt;Ahora retocamos alguna configuracion del archivo .p10k.zsh&lt;/p&gt;
+
+&lt;p&gt;Si queremos poner un icono diferente en la izquierda buscamos por esta linea que les dejo y colocamos el icono que queramos:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;typeset&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;&apos;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Hacemos la instalacion de la powerlevel10k para root:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone &lt;span class=&quot;nt&quot;&gt;--depth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;source ~/powerlevel10k/powerlevel10k.zsh-theme&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Modificamos el .p10k.zsh de root después de configurar la power level y hay una opción para que no nos ponga tanto texto cuando somos root, buscamos esta linea y borramos lo que esta entre comillas  simples:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;typeset&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;POWERLEVEL9K_CONTEXT_PREFIX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;&apos;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Modificamos esta para poner un icono y saber cuando somos root en lugar de texto:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;typeset&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;icono&apos;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;enlace-simbólico-zshrc&quot;&gt;Enlace simbólico zshrc&lt;/h2&gt;
+
+&lt;p&gt;Crearemos un enlace simbólico de la .zshrc para que sea la misma en root y usuario normal,, lo hacemos estando como root:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; /home/su usuario/.zshrc .zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Hacemos un cambio en la .zshrc para que nos cargue la del usuario normal y no de problemas,, agregamos esto:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /home/su usuario/powerlevel10k/powerlevel10k.zsh-theme
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Modificamos algunas cosas del .zshrc en la opcion history configuration:
+dejamos solo las primeras 3 opciones y aumentamos a 10000 los valores del histórico y agregamos estas líneas al final:
+setopt histignorealldups sharehistory
+Para que cuando mandemos una cadena vacía ejemplo:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ~/.zsh_history 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;se borren los comandos que hayamos ejecutado antes.&lt;/p&gt;
+
+&lt;p&gt;Ahora quitaremos la negrita que nos aparece cuando navegamos por directorios en el lado izquierdo, lo haremos para root y usuario normal:
+Modificamos el .p10k.zsh y filtramos por ANCHOR_BOLD y donde pone true colocamos false. Hacemos lo mismo para el usuario root&lt;/p&gt;
+
+&lt;h2 id=&quot;instalando-batcat-y-lsd&quot;&gt;Instalando batcat y lsd&lt;/h2&gt;
+
+&lt;p&gt;Descargamos batcat que es como un cat pero con esteroides, desde este repo y bajamos la versión más reciente:
+&lt;a href=&quot;https://github.com/sharkdp/bat/releases&quot;&gt;Ver repositorio&lt;/a&gt;
+bat_0.24.0_amd64.deb&lt;/p&gt;
+
+&lt;p&gt;Descargamos lsd que es com un ls pero con esteroides, desde este repo y bajamos la versión más reciente:
+&lt;a href=&quot;https://github.com/lsd-rs/lsd/releases&quot;&gt;Ver repositorio&lt;/a&gt;
+lsd_1.0.0_amd64.deb&lt;/p&gt;
+
+&lt;p&gt;Para instalarlos solo vamos a la carpeta donde decargamos y ponemos el siguiente comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dpkg &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; nombre_del_paquete
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Instalamos locate:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;locate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Vamos a sincronizar todos los archivos del sistema para buscar lo que queremos:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;updatedb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;instalando-fzf&quot;&gt;Instalando fzf&lt;/h2&gt;
+
+&lt;p&gt;Ahora instalamos la fzf para hacer busquedas inteligentes en el sistema, desde el siguiente repo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/junegunn/fzf&quot;&gt;Ver repositorio&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Para instalar lo hacemos como root y usuario normal en el home de cada uno:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone &lt;span class=&quot;nt&quot;&gt;--depth&lt;/span&gt; 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;alias-para-bat-y-lsd&quot;&gt;Alias para bat y lsd&lt;/h2&gt;
+
+&lt;p&gt;Ahora copiamos unos alias para nuestra .zshrc de bat y lsd:
+&lt;a href=&quot;https://pastebin.com/QGvVx3wG&quot;&gt;Ver link&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Tambien copiamos este archivo para que no nos salga en negrita a la hora de listar con lsd lo colocamos casi al final de la .zshrc:
+&lt;a href=&quot;https://pastes.io/xsqk9oi1hz&quot;&gt;Ver link&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Ahora vamos a arreglar un problema que da con burpsuite al estar en bspwm, agregamos estas líneas casi al principio de nuestro archivo, pero para que nos funcione burpsuite debemos correrlo desde la terminal no desde el shortcut del sxhkdrc ya que siempre presentara el problema:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Fix the Java Problem&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;_JAVA_AWT_WM_NONREPARENTING&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tambien en el bspwmrc agregamos lo siguiente al final para arreglar el mismo problema:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wmname LG3D &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;creando-módulos-para-la-polybar&quot;&gt;Creando módulos para la polybar&lt;/h2&gt;
+
+&lt;p&gt;Creamos unos módulos para la polybar para lo cual tenemos que crear una carpeta llamada bin en ~/.config:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Una vez creada aquí dentro pondremos los scripts que ocuparemos para cargar en los módulos de la polybar.&lt;/p&gt;
+
+&lt;p&gt;Para agregar un modulo tenemos que modificar el archivo current.ini y también el launch.sh, en el current.ini agregamos los módulos y en el launch.sh agregamos la ruta del modulo para que aparezca en la polybar.&lt;/p&gt;
+
+&lt;p&gt;Ejemplo de un modulo, este va casi al principio del current.ini donde esten los otros modulos:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;bar/ethernet_bar]
+inherit &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; bar/main
+width &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 10%
+height &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 40
+offset-x &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 11.1%
+offset-y &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 15
+bottom &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false
+&lt;/span&gt;font-7 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hack Nerd Font Mono:size=22;5&quot;&lt;/span&gt;
+foreground &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.white&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+background &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[color.bg](http&lt;/span&gt;://color.bg/&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+padding &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 1
+modules-center &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; ethernet_status
+wm-restack &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; bspwm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Este otro casi al final donde están los demás módulos:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;module/ethernet_status]
+&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; custom/script
+interval &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2
+&lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; ~/.config/bin/ethernet_status.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Este seria el contenido de nuestro script para el ethernet_status en ~/.config/bin de la carpeta que creamos anteriormente:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;%{F#2495e7}󰈀 %{F#ffffff}&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;/usr/sbin/ifconfig eth0 | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;inet &quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;{print $2}&apos;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;%{u-}&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Luego en el launch.sh agregaremos esto para que nos cargue el modulo, El archivo tendrá los otros módulos que trae por default si no queremos que muestre uno solo comentamos:
+Ejemplo launch.sh:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;## Left bar&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#polybar log -c ~/.config/polybar/current.ini &amp;amp;&lt;/span&gt;
+polybar secondary &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; ~/.config/polybar/current.ini &amp;amp;
+polybar ethernet_bar &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; ~/.config/polybar/current.ini &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;sudo-plugin&quot;&gt;Sudo plugin&lt;/h2&gt;
+
+&lt;p&gt;Ahora instalaremos el sudo plugin, para hacer doble ESC nos ponga sudo antes.
+para agregarlo nos dirigimos a /usr/share/ y aquí adentro crearemos una carpeta todo lo hacemos como root:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;zsh-sudo-plugin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;nos metemos al directorio y luego descargamos el raw:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /zsh-sudo-plugin/
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Una vez descargado le asignamos permisos de ejecución:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;chmod&lt;/span&gt; +x nombre de plugin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Y le asignan como propietario su usuario:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;chown &lt;/span&gt;usuario:usuario plugin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Agregamos este código a nuestra .zshrc:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; /usr/share/zsh-sudo-plugin/sudo.plugin.zsh &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /usr/share/zsh-sudo-plugin/sudo.plugin.zsh
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ahora modificamos la polybar para identificar que ventana esta activa, inactiva y vacia.
+Modificaremos el workspace.ini de la polybar. Buscamos las siguientes líneas:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;label-active-foreground &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.green&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;sustituimos el color de active y mas abajo esta la de ocupada, colocamos el color que mejor nos parezca.&lt;/p&gt;
+
+&lt;h2 id=&quot;auto-completado-inteligente&quot;&gt;Auto completado inteligente&lt;/h2&gt;
+
+&lt;p&gt;Instalamos un autocompletado inteligente en nuestro archivo de .zshrc, que esta en este link:
+&lt;a href=&quot;https://pastebin.com/H87J3nMj&quot;&gt;Ver link&lt;/a&gt;
+Copiamos y pegamos lo del archivo en nuestra .zshrc, filtramos por completion features y borramos las que ya trae y pegamos las nuevas.&lt;/p&gt;
+
+&lt;p&gt;Ahora instalaremos npm para instalar neovim de neochad:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;npm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Procedemos a clonar el repositorio para tener nvim:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/NvChad/NvChad ~/.config/nvim &lt;span class=&quot;nt&quot;&gt;--depth&lt;/span&gt; 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ahora entramos en esta url y buscamos el que pone nvim-linux64.tar.gz en esta url y lo descargamos:
+&lt;a href=&quot;https://github.com/neovim/neovim/releases&quot;&gt;Ver link&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Nos movemos al directorio opt, nos ponemos como root movemos y descomprimimos el archivo en ese directorio:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /opt
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;su
+&lt;span class=&quot;nb&quot;&gt;mv&lt;/span&gt; /home/usuario/Downloads/nvim-linux64.tar.gz &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Borramos el comprimido y entramos en la carpeta de nvim, luego en bin y ejecutamos como usuario normal el nvim:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;nvim
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;bin
+su usuario
+./nvim
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;y se instalara todo correctamente.&lt;/p&gt;
+
+&lt;p&gt;Ahora modificamos nuestro archivo .zshrc y agregamos estas líneas en custom aliases:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#nvim&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;nvim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;/opt/nvim-linux64/bin/nvim&apos;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;y con esto ya tendríamos nvim instalado, solo cerramos la ventana y abrimos una nueva para probar.&lt;/p&gt;
+
+&lt;p&gt;Ahora hacemos lo mismo para el usuario root, volvemos a hacer el git clone en el home de root:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/NvChad/NvChad ~/.config/nvim &lt;span class=&quot;nt&quot;&gt;--depth&lt;/span&gt; 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ejecutamos nvim y se instalara todo correctamente.&lt;/p&gt;
+
+&lt;h2 id=&quot;instalando-flameshot&quot;&gt;Instalando flameshot&lt;/h2&gt;
+
+&lt;p&gt;Como opcional podemos instalar flameshot que sirve para hacer capturas de pantalla personalizadas.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;flameshot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;instalando-i3lock-y-i3lock-fancy&quot;&gt;Instalando i3lock y i3lock-fancy&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;i3lock
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Luego vamos a este github y vemos las instrucciones para instalar:
+&lt;a href=&quot;https://github.com/meskarune/i3lock-fancy&quot;&gt;Ver link&lt;/a&gt;
+Primero nos dirigimos a Downloads y clonamos el repo:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /home/usuario/Downloads
+git clone https://github.com/meskarune/i3lock-fancy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Luego entramos al directorio y hacemos un sudo make install y listo.&lt;/p&gt;
+
+&lt;p&gt;Ejecutamos este comando para darle un texto y un tipo de fuente:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;i3lock-fancy &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Introduce tu contraseña&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; /usr/local/share/fonts/HackNerdFont-Regular.ttf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Con esto ya lo tendríamos.&lt;/p&gt;
+
+&lt;p&gt;Creamos un shortcut en en el sxhkdrc para activarlo con un atajo haciendo uso de la ruta absoluta:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/bin/i3lock-fancy &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Introduce tu contraseña&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; /usr/local/share/fonts/HackNerdFont-Regular.ttf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Después de esto reiniciamos el entorno para aplicar los cambios.&lt;/p&gt;
+
+&lt;p&gt;Listo con esto tenemos nuestro entorno listo para trabajar.&lt;/p&gt;
+
+&lt;h2 id=&quot;happy-hacking&quot;&gt;Happy hacking.&lt;/h2&gt;</content><author><name>ewor01</name></author><category term="kali linux" /><category term="bspwm" /><category term="polybar" /><category term="kitty" /><category term="p10k" /><category term="zsh" /><category term="picom" /><category term="nvim" /><category term="entorno personalizado" /><category term="kali linux personalizado" /><summary type="html">¿Te gustaría aprender sobre Cómo crear un entorno de trabajo personalizado?, pues vamos a ello.</summary></entry><entry><title type="html">¿Cómo crear una contraseña segura?</title><link href="http://localhost:4000/contrase%C3%B1as-seguras/" rel="alternate" type="text/html" title="¿Cómo crear una contraseña segura?" /><published>2023-02-13T00:00:00-06:00</published><updated>2023-02-13T00:00:00-06:00</updated><id>http://localhost:4000/contrase%C3%B1as-seguras</id><content type="html" xml:base="http://localhost:4000/contrase%C3%B1as-seguras/">&lt;p align=&quot;center&quot;&gt;
 &lt;img src=&quot;/assets/images/contraseñas-seguras/contraseñas_seguras.png&quot; /&gt;
 &lt;/p&gt;
 

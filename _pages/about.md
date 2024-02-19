@@ -2,7 +2,7 @@
 layout: splash
 title: "Información del autor"
 permalink: /about/
-date: 2023-01-20
+date: 2024-02-19
 ---
 
 <br>
@@ -11,21 +11,20 @@ date: 2023-01-20
 <img src="/assets/images/about/ewor01.png">
 </p>
 
-Mi nombre es Edwin Romero (aka **ewor01**), me gustaría presentarme como un pentester junior sin experiencia profesional en el sector, 
-pero con una gran pasión por la ciberseguridad y un gran interés por aprender y desarrollar mis habilidades en este campo. 
-Soy ingeniero en ciencias de la computación y he estado aprendiendo sobre **pentesting y ciberseguridad** en mi tiempo libre. 
-Además, realizo directos en **twitch** para ayudar a las personas a que aprendan sobre temas de ciberseguridad y hacking ético. 
-Lo que me ha permitido desarrollar mis habilidades de comunicación y compartir mis conocimientos con otros.
+Mi nombre es Edwin Josué Romero (aka **ewor01**), un apasionado ingeniero en ciencias de la computación con un enfoque en 
+**ciberseguridad y hacking ético**. 
+Aunque soy un pentester junior sin experiencia profesional, mi dedicación se refleja en mi aprendizaje continuo tanto en mis estudios como en mi tiempo libre. 
+Además, comparto mis conocimientos mediante transmisiones en vivo en **Twitch**, lo que ha fortalecido mis habilidades de comunicación y enseñanza.
 
 Estos son los cursos que actualmente dispongo:
 
-- Personalización de entorno en Linux - Hack4u - Online 2022
-- Curso de Investigaciones OSINT - OIHEC Organización Internacional de Hackers y Expertos en Ciberseguridad - Online 2021 
-- Curso Ethical Hacking Professional - Seguridad Cero - Online 2020
-- Ciberinteligencia - Hacking Publico & Sistemas Informáticos  - Online 2020
-- Curso Online Ethical Hacking - Seguridad Cero - Online 2020
-- Curso Completo de Hacking Ético - Udemy - Online  2019
-- Hacking Web y Pentesting - Udemy - Online 2019
+- **Personalización de entorno en Linux** - Hack4u - Online 2022
+- **Curso de Investigaciones OSINT** - OIHEC Organización Internacional de Hackers y Expertos en Ciberseguridad - Online 2021 
+- **Curso Ethical Hacking Professional** - Seguridad Cero - Online 2020
+- **Ciberinteligencia** - Hacking Publico & Sistemas Informáticos - Online 2020
+- **Curso Online Ethical Hacking** - Seguridad Cero - Online 2020
+- **Curso Completo de Hacking Ético** - Udemy - Online  2019
+- **Hacking Web y Pentesting** - Udemy - Online 2019
 
 <p align="center">
 <img src="/assets/images/about/Personalizacion-Linux.png">
@@ -57,6 +56,12 @@ Estos son los cursos que actualmente dispongo:
 
 
 ## Experiencia
+- Charla (Ingeniería social), capacite a 86 empleados de la Cooperativa Nueva Vida (Entidad financiera en mi país) en los siguientes temas :
+
+¿Qué es la ingeniería social?, tipos de ataques de ingeniería social, estudio de caso (en el cual se mostraban 2 ataques reales que habían sufrido empresas tales como Microsoft y RSA Security) se analizaban los 2 casos, explicando que técnicas de ingeniería social usaron los ciber-delincuentes para comprometer la información confidencial, consejos para evitar la ingeniería social,
+¿por qué es tan peligrosa la ingeniería social?, cómo reconocer y evitar ataques de ingeniería social.
+
+
 - Speaker en el evento de Ciberseguridad Cyber Secure Nation 2023 - [Ver Charla](https://www.youtube.com/watch?v=vZCkHLXZCvQ)
 
 <p align="center">
@@ -70,12 +75,9 @@ Estos son los cursos que actualmente dispongo:
 <img src="/assets/images/about/Cyber-Secure-Nation.jpg">
 </p>
 
-- Charla de Ciberseguridad básico, concienticé a 62 empleados de la cooperativa Nueva Vida (Empresa de finanzas en mi país.) en los siguientes temas :
+- Charla (Ciberseguridad básico), capacite a 62 empleados de la Cooperativa Nueva Vida (Entidad financiera en mi país) en los siguientes temas :
 
-Conceptos básicos sobre seguridad de la información, seguridad informática y ciberseguridad.
-Malware y tipos de malware.
-Vulnerabilidades y tipos de vulnerabilidades.
-Ingeniería Social y tipos de ataques mediante ingeniería social.
+Conceptos básicos sobre seguridad de la información, seguridad informática y ciberseguridad, malware y tipos de malware, vulnerabilidades y tipos de vulnerabilidades, ingeniería Social y tipos de ataques mediante ingeniería social.
 
 - Desarrollo web (Cooperativa Nueva Vida)
 
@@ -170,7 +172,7 @@ Asistente en los siguientes eventos de ciberseguridad:
 
 - Creador de contenido de ciberseguridad y hacking ético en la plataforma de Youtube ([Enlace](https://youtube.com/ewor161))
 - Streamer de ciberseguridad y hacking ético en la plataforma de Twitch ([Enlace](https://twitch.tv/ewor01))
-- Primer canal de ciberseguridad de mi país (Honduras)
+- ¡Primer canal de ciberseguridad en Honduras! (Twitch, Youtube)
 
 # Correo y contacto directo
 

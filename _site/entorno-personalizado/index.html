@@ -1,0 +1,1079 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.15.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>            Personalización de Entorno en Kali Linux para Pentesting - ewor01      Ciberseguridad y Hacking Ético      </title>
+<meta name="description" content="¿Te gustaría aprender sobre Cómo crear un entorno de trabajo personalizado?, pues vamos a ello.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ewor01 | Ciberseguridad y Hacking Ético">
+<meta property="og:title" content="Personalización de Entorno en Kali Linux para Pentesting">
+<meta property="og:url" content="http://localhost:4000/entorno-personalizado/">
+
+
+  <meta property="og:description" content="¿Te gustaría aprender sobre Cómo crear un entorno de trabajo personalizado?, pues vamos a ello.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/entorno-personalizado/entorno-personalizado.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2024-02-19T00:00:00-06:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/entorno-personalizado/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "ewor01",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="ewor01 | Ciberseguridad y Hacking Ético Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+                
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/" >Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/" >Artículos</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/" >Categorías</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/" >Etiquetas</a>
+            </li><li class="masthead__menu-item">
+              <a href="/buscador/" >Buscador</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/" >Contacto</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+    
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current">Personalización de Entorno en Kali Linux para Pentesting</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/avatar.png" alt="ewor01" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">ewor01</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Ingeniero en ciencias de la computación / Ethical hacker / Pentesting / Ciberseguridad / CTF Player
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Honduras</span>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://twitter.com/ewor01" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.linkedin.com/in/edwin-josu%C3%A9-romero-perez-306140224" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/ewor01" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        
+          <li>
+            <a href="https://www.youtube.com/channel/UCKn3LZ1cc2V94tngdzvn0eA" itemprop="sameAs" rel="nofollow noopener noreferrer">
+              <i class="fab fa-fw fa-youtube" aria-hidden="true"></i> YouTube
+            </a>
+          </li>
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Personalización de Entorno en Kali Linux para Pentesting">
+    <meta itemprop="description" content="¿Te gustaría aprender sobre Cómo crear un entorno de trabajo personalizado?, pues vamos a ello.">
+    <meta itemprop="datePublished" content="February 19, 2024">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Personalización de Entorno en Kali Linux para Pentesting
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p class="page__meta">
+          
+            <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2024-02-19T00:00:00-06:00">February 19, 2024 </time>&emsp;
+          
+          
+        </p>
+        <p align="center">
+<img src="/assets/images/entorno-personalizado/entorno-personalizado.png" />
+</p>
+
+<h1 id="personalización-de-entorno-en-kali-linux-para-pentesting">Personalización de Entorno en Kali Linux para Pentesting</h1>
+
+<h2 id="resumen">Resumen</h2>
+
+<p>Este tutorial te guiará paso a paso a través de la personalización de tu entorno en Kali Linux, utilizando herramientas como bspwm, sxhkd, polybar, Powerlevel10k, zsh, y Kitty, etc. Estas personalizaciones están diseñadas para mejorar la eficiencia y hacer más cómodas las tareas de pentesting. Créditos para <a href="https://twitter.com/s4vitar">s4vitar</a> ya que es el creador del entorno y quien nos aporta mucho a la comunidad de ciberseguridad.</p>
+
+<h2 id="dependencias-necesarias">Dependencias Necesarias</h2>
+
+<ul>
+  <li><strong>Kali Linux instalado</strong>: Asegúrate de tener Kali Linux instalado en tu máquina.</li>
+  <li><strong>Conexión a internet</strong>: Necesitarás acceso a Internet para descargar e instalar paquetes.</li>
+  <li><strong>Archivos necesarios para la configuración</strong>: Estos archivos están en un comprimido y organizados por carpetas, cada una con sus respectivos nombres, para que se puedan guiar y no se confundan a la hora de copiarlos. <a href="https://ewor01.github.io/assets/files/entornoPersonalizadoKaliLinux.rar">Descargar</a></li>
+</ul>
+
+<h2 id="pasos">Pasos</h2>
+
+<h2 id="actualización-del-sistema-operativo">Actualización del sistema operativo</h2>
+
+<p>Actualizaremos nuestro sistema operativo mediante los siguientes comandos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt upgrade
+</code></pre></div></div>
+
+<p>instalamos paquetes necesarios:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt <span class="nb">install </span>build-essential git vim libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev
+</code></pre></div></div>
+
+<p>Luego si todo esta bien, nos colocamos como usuario sin privilegios y clonamos los siguientes repositorios en nuestra carpeta de descargas.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/baskerville/bspwm.git
+git clone https://github.com/baskerville/sxhkd.git
+</code></pre></div></div>
+
+<p>Entramos en cada directorio y hacemos los siguientes pasos para ambos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>bspwm
+make
+<span class="nb">sudo </span>make <span class="nb">install
+
+cd </span>sxhkd
+make
+<span class="nb">sudo </span>make <span class="nb">install</span>
+</code></pre></div></div>
+
+<p>Por si hay algún problema con el paquete libxinerama instalarlo aparte:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>libxinerama1 libxinerama-dev
+</code></pre></div></div>
+
+<p>Creamos los directorios del bspwm y sxhkd dentro del directorio config:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> ~/.config/<span class="o">{</span>bspwm,sxhkd<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Ahora nos copiamos el archivo bspwmrc que esta dentro del directorio bspwm/examples:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>bspwmrc ~/.config/bspwm
+</code></pre></div></div>
+
+<p>Hacemos lo mismo para el sxhkdrc que esta en la misma ruta:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>sxhkdrc ~/.config/sxhkd
+</code></pre></div></div>
+
+<h2 id="instalamos-y-configuramos-kitty">Instalamos y Configuramos kitty</h2>
+
+<p>Procedemos a instalar la kitty la cual usaremos como terminal</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>kitty
+</code></pre></div></div>
+
+<h2 id="modificando-el-sxhkdrc">Modificando el sxhkdrc</h2>
+
+<p>Luego en el sxhkdrc sustituimos la terminal por la kitty usando la ruta absoluta:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>which kitty
+/usr/bin/kitty
+</code></pre></div></div>
+
+<p>Sustituimos esto en el archivo como lo mencionamos arriba y debería quedar así:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># terminal emulator</span>
+super + Return
+        /usr/bin/kitty
+</code></pre></div></div>
+
+<p>Modificaremos a nuestro gusto el sxhkd solo agregaremos una configuración y una carpeta que crearemos dentro de ~/.config/bspwm que se llame scripts, el nombre del script sera bspwm_resize le daremos permisos de ejecución y lo llamaremos desde el sxhkdrc:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Custom move/resize</span>
+alt + super + <span class="o">{</span>Left,Down,Up,Right<span class="o">}</span>
+        /home/tu_usuario/.config/bspwm/scripts/bspwm_resize <span class="o">{</span>west,south,north,east<span class="o">}</span>
+</code></pre></div></div>
+
+<p>El contenido del script es el siguiente, este script nos permitirá redimensionar los tamaños de las ventanas:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env dash</span>
+
+<span class="k">if </span>bspc query <span class="nt">-N</span> <span class="nt">-n</span> focused.floating <span class="o">&gt;</span> /dev/null<span class="p">;</span> <span class="k">then
+        </span><span class="nv">step</span><span class="o">=</span>20
+<span class="k">else
+        </span><span class="nv">step</span><span class="o">=</span>100
+<span class="k">fi
+
+case</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="k">in
+        </span>west<span class="p">)</span> <span class="nb">dir</span><span class="o">=</span>right<span class="p">;</span> <span class="nv">falldir</span><span class="o">=</span>left<span class="p">;</span> <span class="nv">x</span><span class="o">=</span><span class="s2">"-</span><span class="nv">$step</span><span class="s2">"</span><span class="p">;</span> <span class="nv">y</span><span class="o">=</span>0<span class="p">;;</span>
+        east<span class="p">)</span> <span class="nb">dir</span><span class="o">=</span>right<span class="p">;</span> <span class="nv">falldir</span><span class="o">=</span>left<span class="p">;</span> <span class="nv">x</span><span class="o">=</span><span class="s2">"</span><span class="nv">$step</span><span class="s2">"</span><span class="p">;</span> <span class="nv">y</span><span class="o">=</span>0<span class="p">;;</span>
+        north<span class="p">)</span> <span class="nb">dir</span><span class="o">=</span>top<span class="p">;</span> <span class="nv">falldir</span><span class="o">=</span>bottom<span class="p">;</span> <span class="nv">x</span><span class="o">=</span>0<span class="p">;</span> <span class="nv">y</span><span class="o">=</span><span class="s2">"-</span><span class="nv">$step</span><span class="s2">"</span><span class="p">;;</span>
+        south<span class="p">)</span> <span class="nb">dir</span><span class="o">=</span>top<span class="p">;</span> <span class="nv">falldir</span><span class="o">=</span>bottom<span class="p">;</span> <span class="nv">x</span><span class="o">=</span>0<span class="p">;</span> <span class="nv">y</span><span class="o">=</span><span class="s2">"</span><span class="nv">$step</span><span class="s2">"</span><span class="p">;;</span>
+<span class="k">esac</span>
+
+bspc node <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$dir</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$x</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$y</span><span class="s2">"</span> <span class="o">||</span> bspc node <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$falldir</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$x</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$y</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>Si nos da un problema cuando estamos como root hacemos control c cuando tire el error y luego ponemos compaudit y la ruta que nos de se la asignamos a root:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown </span>root:root y la ruta
+</code></pre></div></div>
+
+<p>Instalamos otros paquetes:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libuv1-dev libnl-genl-3-dev
+</code></pre></div></div>
+
+<h2 id="instalación-de-polybar">Instalación de polybar:</h2>
+
+<p>Luego nos vamos a nuestro directorio de descargas y nos clonamos el siguiente repositorio para instalar la polybar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone <span class="nt">--recursive</span> https://github.com/polybar/polybar]<span class="o">(</span>https://github.com/polybar/polybar
+</code></pre></div></div>
+
+<p>Entramos al directorio de la polybar y creamos un directorio llamado build, entramos al directorio y hacemos cmake:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>build
+<span class="nb">cd </span>build
+cmake ..
+</code></pre></div></div>
+
+<p>Hacemos lo siguiente:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make <span class="nt">-j</span><span class="si">$(</span><span class="nb">nproc</span><span class="si">)</span>
+</code></pre></div></div>
+
+<p>Ahora hacemos un sudo make install y queda lista la polybar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>make <span class="nb">install</span>
+</code></pre></div></div>
+
+<p>Instalamos otros paquetes necesarios:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt <span class="nb">install </span>meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-ls1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev
+</code></pre></div></div>
+
+<p>Clonamos el siguiente repositorio para instalar picom y jugar con las transparencias:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/ibhagwan/picom.git
+</code></pre></div></div>
+
+<p>Entramos al directorio y escribimos los siguientes comandos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git submodule update <span class="nt">--init</span> <span class="nt">--recursive</span>
+meson <span class="nt">--buildtype</span><span class="o">=</span>release <span class="nb">.</span> build
+</code></pre></div></div>
+
+<p>Si nos da algún error de deprecated instalamos el siguiente paquete:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>libpcre3 libpcre3-dev
+</code></pre></div></div>
+
+<p>luego ya todo tiene que estar correcto, hay un error de libev pero no afecta.</p>
+
+<p>Continuamos ejecutando los siguientes comandos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ninja <span class="nt">-C</span> build
+<span class="nb">sudo </span>ninja <span class="nt">-C</span> build <span class="nb">install</span>
+</code></pre></div></div>
+
+<p>Instalamos rofi y bspwm:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>rofi
+<span class="nb">sudo </span>apt <span class="nb">install </span>bspwm
+</code></pre></div></div>
+
+<p>Probamos el entorno que todo vaya bien, hacemos un kill -9 -1 y entramos pero antes de iniciar sesión debemos seleccionar bspwm como entorno. Ya probado que todo nos funciona bien, procedemos con la instalación de la fuente.</p>
+
+<h2 id="instalación-de-la-fuente">Instalación de la fuente</h2>
+
+<p>Nos dirigimos a la pagina para descargar la fuente llamada (hack nerd font):
+<a href="https://www.nerdfonts.com/font-downloads">Ver pagina</a></p>
+
+<p>Nos situamos en el directorio /usr/local/share/fonts y nos ponemos como super usuario para mover el archivo descargado a ese directorio:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mv</span> /home/su nombre de usuario/Downloads/Hack.zip <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>luego hacemos unzip para descomprimir el contenido y borramos el comprimido:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip Hack.zip
+<span class="nb">rm </span>Hack.zip
+</code></pre></div></div>
+
+<p>Hacemos que nos funcione la clipboard bidireccional agregando este comando al final del archivo bspwmrc:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vmware-user-suid-wrapper &amp;
+</code></pre></div></div>
+
+<h2 id="configuración-de-la-kitty">Configuración de la kitty</h2>
+
+<p>Copiaremos 2 archivos que meteremos dentro de ~/.config/kitty
+uno es color.ini y el otro es kitty.conf (los cuales estan en los archivos que les deje al inicio).</p>
+
+<p>Nos ponemos como root y como el tiene otra kitty nos pasamos los archivos de configuración</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> /home/su usuario/.config/kitty/<span class="k">*</span> <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>Instalamos feh:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>feh
+</code></pre></div></div>
+
+<p>Nos creamos una carpeta dentro del escritorio con nuestro nombre de usuario luego otra que se llame Fondos y ahi dentro colocamos el fondo que queremos tener
+ahora agregamos este comando al bspwmrc:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>feh <span class="nt">--bg-fill</span> /home/ewor01/Desktop/ewor01/Fondos/fondo.png &amp;
+</code></pre></div></div>
+
+<p>Instalamos un paquete para visualizar imágenes desde la kitty:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>imagemagick
+</code></pre></div></div>
+
+<p>Para visualizar una imagen desde la kitty utilizamos el siguiente comando:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kitty +kitten icat imagen.jpg
+</code></pre></div></div>
+
+<p>Instalamos scub para eliminar archivos y hacer mas difícil el rescate de estos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>scrub
+</code></pre></div></div>
+
+<h2 id="configuración-de-la-polybar">Configuración de la polybar</h2>
+
+<p>Ahora nos dirigimos al directorio Downloads y clonamos el siguiente repositorio:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/VaughnValle/blue-sky.git
+</code></pre></div></div>
+
+<p>Creamos el directorio de polybar y copiamos todo dentro del directorio situados dentro de /blue-sky/polybar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> ~/.config/polybar
+<span class="nb">cp</span> <span class="nt">-r</span> <span class="k">*</span> ~/.config/polybar
+</code></pre></div></div>
+
+<p>Ponemos este comando en el bspwmrc de la siguiente manera:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s1">'~/.config/polybar/./launch.sh'</span> <span class="o">&gt;&gt;</span> ~/.config/bspwm/bspwmrc
+</code></pre></div></div>
+
+<p>Nos dirigimos dentro del directorio blue-sky/polybar/fonts y copiaremos las fuentes en /usr/share/fonts/truetype como super usuario:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> <span class="k">*</span> /usr/share/fonts/truetype
+</code></pre></div></div>
+
+<p>Aplicamos este comando:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fc-cache <span class="nt">-v</span>
+</code></pre></div></div>
+
+<p>Configuramos la polybar y todos sus módulos.
+creamos un directorio llamado picom dentro de ~/.config como usuario normal:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>picom
+</code></pre></div></div>
+
+<p>Nos pasamos el archivo picom.conf y ahora configuramos picom a nuestro gusto si queremos blur o no y luego en kitty.conf agregamos lo siguiente dependiendo la opacidad que queramos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>background_opacity 0.95
+</code></pre></div></div>
+
+<h2 id="modificando-la-polybar">Modificando la polybar</h2>
+
+<p>Buscamos font-6 en current.ini de los archivos de la polybar de nuestra configuración y agregamos estas líneas para que nos salga el icono que queramos en la parte izquierda:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"font-7 = "</span>Hack Nerd Font Mono:size<span class="o">=</span>35<span class="p">;</span>8.0<span class="s2">"
+</span></code></pre></div></div>
+
+<p>Estos valores ya dependerá del gusto y icono que coloquen, pero para que funcione agregar esas líneas debajo de font-6.</p>
+
+<h2 id="privacidad-de-firefox-y-algunos-plugins">Privacidad de firefox y algunos plugins</h2>
+
+<p>Si queremos vamos a hacer que firefox no recuerde nuestro historial mas que todo es depende las opciones de cada persona si gustan lo hacen o no.
+Nos dirigimos a Settings &gt; Privacy &amp; Security &gt; Luego buscamos donde dice History y colocamos never remember history, reinician y listo.</p>
+
+<p>Instalamos un plugin llamado darkreader en firefox para colocar modo oscuro en las paginas que queramos.
+Instalamos otro plugin llamado wappalyzer que nos ayudara en pentesting web a identificar las tecnologías que utilizan las webs.</p>
+
+<h2 id="instalación-de-powerlevel10k">Instalación de powerlevel10k</h2>
+
+<p>Instalamos la Powerlevel10k
+nos dirigimos al repositorio:
+<a href="https://github.com/romkatv/powerlevel10k">ver repositorio</a>)
+y buscamos las instrucciones donde dice Manual y hay un comando que se los dejo igual:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone <span class="nt">--depth</span><span class="o">=</span>1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+<span class="nb">echo</span> <span class="s1">'source ~/powerlevel10k/powerlevel10k.zsh-theme'</span> <span class="o">&gt;&gt;</span>~/.zshrc
+</code></pre></div></div>
+
+<p>Esto hay que hacerlo tanto como usuario normal y como root. Una vez clonada procedemos a instalarla:
+colocamos zsh y comenzamos a configurar a nuestro gusto.</p>
+
+<h2 id="configurando-p10k">Configurando p10k</h2>
+
+<p>Ahora retocamos alguna configuracion del archivo .p10k.zsh</p>
+
+<p>Si queremos poner un icono diferente en la izquierda buscamos por esta linea que les dejo y colocamos el icono que queramos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">typeset</span> <span class="nt">-g</span> <span class="nv">POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION</span><span class="o">=</span><span class="s1">''</span>
+</code></pre></div></div>
+
+<p>Hacemos la instalacion de la powerlevel10k para root:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone <span class="nt">--depth</span><span class="o">=</span>1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+<span class="nb">echo</span> <span class="s1">'source ~/powerlevel10k/powerlevel10k.zsh-theme'</span> <span class="o">&gt;&gt;</span>~/.zshrc
+</code></pre></div></div>
+
+<p>Modificamos el .p10k.zsh de root después de configurar la power level y hay una opción para que no nos ponga tanto texto cuando somos root, buscamos esta linea y borramos lo que esta entre comillas  simples:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">typeset</span> <span class="nt">-g</span> <span class="nv">POWERLEVEL9K_CONTEXT_PREFIX</span><span class="o">=</span><span class="s1">''</span>
+</code></pre></div></div>
+
+<p>Modificamos esta para poner un icono y saber cuando somos root en lugar de texto:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">typeset</span> <span class="nt">-g</span> <span class="nv">POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE</span><span class="o">=</span><span class="s1">'icono'</span>
+</code></pre></div></div>
+
+<h2 id="enlace-simbólico-zshrc">Enlace simbólico zshrc</h2>
+
+<p>Crearemos un enlace simbólico de la .zshrc para que sea la misma en root y usuario normal,, lo hacemos estando como root:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ln</span> <span class="nt">-s</span> <span class="nt">-f</span> /home/su usuario/.zshrc .zshrc
+</code></pre></div></div>
+
+<p>Hacemos un cambio en la .zshrc para que nos cargue la del usuario normal y no de problemas,, agregamos esto:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> /home/su usuario/powerlevel10k/powerlevel10k.zsh-theme
+</code></pre></div></div>
+
+<p>Modificamos algunas cosas del .zshrc en la opcion history configuration:
+dejamos solo las primeras 3 opciones y aumentamos a 10000 los valores del histórico y agregamos estas líneas al final:
+setopt histignorealldups sharehistory
+Para que cuando mandemos una cadena vacía ejemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span><span class="nb">echo</span> <span class="s1">''</span> <span class="o">&gt;</span> ~/.zsh_history 
+</code></pre></div></div>
+
+<p>se borren los comandos que hayamos ejecutado antes.</p>
+
+<p>Ahora quitaremos la negrita que nos aparece cuando navegamos por directorios en el lado izquierdo, lo haremos para root y usuario normal:
+Modificamos el .p10k.zsh y filtramos por ANCHOR_BOLD y donde pone true colocamos false. Hacemos lo mismo para el usuario root</p>
+
+<h2 id="instalando-batcat-y-lsd">Instalando batcat y lsd</h2>
+
+<p>Descargamos batcat que es como un cat pero con esteroides, desde este repo y bajamos la versión más reciente:
+<a href="https://github.com/sharkdp/bat/releases">Ver repositorio</a>
+bat_0.24.0_amd64.deb</p>
+
+<p>Descargamos lsd que es com un ls pero con esteroides, desde este repo y bajamos la versión más reciente:
+<a href="https://github.com/lsd-rs/lsd/releases">Ver repositorio</a>
+lsd_1.0.0_amd64.deb</p>
+
+<p>Para instalarlos solo vamos a la carpeta donde decargamos y ponemos el siguiente comando:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg <span class="nt">-i</span> nombre_del_paquete
+</code></pre></div></div>
+
+<p>Instalamos locate:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>locate
+</code></pre></div></div>
+
+<p>Vamos a sincronizar todos los archivos del sistema para buscar lo que queremos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>updatedb
+</code></pre></div></div>
+
+<h2 id="instalando-fzf">Instalando fzf</h2>
+
+<p>Ahora instalamos la fzf para hacer busquedas inteligentes en el sistema, desde el siguiente repo:</p>
+
+<p><a href="https://github.com/junegunn/fzf">Ver repositorio</a></p>
+
+<p>Para instalar lo hacemos como root y usuario normal en el home de cada uno:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone <span class="nt">--depth</span> 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+</code></pre></div></div>
+
+<h2 id="alias-para-bat-y-lsd">Alias para bat y lsd</h2>
+
+<p>Ahora copiamos unos alias para nuestra .zshrc de bat y lsd:
+<a href="https://pastebin.com/QGvVx3wG">Ver link</a></p>
+
+<p>Tambien copiamos este archivo para que no nos salga en negrita a la hora de listar con lsd lo colocamos casi al final de la .zshrc:
+<a href="https://pastes.io/xsqk9oi1hz">Ver link</a></p>
+
+<p>Ahora vamos a arreglar un problema que da con burpsuite al estar en bspwm, agregamos estas líneas casi al principio de nuestro archivo, pero para que nos funcione burpsuite debemos correrlo desde la terminal no desde el shortcut del sxhkdrc ya que siempre presentara el problema:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Fix the Java Problem</span>
+<span class="nb">export </span><span class="nv">_JAVA_AWT_WM_NONREPARENTING</span><span class="o">=</span>1
+</code></pre></div></div>
+
+<p>Tambien en el bspwmrc agregamos lo siguiente al final para arreglar el mismo problema:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wmname LG3D &amp;
+</code></pre></div></div>
+
+<h2 id="creando-módulos-para-la-polybar">Creando módulos para la polybar</h2>
+
+<p>Creamos unos módulos para la polybar para lo cual tenemos que crear una carpeta llamada bin en ~/.config:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>bin
+</code></pre></div></div>
+
+<p>Una vez creada aquí dentro pondremos los scripts que ocuparemos para cargar en los módulos de la polybar.</p>
+
+<p>Para agregar un modulo tenemos que modificar el archivo current.ini y también el launch.sh, en el current.ini agregamos los módulos y en el launch.sh agregamos la ruta del modulo para que aparezca en la polybar.</p>
+
+<p>Ejemplo de un modulo, este va casi al principio del current.ini donde esten los otros modulos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>bar/ethernet_bar]
+inherit <span class="o">=</span> bar/main
+width <span class="o">=</span> 10%
+height <span class="o">=</span> 40
+offset-x <span class="o">=</span> 11.1%
+offset-y <span class="o">=</span> 15
+bottom <span class="o">=</span> <span class="nb">false
+</span>font-7 <span class="o">=</span> <span class="s2">"Hack Nerd Font Mono:size=22;5"</span>
+foreground <span class="o">=</span> <span class="k">${</span><span class="nv">color</span><span class="p">.white</span><span class="k">}</span>
+background <span class="o">=</span> <span class="k">${</span><span class="p">[color.bg](http</span>://color.bg/<span class="p">)</span><span class="k">}</span>
+padding <span class="o">=</span> 1
+modules-center <span class="o">=</span> ethernet_status
+wm-restack <span class="o">=</span> bspwm
+</code></pre></div></div>
+
+<p>Este otro casi al final donde están los demás módulos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>module/ethernet_status]
+<span class="nb">type</span> <span class="o">=</span> custom/script
+interval <span class="o">=</span> 2
+<span class="nb">exec</span> <span class="o">=</span> ~/.config/bin/ethernet_status.sh
+</code></pre></div></div>
+
+<p>Este seria el contenido de nuestro script para el ethernet_status en ~/.config/bin de la carpeta que creamos anteriormente:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="nb">echo</span> <span class="s2">"%{F#2495e7}󰈀 %{F#ffffff}</span><span class="si">$(</span>/usr/sbin/ifconfig eth0 | <span class="nb">grep</span> <span class="s2">"inet "</span> | <span class="nb">awk</span> <span class="s1">'{print $2}'</span><span class="si">)</span><span class="s2">%{u-}"</span>
+</code></pre></div></div>
+
+<p>Luego en el launch.sh agregaremos esto para que nos cargue el modulo, El archivo tendrá los otros módulos que trae por default si no queremos que muestre uno solo comentamos:
+Ejemplo launch.sh:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">## Left bar</span>
+
+<span class="c">#polybar log -c ~/.config/polybar/current.ini &amp;</span>
+polybar secondary <span class="nt">-c</span> ~/.config/polybar/current.ini &amp;
+polybar ethernet_bar <span class="nt">-c</span> ~/.config/polybar/current.ini &amp;
+</code></pre></div></div>
+
+<h2 id="sudo-plugin">Sudo plugin</h2>
+
+<p>Ahora instalaremos el sudo plugin, para hacer doble ESC nos ponga sudo antes.
+para agregarlo nos dirigimos a /usr/share/ y aquí adentro crearemos una carpeta todo lo hacemos como root:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>zsh-sudo-plugin
+</code></pre></div></div>
+
+<p>nos metemos al directorio y luego descargamos el raw:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /zsh-sudo-plugin/
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
+</code></pre></div></div>
+
+<p>Una vez descargado le asignamos permisos de ejecución:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x nombre de plugin
+</code></pre></div></div>
+
+<p>Y le asignan como propietario su usuario:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown </span>usuario:usuario plugin
+</code></pre></div></div>
+
+<p>Agregamos este código a nuestra .zshrc:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> /usr/share/zsh-sudo-plugin/sudo.plugin.zsh <span class="o">]</span><span class="p">;</span> <span class="k">then
+</span><span class="nb">source</span> /usr/share/zsh-sudo-plugin/sudo.plugin.zsh
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<p>Ahora modificamos la polybar para identificar que ventana esta activa, inactiva y vacia.
+Modificaremos el workspace.ini de la polybar. Buscamos las siguientes líneas:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>label-active-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">color</span><span class="p">.green</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p>sustituimos el color de active y mas abajo esta la de ocupada, colocamos el color que mejor nos parezca.</p>
+
+<h2 id="auto-completado-inteligente">Auto completado inteligente</h2>
+
+<p>Instalamos un autocompletado inteligente en nuestro archivo de .zshrc, que esta en este link:
+<a href="https://pastebin.com/H87J3nMj">Ver link</a>
+Copiamos y pegamos lo del archivo en nuestra .zshrc, filtramos por completion features y borramos las que ya trae y pegamos las nuevas.</p>
+
+<p>Ahora instalaremos npm para instalar neovim de neochad:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>npm
+</code></pre></div></div>
+
+<p>Procedemos a clonar el repositorio para tener nvim:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/NvChad/NvChad ~/.config/nvim <span class="nt">--depth</span> 1
+</code></pre></div></div>
+
+<p>Ahora entramos en esta url y buscamos el que pone nvim-linux64.tar.gz en esta url y lo descargamos:
+<a href="https://github.com/neovim/neovim/releases">Ver link</a></p>
+
+<p>Nos movemos al directorio opt, nos ponemos como root movemos y descomprimimos el archivo en ese directorio:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /opt
+<span class="nb">sudo </span>su
+<span class="nb">mv</span> /home/usuario/Downloads/nvim-linux64.tar.gz <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>Borramos el comprimido y entramos en la carpeta de nvim, luego en bin y ejecutamos como usuario normal el nvim:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>nvim
+<span class="nb">cd </span>bin
+su usuario
+./nvim
+</code></pre></div></div>
+
+<p>y se instalara todo correctamente.</p>
+
+<p>Ahora modificamos nuestro archivo .zshrc y agregamos estas líneas en custom aliases:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#nvim</span>
+<span class="nb">alias </span><span class="nv">nvim</span><span class="o">=</span><span class="s1">'/opt/nvim-linux64/bin/nvim'</span>
+</code></pre></div></div>
+
+<p>y con esto ya tendríamos nvim instalado, solo cerramos la ventana y abrimos una nueva para probar.</p>
+
+<p>Ahora hacemos lo mismo para el usuario root, volvemos a hacer el git clone en el home de root:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/NvChad/NvChad ~/.config/nvim <span class="nt">--depth</span> 1
+</code></pre></div></div>
+
+<p>Ejecutamos nvim y se instalara todo correctamente.</p>
+
+<h2 id="instalando-flameshot">Instalando flameshot</h2>
+
+<p>Como opcional podemos instalar flameshot que sirve para hacer capturas de pantalla personalizadas.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>flameshot
+</code></pre></div></div>
+
+<h2 id="instalando-i3lock-y-i3lock-fancy">Instalando i3lock y i3lock-fancy</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>i3lock
+
+</code></pre></div></div>
+
+<p>Luego vamos a este github y vemos las instrucciones para instalar:
+<a href="https://github.com/meskarune/i3lock-fancy">Ver link</a>
+Primero nos dirigimos a Downloads y clonamos el repo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /home/usuario/Downloads
+git clone https://github.com/meskarune/i3lock-fancy
+</code></pre></div></div>
+
+<p>Luego entramos al directorio y hacemos un sudo make install y listo.</p>
+
+<p>Ejecutamos este comando para darle un texto y un tipo de fuente:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>i3lock-fancy <span class="nt">-t</span> <span class="s2">"Introduce tu contraseña"</span> <span class="nt">-f</span> /usr/local/share/fonts/HackNerdFont-Regular.ttf
+</code></pre></div></div>
+
+<p>Con esto ya lo tendríamos.</p>
+
+<p>Creamos un shortcut en en el sxhkdrc para activarlo con un atajo haciendo uso de la ruta absoluta:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/i3lock-fancy <span class="nt">-t</span> <span class="s2">"Introduce tu contraseña"</span> <span class="nt">-f</span> /usr/local/share/fonts/HackNerdFont-Regular.ttf
+</code></pre></div></div>
+
+<p>Después de esto reiniciamos el entorno para aplicar los cambios.</p>
+
+<p>Listo con esto tenemos nuestro entorno listo para trabajar.</p>
+
+<h2 id="happy-hacking">Happy hacking.</h2>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#entorno-personalizado" class="page__taxonomy-item" rel="tag">entorno personalizado</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#kali-linux-personalizado" class="page__taxonomy-item" rel="tag">kali linux personalizado</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#bspwm" class="page__taxonomy-item" rel="tag">bspwm</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#kali-linux" class="page__taxonomy-item" rel="tag">kali linux</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#kitty" class="page__taxonomy-item" rel="tag">kitty</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#nvim" class="page__taxonomy-item" rel="tag">nvim</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#p10k" class="page__taxonomy-item" rel="tag">p10k</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#picom" class="page__taxonomy-item" rel="tag">picom</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#polybar" class="page__taxonomy-item" rel="tag">polybar</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#zsh" class="page__taxonomy-item" rel="tag">zsh</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Fecha:</strong> <time datetime="2024-02-19T00:00:00-06:00">February 19, 2024</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/contrase%C3%B1as-seguras/" class="pagination--pager" title="¿Cómo crear una contraseña segura?
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+</div>
+
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 ewor01</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
