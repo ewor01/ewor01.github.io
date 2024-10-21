@@ -329,7 +329,9 @@
           
           
         </p>
-        <p>Dificultad: Fácil</p>
+        <p>Esta máquina es de la plataforma Hack Journey <a href="https://www.aprendehacking.com/products/hack-journey">visitar</a></p>
+
+<p>Dificultad: Fácil</p>
 
 <p>Habilidades:</p>
 
@@ -507,7 +509,7 @@ reset xterm
 
 <h1 id="escalada-de-privilegios">Escalada de Privilegios</h1>
 
-<p>Como observamos tenemos usuarios con nombres por defecto así que probamos credenciales por defecto. y logramos acceder como el usuario vagrant con su pass vagrant.</p>
+<p>Como observamos tenemos usuarios con nombres por defecto así que probamos credenciales por defecto. y logramos acceder como el usuario vagrant.</p>
 
 <p><img src="/assets/images/hj-writeup-blogger/vagrant_user.png" alt="vagrant user.png" /></p>
 
@@ -529,11 +531,11 @@ reset xterm
 
 <p>Ya con esto hemos completado la maquina. ¡Gracias por leer hasta aquí! Espero que este writeup te haya sido útil para comprender mejor los pasos para resolver esta máquina.  ¡Nos vemos en el próximo reto, y sigue hackeando con ética!</p>
 
-<p>Para agregar como extra si con el usuario vagrant visualizábamos las tareas cron nos encontramos una tarea aparte de las que son por defecto. A l visualizarla vemos que ejecuta un script el usuario root. Intentamos ver el script y logramos hacerlo, el script hace un comprimido del home del usuario james y lo almacena en el directorio /tmp, probamos descomprimir y lo hacemos sin problema, de esta manera también podemos obtener la flag ya que nos muestra el base64.</p>
+<p>Para agregar como extra si con el usuario vagrant visualizábamos las tareas cron nos encontramos una tarea aparte de las que son por defecto. Al visualizarla vemos que ejecuta un script el usuario root. Intentamos ver el script y logramos hacerlo, el script hace un comprimido del home del usuario james y lo almacena en el directorio /tmp, probamos descomprimir y lo hacemos sin problema, de esta manera también podemos obtener la flag ya que nos muestra el base64.</p>
 
 <p><img src="/assets/images/hj-writeup-blogger/cat_crontab.png" alt="cat crontab.png" /></p>
 
-<p><img src="/assets/images/hj-writeup-blogger/vagratnt_base64.png" alt="vagratnt base64.png" /></p>
+<p><img src="/assets/images/hj-writeup-blogger/vagrant_base64.png" alt="vagratnt base64.png" /></p>
 
 <p>Y esta seria otra forma de obtener la flag, solo como dato curioso. Nos vemos</p>
 

@@ -24,6 +24,8 @@ tags:
 - Lateral Movement
 ---
 
+Esta máquina es de la plataforma Hack Journey [visitar](https://www.aprendehacking.com/products/hack-journey)
+
 Dificultad: Fácil
 
 Habilidades: 
@@ -211,7 +213,7 @@ Ahora nos queda realizar escalada de privilegios mediante movimiento lateral int
 
 # Escalada de Privilegios
 
-Como observamos tenemos usuarios con nombres por defecto así que probamos credenciales por defecto. y logramos acceder como el usuario vagrant con su pass vagrant.
+Como observamos tenemos usuarios con nombres por defecto así que probamos credenciales por defecto. y logramos acceder como el usuario vagrant.
 
 ![vagrant user.png](/assets/images/hj-writeup-blogger/vagrant_user.png)
 
@@ -235,10 +237,10 @@ Nos encontramos con la flag de la maquina, para ganar privilegios máximos, reco
 
 Ya con esto hemos completado la maquina. ¡Gracias por leer hasta aquí! Espero que este writeup te haya sido útil para comprender mejor los pasos para resolver esta máquina.  ¡Nos vemos en el próximo reto, y sigue hackeando con ética!
 
-Para agregar como extra si con el usuario vagrant visualizábamos las tareas cron nos encontramos una tarea aparte de las que son por defecto. A l visualizarla vemos que ejecuta un script el usuario root. Intentamos ver el script y logramos hacerlo, el script hace un comprimido del home del usuario james y lo almacena en el directorio /tmp, probamos descomprimir y lo hacemos sin problema, de esta manera también podemos obtener la flag ya que nos muestra el base64.
+Para agregar como extra si con el usuario vagrant visualizábamos las tareas cron nos encontramos una tarea aparte de las que son por defecto. Al visualizarla vemos que ejecuta un script el usuario root. Intentamos ver el script y logramos hacerlo, el script hace un comprimido del home del usuario james y lo almacena en el directorio /tmp, probamos descomprimir y lo hacemos sin problema, de esta manera también podemos obtener la flag ya que nos muestra el base64.
 
 ![cat crontab.png](/assets/images/hj-writeup-blogger/cat_crontab.png)
 
-![vagratnt base64.png](/assets/images/hj-writeup-blogger/vagratnt_base64.png)
+![vagratnt base64.png](/assets/images/hj-writeup-blogger/vagrant_base64.png)
 
 Y esta seria otra forma de obtener la flag, solo como dato curioso. Nos vemos

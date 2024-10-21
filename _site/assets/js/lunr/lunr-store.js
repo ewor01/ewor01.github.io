@@ -30,7 +30,7 @@ var store = [{
         "url": "http://localhost:4000/entorno-personalizado/",
         "teaser":"http://localhost:4000/assets/images/entorno-personalizado/entorno-personalizado.png"},{
         "title": "Blogger - Hack Journey",
-        "excerpt":"Dificultad: Fácil Habilidades: Fuzzing Information Leakage CMS Exploitation (Wordpress) PHP Reverse Shell (Bypass upload file with GIF) Lateral Movement IP de la Maquina 10.10.0.5 Reconocimiento Comprobando conectividad con la maquina ping -c1 10.10.0.5 Identificando el sistema operativo lo realizamos con un script en python que en base al TTL nos...","categories": ["hackjourney","Fácil","Linux","Wordpress"],
+        "excerpt":"Esta máquina es de la plataforma Hack Journey visitar Dificultad: Fácil Habilidades: Fuzzing Information Leakage CMS Exploitation (Wordpress) PHP Reverse Shell (Bypass upload file with GIF) Lateral Movement IP de la Maquina 10.10.0.5 Reconocimiento Comprobando conectividad con la maquina ping -c1 10.10.0.5 Identificando el sistema operativo lo realizamos con un...","categories": ["hackjourney","Fácil","Linux","Wordpress"],
         "tags": ["Fuzzing","Information Leakage","CMS Exploitation (Wordpress)","PHP Reverse Shell (Bypass upload file with GIF)","Lateral Movement"],
         "url": "http://localhost:4000/blogger-hackjourney/",
         "teaser":"http://localhost:4000/assets/images/hj-writeup-blogger/blogger.png"}]

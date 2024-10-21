@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-20T20:12:40-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ewor01 | Ciberseguridad y Hacking Ético</title><subtitle>Artículos sobre ciberseguridad, CTFs, investigaciones, herramientas, charlas, etc.</subtitle><author><name>ewor01</name></author><entry><title type="html">Blogger - Hack Journey</title><link href="http://localhost:4000/blogger-hackjourney/" rel="alternate" type="text/html" title="Blogger - Hack Journey" /><published>2024-10-16T00:00:00-06:00</published><updated>2024-10-16T00:00:00-06:00</updated><id>http://localhost:4000/blogger-hackjourney</id><content type="html" xml:base="http://localhost:4000/blogger-hackjourney/"><![CDATA[<p>Dificultad: Fácil</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-20T20:57:52-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ewor01 | Ciberseguridad y Hacking Ético</title><subtitle>Artículos sobre ciberseguridad, CTFs, investigaciones, herramientas, charlas, etc.</subtitle><author><name>ewor01</name></author><entry><title type="html">Blogger - Hack Journey</title><link href="http://localhost:4000/blogger-hackjourney/" rel="alternate" type="text/html" title="Blogger - Hack Journey" /><published>2024-10-16T00:00:00-06:00</published><updated>2024-10-16T00:00:00-06:00</updated><id>http://localhost:4000/blogger-hackjourney</id><content type="html" xml:base="http://localhost:4000/blogger-hackjourney/"><![CDATA[<p>Esta máquina es de la plataforma Hack Journey <a href="https://www.aprendehacking.com/products/hack-journey">visitar</a></p>
+
+<p>Dificultad: Fácil</p>
 
 <p>Habilidades:</p>
 
@@ -176,7 +178,7 @@ reset xterm
 
 <h1 id="escalada-de-privilegios">Escalada de Privilegios</h1>
 
-<p>Como observamos tenemos usuarios con nombres por defecto así que probamos credenciales por defecto. y logramos acceder como el usuario vagrant con su pass vagrant.</p>
+<p>Como observamos tenemos usuarios con nombres por defecto así que probamos credenciales por defecto. y logramos acceder como el usuario vagrant.</p>
 
 <p><img src="/assets/images/hj-writeup-blogger/vagrant_user.png" alt="vagrant user.png" /></p>
 
@@ -198,11 +200,11 @@ reset xterm
 
 <p>Ya con esto hemos completado la maquina. ¡Gracias por leer hasta aquí! Espero que este writeup te haya sido útil para comprender mejor los pasos para resolver esta máquina.  ¡Nos vemos en el próximo reto, y sigue hackeando con ética!</p>
 
-<p>Para agregar como extra si con el usuario vagrant visualizábamos las tareas cron nos encontramos una tarea aparte de las que son por defecto. A l visualizarla vemos que ejecuta un script el usuario root. Intentamos ver el script y logramos hacerlo, el script hace un comprimido del home del usuario james y lo almacena en el directorio /tmp, probamos descomprimir y lo hacemos sin problema, de esta manera también podemos obtener la flag ya que nos muestra el base64.</p>
+<p>Para agregar como extra si con el usuario vagrant visualizábamos las tareas cron nos encontramos una tarea aparte de las que son por defecto. Al visualizarla vemos que ejecuta un script el usuario root. Intentamos ver el script y logramos hacerlo, el script hace un comprimido del home del usuario james y lo almacena en el directorio /tmp, probamos descomprimir y lo hacemos sin problema, de esta manera también podemos obtener la flag ya que nos muestra el base64.</p>
 
 <p><img src="/assets/images/hj-writeup-blogger/cat_crontab.png" alt="cat crontab.png" /></p>
 
-<p><img src="/assets/images/hj-writeup-blogger/vagratnt_base64.png" alt="vagratnt base64.png" /></p>
+<p><img src="/assets/images/hj-writeup-blogger/vagrant_base64.png" alt="vagratnt base64.png" /></p>
 
 <p>Y esta seria otra forma de obtener la flag, solo como dato curioso. Nos vemos</p>]]></content><author><name>ewor01</name></author><category term="hackjourney" /><category term="Fácil" /><category term="Linux" /><category term="Wordpress" /><category term="Fuzzing" /><category term="Information Leakage" /><category term="CMS Exploitation (Wordpress)" /><category term="PHP Reverse Shell (Bypass upload file with GIF)" /><category term="Lateral Movement" /><summary type="html"><![CDATA[Blogger es una máquina donde estaremos explotando una vulnerabilidad en el gestor de contenido wordpress con la que vamos a lograr acceso al servidor, posteriormente para escalar privilegios tendremos que hacer unos movimientos laterales para cambiar de usuario y obtener el root de la máquina.]]></summary></entry><entry><title type="html">Personalización de Entorno en Kali Linux para Pentesting</title><link href="http://localhost:4000/entorno-personalizado/" rel="alternate" type="text/html" title="Personalización de Entorno en Kali Linux para Pentesting" /><published>2024-02-19T00:00:00-06:00</published><updated>2024-02-19T00:00:00-06:00</updated><id>http://localhost:4000/entorno-personalizado</id><content type="html" xml:base="http://localhost:4000/entorno-personalizado/"><![CDATA[<p align="center">
 <img src="/assets/images/entorno-personalizado/entorno-personalizado.png" />
