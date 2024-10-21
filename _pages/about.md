@@ -13,7 +13,7 @@ date: 2024-02-19
 
 Mi nombre es Edwin Josué Romero (aka **ewor01**), un apasionado ingeniero en ciencias de la computación con un enfoque en 
 **ciberseguridad y hacking ético**. 
-Aunque soy un pentester junior sin experiencia profesional, mi dedicación se refleja en mi aprendizaje continuo tanto en mis estudios como en mi tiempo libre. 
+Aunque soy un pentester sin experiencia profesional, mi dedicación se refleja en mi aprendizaje continuo tanto en mis estudios como en mi tiempo libre. 
 Además, comparto mis conocimientos mediante transmisiones en vivo en **Twitch**, lo que ha fortalecido mis habilidades de comunicación y enseñanza.
 
 Estos son los cursos que actualmente dispongo:

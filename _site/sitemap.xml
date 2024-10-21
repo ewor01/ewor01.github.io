@@ -25,6 +25,10 @@
 <lastmod>2024-02-19T00:00:00-06:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/blogger-hackjourney/</loc>
+<lastmod>2024-10-16T00:00:00-06:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/404/</loc>
 </url>
 <url>
@@ -46,7 +50,10 @@
 <loc>http://localhost:4000/year-archive/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/install/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/assets/files/Devel.pdf</loc>
-<lastmod>2024-01-14T15:04:01-06:00</lastmod>
+<lastmod>2024-10-16T22:11:03-06:00</lastmod>
 </url>
 </urlset>

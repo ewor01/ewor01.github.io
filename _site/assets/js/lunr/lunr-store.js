@@ -28,4 +28,9 @@ var store = [{
         "excerpt":"Personalización de Entorno en Kali Linux para Pentesting Resumen Este tutorial te guiará paso a paso a través de la personalización de tu entorno en Kali Linux, utilizando herramientas como bspwm, sxhkd, polybar, Powerlevel10k, zsh, y Kitty, etc. Estas personalizaciones están diseñadas para mejorar la eficiencia y hacer más cómodas...","categories": ["kali linux","bspwm","polybar","kitty","p10k","zsh","picom","nvim"],
         "tags": ["entorno personalizado","kali linux personalizado"],
         "url": "http://localhost:4000/entorno-personalizado/",
-        "teaser":"http://localhost:4000/assets/images/entorno-personalizado/entorno-personalizado.png"}]
+        "teaser":"http://localhost:4000/assets/images/entorno-personalizado/entorno-personalizado.png"},{
+        "title": "Blogger - Hack Journey",
+        "excerpt":"Dificultad: Fácil Habilidades: Fuzzing Information Leakage CMS Exploitation (Wordpress) PHP Reverse Shell (Bypass upload file with GIF) Lateral Movement IP de la Maquina 10.10.0.5 Reconocimiento Comprobando conectividad con la maquina ping -c1 10.10.0.5 Identificando el sistema operativo lo realizamos con un script en python que en base al TTL nos...","categories": ["hackjourney","Fácil","Linux","Wordpress"],
+        "tags": ["Fuzzing","Information Leakage","CMS Exploitation (Wordpress)","PHP Reverse Shell (Bypass upload file with GIF)","Lateral Movement"],
+        "url": "http://localhost:4000/blogger-hackjourney/",
+        "teaser":"http://localhost:4000/assets/images/hj-writeup-blogger/blogger.png"}]
