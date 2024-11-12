@@ -33,4 +33,9 @@ var store = [{
         "excerpt":"Esta máquina es de la plataforma Hack Journey visitar Dificultad: Fácil Habilidades: Fuzzing Information Leakage CMS Exploitation (Wordpress) PHP Reverse Shell (Bypass upload file with GIF) Lateral Movement IP de la Maquina 10.10.0.5 Reconocimiento Comprobando conectividad con la maquina ping -c1 10.10.0.5 Identificando el sistema operativo lo realizamos con un...","categories": ["hackjourney","Fácil","Linux","Wordpress"],
         "tags": ["Fuzzing","Information Leakage","CMS Exploitation (Wordpress)","PHP Reverse Shell (Bypass upload file with GIF)","Lateral Movement"],
         "url": "http://localhost:4000/blogger-hackjourney/",
-        "teaser":"http://localhost:4000/assets/images/hj-writeup-blogger/blogger.png"}]
+        "teaser":"http://localhost:4000/assets/images/hj-writeup-blogger/blogger.png"},{
+        "title": "Chimichurri - The Hackers Labs",
+        "excerpt":"Esta máquina es de la plataforma The Hackers Labs visitar Certificaciones a aplicar: OSCP, eCPPTv3 Dificultad: Fácil Técnicas Vistas: SMB Enumeration Information Leakage RPC Enumeration (rpcclient)(Failed) (EXTRA) Ldap Enumeration (ldapsearch)(Failed) (EXTRA) AXFR - Domain Zone Transfer Attack (Failed)(EXTRA) Kerberos User Enumeration (Kerbrute) (EXTRA) ASRepRoast Attack (GetNPUsers)(Failed) (EXTRA) SMB Password Spray...","categories": ["thehackerslabs","OSCP","Active Directory","Fácil","Windows","eCPPTv3"],
+        "tags": ["SMB Enumeration","Information Leakage","RPC Enumeration","Ldap Enumeration","AXFR - Domain Zone Transfer Attack","Kerberos User Enumeration","ASRepRoast Attack","SMB Password Spray Attack","Jenkins Exploitation","Abusing WinRM","Abusing SeImpersonatePrivilege - Juicy Potato","DCSync Exploitation NTDS","PassTheHash"],
+        "url": "http://localhost:4000/chimichurri-thehackerslabs/",
+        "teaser":"http://localhost:4000/assets/images/thl-writeup-chimichurri/chimichurri.jpg"}]

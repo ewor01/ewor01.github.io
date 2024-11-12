@@ -76,7 +76,7 @@
 
 <p>Ejemplos de ataques de ingeniería social a grandes Empresas.</p>
 
-<p>Tomaremos como ejemplo solo 2 empresas las cuales son:</p>
+<p>Tomaremos como ejemplo solo 2 empresas:</p>
 
 <ul>
   <li>RSA</li>
@@ -85,8 +85,171 @@
 
 <p>Miraremos cual fue la metodología que utilizaron los ciberdelincuentse para infiltrarse en estas empresas y obtener la información.</p>
 
-<p>RSA</p>
+<p align="center">
+<img src="/assets/images/ingeniería-social/ingenieriasocialempresas.jpg" />
+</p>
+
+<p>RSA:</p>
 
 <ul>
-  <li></li>
+  <li>Suplantación y envió de correo.</li>
+  <li>Documento adjunto de Excel.</li>
+  <li>Uso de datos ’verídicos’ de planilla.</li>
+  <li>Explotación de vulnerabilidad en flash.</li>
+  <li>Compromiso de sistema interno.</li>
 </ul>
+
+<p>Como podemos observar primero lograron entrar mediante un <code class="language-plaintext highlighter-rouge">phishing</code>, utilizaron un documento de Excel que contenía código malicioso, el cual al ejecutarse explotaba una vulnerabilidad de flash que había en aquel entonces, y así lograron llegar hasta los sistemas internos de la empresa. Aquí es donde miramos la importancia de que el personal y tanto nosotros mismos estemos muy bien capacitados en todos estos temas para poder evitar este tipo de ataques.</p>
+
+<p align="center">
+<img src="/assets/images/ingeniería-social/rsa.png" />
+</p>
+
+<p>Microsoft:</p>
+
+<ul>
+  <li>Llamada telefónica.</li>
+  <li>Obtención de números de seguridad social de empleados.</li>
+  <li>Reutilización en proveedores para el acceso a cuentas.</li>
+  <li>Obtención de información sensible sobre XBOX.</li>
+</ul>
+
+<p>En este otro ejemplo, miramos que el punto de entrada fue un <code class="language-plaintext highlighter-rouge">vishing</code>, así lograron persuadir y obtener el número de seguro social de los empleados y luego esta información la utilizaron en proveedores que los empleados tenían para obtener el acceso a sus cuentas. En este caso no fue tan crítico porque no comprometieron ningún sistema pero se dio lo que se conoce como data leak ya que se filtró información sobre la nueva Xbox que iba a salir en ese entonces, dando a conocer así las características que iba a poseer dicha consola.</p>
+
+<p align="center">
+<img src="/assets/images/ingeniería-social/microsoft.png" />
+</p>
+
+<p>Ahora hablaremos de que técnicas emplean los ciberdelincuentes a la hora de elegir una empresa como objetivo, usan un ataque de ingeniería social dirigido y siguen una metodología para que el ataque sea más efectivo.</p>
+
+<p>Antes de saber cuál es la metodología que emplean, hay que mencionar que existen dos tipos de ataques de ingeniería social:</p>
+
+<ul>
+  <li>Dirigidos</li>
+  <li>No Dirigidos</li>
+</ul>
+
+<p>Dirigidos:
+Son aquellos ataques en el que se tienes una empresa o una persona como objetivo, siguiendo una metodología para que el ataque logre ser más efectivo. Por ejemplo el ataque que hicieron a la empresa <code class="language-plaintext highlighter-rouge">Uber</code> el cual consistió en un <code class="language-plaintext highlighter-rouge">phishing</code>, y a partir de aquí los ciberdelincuentes lograron vulnerar sus sistemas.</p>
+
+<p>No Dirigidos:
+Por lo general este tipo de ataque se realiza de manera masiva enviando millones de <code class="language-plaintext highlighter-rouge">phishing</code> a usuarios al azar, con la finalidad de hacerse con la mayor cantidad de información posible y así obtener una recompensa mayor. Cabe mencionar que estos ataques son menos efectivos que los Dirigidos ya que no estudian a fondo su víctima.</p>
+
+<p>La metodología que utilizan los ciberdelincuentes para un ataque dirigido seria la siguiente:</p>
+
+<ul>
+  <li>Investigación sobre la organización y empleados de la misma.</li>
+  <li>Análisis y planificación de posibles vectores.</li>
+  <li>Definición de empleados objetivo y análisis en profundidad.</li>
+  <li>Desarrollo de pretextos y escenarios.</li>
+  <li>Despliegue de la infraestructura necesaria.</li>
+  <li>Ejecución de pruebas.</li>
+  <li>Intrusión en la red interna.</li>
+</ul>
+
+<p>Como observamos siguen una metodología bien elaborada con la finalidad de que el ataque resulte ser muy efectivo para que logren caer los empleados de las empresas y así hacerse con sus datos para luego comprometer toda la empresa. Esto nos lleva a que los empleados de una empresa y nosotros como usuarios de cualquier tecnología debemos estar capacitados en temas de ciberseguridad para así lograr mitigar estos ataques ya que no hay otra manera de evitarlos, la única forma es estar debidamente informados.
+Esta metodología también la utilizan los pentester en ejercicios de red team para simular completamente un ataque de ingeniería social usando las mismas técnicas que un ciberdelincuente, de esta manera estarían preparando al personal de una empresa para cualquier tipo de ataque de este tipo y haciendo más segura la empresa.</p>
+
+<p>En el primer punto usan técnicas <code class="language-plaintext highlighter-rouge">OSINT</code> para recolectar la mayor cantidad de información posible sobre el objetivo.</p>
+
+<p>En el segundo ya una vez reunida esa información la analizan y miran cual podría ser el mejor vector de ataque si un <code class="language-plaintext highlighter-rouge">phishing</code>, <code class="language-plaintext highlighter-rouge">vishing</code>, <code class="language-plaintext highlighter-rouge">baiting</code>, etc. o también puede usar todas las que ellos crean convenientes.</p>
+
+<p>Después lo que hacen es analizar cuál podría ser el empleado o los empleados elegidos para atacar, ya que por ejemplo sería más efectivo si utilizan a alguien de <code class="language-plaintext highlighter-rouge">recursos humanos</code> que si eligen a alguien de <code class="language-plaintext highlighter-rouge">IT</code>, ya que al ser del departamento <code class="language-plaintext highlighter-rouge">IT</code> podría darse cuenta más rápido y evitar que logren comprometer la empresa.</p>
+
+<p>Aquí en este punto van a ver cómo hacer caer a los empleados, haciéndoles creer que son parte del <code class="language-plaintext highlighter-rouge">equipo de soporte</code> o que son algún <code class="language-plaintext highlighter-rouge">proveedor</code> con la finalidad de que los empleados les den acceso o sus datos para colarse dentro de la empresa.</p>
+
+<p>Ya en este punto crean todo lo que van a utilizar como por ejemplo en que área dejaran las <code class="language-plaintext highlighter-rouge">USB</code> tiradas en caso de ser un <code class="language-plaintext highlighter-rouge">baiting</code>, si es un <code class="language-plaintext highlighter-rouge">phishing</code> pues elaborar cuidadosamente y lo más parecido posible la plantilla de correo y al sitio donde serán redirigidos los empleados o el documento que van a adjuntar para lograr tener la mayor efectividad.</p>
+
+<p>Ya aquí ejecutan las <code class="language-plaintext highlighter-rouge">pruebas</code> para ver si serán efectivas y en caso de serla estaríamos llegando al último punto que sería la <code class="language-plaintext highlighter-rouge">intrusión</code> en la red interna de la empresa y ya con esto estarían logrando su objetivo.</p>
+
+<p align="center">
+<img src="/assets/images/ingeniería-social/ataquessocial2.jpg" />
+</p>
+
+<p>Ahora que ya vimos que es y cómo funciona la ingeniería social, es hora de aprender cómo evitar este tipo de ataques, para ello vamos a tener en cuenta un par de consejos:</p>
+<ul>
+  <li>
+    <p>Cambie la configuración de spam en el correo electrónico:
+No todos los proveedores de correos vienen debidamente configurados así que es nuestra responsabilidad configurarlos correctamente para así poder filtrar la mayor parte de correos y tener un poco más segura nuestra bandeja de entrada.</p>
+  </li>
+  <li>
+    <p>Investigue la <code class="language-plaintext highlighter-rouge">fuente</code>:
+Siempre que se reciba un enlace, un mensaje, un correo, etc. Es muy importante verificar de donde proviene y no importa si es por parte de un amigo hay que estar seguro que en realidad es el quien n os envía y no un ciberdelincuente que pudo haber quitado el acceso a la cuenta de nuestro amigo.</p>
+  </li>
+  <li>
+    <p>Si algo parece demasiado bueno para ser cierto, seguramente sea <code class="language-plaintext highlighter-rouge">falso</code>:
+Esto es algo muy común en estos tipos de ataques ya que por lo general te dirán que te ganaste algo sin siquiera estar participando, a partir de este momento deberíamos de alertarnos ya que seguramente se trate de un ataque de ingeniería social, es muy común también que las personas caigan más debido a estas técnicas ya que depende de nuestro nivel de economía en que nos encontremos seremos tentados a caer en este tipo de engaños pero recuerda como dicen por ahí <code class="language-plaintext highlighter-rouge">nada es gratis</code> y si lo es tiene un precio tu <code class="language-plaintext highlighter-rouge">información</code>.</p>
+  </li>
+  <li>
+    <p>Utilice software de <code class="language-plaintext highlighter-rouge">seguridad</code> y confianza:
+Nunca este de mas tener de la mano un buen software antivirus y anti malware, para así tener una mayor protección ante este tipo de ataques, aunque sin duda alguna la mejor defensa siempre será estar concientizado ante este tipo de ataques y sobre ciberseguridad, recuerda la ciberseguridad no es un gasto es una inversión como el seguro de un auto, no adquieres el seguro porque vas a chocar el auto si no que en caso de que suceda estas preparado para lo que pueda pasarle a este, es lo mismo a la hora de invertir en ciberseguridad para tu empresa, no quiere decir que pasaras bajo constate ataque, pero en caso de recibir uno tu personal estará debidamente capacitado y podrán evitar que comprometan la empresa.</p>
+  </li>
+  <li>
+    <p>Utilice el sentido <code class="language-plaintext highlighter-rouge">común</code>:
+Es algo muy curioso y parece sencillo de usar, pero a veces digo que el sentido común no parece tan común ya que algunos simplemente no lo usan. Siempre hay que estar <code class="language-plaintext highlighter-rouge">alerta</code> ante cualquier <code class="language-plaintext highlighter-rouge">msj</code> sospechoso que recibamos y más si es mediante una <code class="language-plaintext highlighter-rouge">red social</code>, nunca abrir <code class="language-plaintext highlighter-rouge">links</code> que te envíen por ahí a menos que sepas su procedencia, así que ya sabes si recibes algo y no estás seguro es mejor que no hagas clic ya que podrían robar tu información personal o tus cuentas.</p>
+  </li>
+  <li>
+    <p>Sobre todo y no menos importante informarse y concientizarse sobre <code class="language-plaintext highlighter-rouge">ciberseguridad</code>:
+Creo que este es uno de los puntos más importantes, ya que al menos para mí hoy en día es imprescindible que <code class="language-plaintext highlighter-rouge">todos</code> y si me refiero a todos aquellos que utilicemos un dispositivo para navegar por internet y que poseamos redes sociales, etc. En fin usar cualquier dispositivo tecnológico debemos aprender sobre ciberseguridad ya que la tecnología cada día crece a pasos agigantados y así como salen dispositivos nuevos, redes sociales nuevas y así con cada cosa, también salen nuevos ataques, nuevas técnicas que utilizan los ciberdelincuentes para hacerse con nuestros datos. Por eso es importante que aprendamos ya que al hacerlo sabremos lo peligros a los cuales nos enfrentamos e igual conoceremos multitud de ataques que existen y seremos más cuidadosos a la hora de navegar por internet.</p>
+  </li>
+</ul>
+
+<p align="center">
+<img src="/assets/images/ingeniería-social/consejos.jpg" />
+</p>
+
+<p>Ahora conociendo todo esto nos haremos la siguiente interrogante ¿Por qué es tan peligrosa la ingeniería social?</p>
+
+<p>La ingeniería social puede ocurrirle a cualquiera, ya sea en persona, por teléfono o en línea, y también es un método bastante fácil cuando se realizan estafas, fraudes u otros delitos. Los <code class="language-plaintext highlighter-rouge">ciberdelincuentes</code> no necesitan tener grandes conocimientos técnicos; solo tienen que ser capaces de engañarle para que les entregues datos sensibles. El hecho de que todos estemos en riesgo hace que sea una estafa potencialmente <code class="language-plaintext highlighter-rouge">devastadora</code>.</p>
+
+<p>Las redes sociales han ayudado a los ciberdelincuentes a ser más habilidosos, creando perfiles falsos que parecen ser reales, o incluso suplantando a personas reales. Es importante estar alerta ante perfiles extraños o desconocidos en redes sociales.</p>
+
+<p>Por estos motivos es uno de los ataques más peligrosos ya que es directamente con el usuario que se trata y no con el software.</p>
+
+<p align="center">
+<img src="/assets/images/ingeniería-social/peligro.jpg" />
+</p>
+
+<p>Ya para ir concluyendo con el post, te dejare un par de herramientas que seguramente te ayudaran a la hora de identificar este tipo de ataques.</p>
+
+<ul>
+  <li><a href="https:https://www.virustotal.com/gui/home/upload">Virus Total</a>:</li>
+</ul>
+
+<p>Es una herramienta muy conocida, y lo que nos permite hacer es identificar archivos maliciosos, enlaces, ip, dominios, etc. Es una herramienta que sin duda alguna debemos tener a la mano para poder identificar de una mejor manera todo aquello de lo que nosotros tengamos duda o sospecha.</p>
+
+<p align="center">
+<img src="/assets/images/ingeniería-social/virustotal.png" />
+</p>
+
+<ul>
+  <li><a href="https://phishtank.org/">Phishtank</a>:</li>
+</ul>
+
+<p>Es una web que como su nombre lo indica es un tanque de sitios desde donde se realiza phishing, lo que nos permite hacer es que si tenemos duda de una web y ya fue reportada en el sitio web nos dira si es un phishing o no, en el caso de que no nos arroje información tampoco quiere decir que es seguro, simplmente no este reportada. También nos permite poder reportar una pagina que nosotros estemos seguros que sirve para hacer phishing, aportando nuestro granito de arena a la comunidad.</p>
+
+<p align="center">
+<img src="/assets/images/ingeniería-social/phishtank.png" />
+</p>
+
+<ul>
+  <li><a href="https://expandurl.net/">Expandurl</a>:</li>
+</ul>
+
+<p>Es una web sencilla pero muy útil ya que nos permite ver la url final de un enlace acortado, permitiéndonos ver hacia donde nos redirigirá esa url sin necesidad de visitarla.</p>
+
+<p align="center">
+<img src="/assets/images/ingeniería-social/expandurl.png" />
+</p>
+
+<ul>
+  <li><a href="https://phishingquiz.withgoogle.com/?hl=es-419">phishingquiz</a>:</li>
+</ul>
+
+<p>Una web creada por google para entrenarnos a la hora de identificar ataques de phishing, en el cual se nos presentara una serie de correos y nosotros deberemos ir tomando decisiones y decidir si se trata de un correo legítimo o phishing. Sin duda alguna una excelente herramienta para ayudarnos a detectar de una mejor manera este tipo de ataques y nos entrenara para fijarnos en aquellos detalles que antes no les prestábamos atención.</p>
+
+<p align="center">
+<img src="/assets/images/ingeniería-social/googlephish.jpg" />
+</p>
+
+<p><strong>Con esto concluimos el post espero les sirva de ayuda y nos vemos en el siguiente, ayúdame compartiendo mi sitio con tus amigos, gracias.</strong></p>

