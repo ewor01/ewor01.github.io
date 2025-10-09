@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="es" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Whoami | ewor01</title><meta name="author" content="ewor01"><meta name="copyright" content="ewor01"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="Mi nombre es Edwin Josué Romero (aka ewor01), un apasionado ingeniero en ciencias de la computación con un enfoque enciberseguridad y hacking ético.Aunque soy un pentester sin experiencia profes">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Whoami">
+<meta property="og:url" content="https://ewor01.github.io/about/index.html">
+<meta property="og:site_name" content="ewor01">
+<meta property="og:description" content="Mi nombre es Edwin Josué Romero (aka ewor01), un apasionado ingeniero en ciencias de la computación con un enfoque enciberseguridad y hacking ético.Aunque soy un pentester sin experiencia profes">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://ewor01.github.io/img/ewor01_avatar.png">
+<meta property="article:published_time" content="2025-10-09T04:58:09.000Z">
+<meta property="article:modified_time" content="2025-10-09T05:56:06.972Z">
+<meta property="article:author" content="ewor01">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ewor01.github.io/img/ewor01_avatar.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/ewor01_avatar.png"><link rel="canonical" href="https://ewor01.github.io/about/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'medium_zoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Whoami',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><meta name="generator" content="Hexo 8.0.0"></head><body><div id="web_bg" style="background-color: #03061f;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/ewor01_avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> /home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> logs</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-secret"></i><span> whoami</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header" style="background-image: url(/img/hack.avif);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ewor01</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> /home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> logs</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-secret"></i><span> whoami</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">Whoami</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><br>
+
+<p align="center">
+<img src="/assets/images/about/ewor01.png">
+</p>
+
+<p>Mi nombre es Edwin Josué Romero (aka <strong>ewor01</strong>), un apasionado ingeniero en ciencias de la computación con un enfoque en<br><strong>ciberseguridad y hacking ético</strong>.<br>Aunque soy un pentester sin experiencia profesional, mi dedicación se refleja en mi aprendizaje continuo tanto en mis estudios como en mi tiempo libre.<br>Además, comparto mis conocimientos mediante transmisiones en vivo en <strong>Twitch</strong>, lo que ha fortalecido mis habilidades de comunicación y enseñanza.</p>
+<p>Estos son los cursos que actualmente dispongo:</p>
+<ul>
+<li><strong>Personalización de entorno en Linux</strong> - Hack4u - Online 2022</li>
+<li><strong>Curso de Investigaciones OSINT</strong> - OIHEC Organización Internacional de Hackers y Expertos en Ciberseguridad - Online 2021 </li>
+<li><strong>Curso Ethical Hacking Professional</strong> - Seguridad Cero - Online 2020</li>
+<li><strong>Ciberinteligencia</strong> - Hacking Publico &amp; Sistemas Informáticos - Online 2020</li>
+<li><strong>Curso Online Ethical Hacking</strong> - Seguridad Cero - Online 2020</li>
+<li><strong>Curso Completo de Hacking Ético</strong> - Udemy - Online  2019</li>
+<li><strong>Hacking Web y Pentesting</strong> - Udemy - Online 2019</li>
+</ul>
+<p align="center">
+<img src="/assets/images/about/Personalizacion-Linux.png">
+</p>
+
+<p align="center">
+<img src="/assets/images/about/Osint-OIHEC.png">
+</p>
+
+<p align="center">
+<img src="/assets/images/about/ethical-hacking-professional.png">
+</p>
+
+<p align="center">
+<img src="/assets/images/about/ciberinteligencia.png">
+</p>
+
+<p align="center">
+<img src="/assets/images/about/ethical-hacking.png">
+</p>
+
+<p align="center">
+<img src="/assets/images/about/hacking-etico-completo.png">
+</p>
+
+<p align="center">
+<img src="/assets/images/about/hacking-web.png">
+</p>
+
+
+<h2 id="Experiencia"><a href="#Experiencia" class="headerlink" title="Experiencia"></a>Experiencia</h2><ul>
+<li>Charla (Ingeniería social), capacite a 86 empleados de la Cooperativa Nueva Vida (Entidad financiera en mi país) en los siguientes temas :</li>
+</ul>
+<p>¿Qué es la ingeniería social?, tipos de ataques de ingeniería social, estudio de caso (en el cual se mostraban 2 ataques reales que habían sufrido empresas tales como Microsoft y RSA Security) se analizaban los 2 casos, explicando que técnicas de ingeniería social usaron los ciber-delincuentes para comprometer la información confidencial, consejos para evitar la ingeniería social,<br>¿por qué es tan peligrosa la ingeniería social?, cómo reconocer y evitar ataques de ingeniería social.</p>
+<ul>
+<li>Speaker en el evento de Ciberseguridad Cyber Secure Nation 2023 - <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=vZCkHLXZCvQ">Ver Charla</a></li>
+</ul>
+<p align="center">
+<img src="/assets/images/about/Cyber-Secure-2023.png">
+</p>
+
+
+<ul>
+<li>Speaker en el evento de Ciberseguridad Cyber Secure Nation 2022 - <a target="_blank" rel="noopener" href="https://youtu.be/cAcId5gqJnU">Ver Charla</a></li>
+</ul>
+<p align="center">
+<img src="/assets/images/about/Cyber-Secure-Nation.jpg">
+</p>
+
+<ul>
+<li>Charla (Ciberseguridad básico), capacite a 62 empleados de la Cooperativa Nueva Vida (Entidad financiera en mi país) en los siguientes temas :</li>
+</ul>
+<p>Conceptos básicos sobre seguridad de la información, seguridad informática y ciberseguridad, malware y tipos de malware, vulnerabilidades y tipos de vulnerabilidades, ingeniería Social y tipos de ataques mediante ingeniería social.</p>
+<ul>
+<li>Desarrollo web (Cooperativa Nueva Vida)</li>
+</ul>
+<p>Aplicación web Helpdesk, en la cual se utilizó el framework LARAVEL que posee la  metodología MVC (Modelo, Vista y Controlador).<br>El MVC o Modelo-Vista-Controlador es un patrón de arquitectura de software que, utilizando 3 componentes (Vistas, Modelos y Controladores) separa la lógica de la aplicación de la interfaz que se muestra al usuario.<br>Como gestor de base de datos se utilizó MySQL. La aplicación consiste en permitir un mejor seguimiento de los problemas dentro de la empresa manifestados por los compañeros.<br>En pocas palabras, el sistema de gestiones Helpdesk le permite archivar y rastrear cada problema; evaluar su prioridad, su nivel de progreso y asignar responsables. <a target="_blank" rel="noopener" href="https://helpdesk.coopnuevavida.com/">Ver app</a></p>
+<ul>
+<li>Entrevista para puesto Pentester-Junior (empresa X)</li>
+</ul>
+<p>Realice una entrevista para el puesto pentester-junior para la empresa X, en la cual realice todas las pruebas necesarias para aplicar al puesto, las cuales consistian en una prueba técnica supervisada y una prueba práctica.</p>
+<p>Prueba técnica (teórica) supervisada:<br>Esta prueba tiene como objetivo identificar los conocimientos teóricos sobre tecnología, ciberseguridad y pentesting.</p>
+<p>Prueba práctica:<br>Esta prueba tiene como objetivo identificar los conocimientos prácticos que se realizan en pentesting, como ser: Identificar los diferentes puertos, los servicios que corren en esos puertos, encontrar diferentes tipos de vulnerabilidades para esos servicios, explotar esas vulnerabilidades y realizar un informe profesional de todos los hallazgos.<br>Para hacer esta prueba fue necesario instalar 2 máquinas virtuales, las cuales fueron:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/metasploitable/">Metasploitable2</a> </li>
+<li><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/owaspbwa/">OWASP Broken Web Applications Project</a></li>
+</ul>
+<p>Ejemplo del informe que realicé: <a href="/assets/files/Devel.pdf">Ver informe</a></p>
+<p>Todas las pruebas y demas requerimientos los aprobe satisfactoriamente, pero lastimosamente no me dieron el puesto. Lo cual puede ser comprobado con la siguiente imagen del correo recibido por parte de la empresa:</p>
+<p align="center">
+<img src="/assets/images/about/Devel.png">
+</p>
+ 
+<h2 id="Educacion"><a href="#Educacion" class="headerlink" title="Educación"></a>Educación</h2><ul>
+<li>Universidad Católica, Honduras – Ingeniería en Ciencias de la Computación</li>
+</ul>
+<h2 id="Proyectos-Realizados-en-clase"><a href="#Proyectos-Realizados-en-clase" class="headerlink" title="Proyectos Realizados en clase"></a>Proyectos Realizados en clase</h2><ul>
+<li><p>Sistemas operativos:<br>Instalación de diferentes sistemas operativos y aprender su uso.<br>Creación de servidor de correos utilizando un servidor Linux.<br>Creación de servidor de archivos utilizando un servidor Linux.</p>
+</li>
+<li><p>Desarrollo de software:<br>Desarrollo de una aplicación web que consistía en que varias ONG’S recibieran ayudas monetarias mediante la implementación de pagos en línea utilizando PayPal como gestor de los pagos, se desarrolló con boostrap 4 utilizando un plantilla HTML la cual se adpato al proyecto y como base de datos se utilizó firebase de google la cual es una base de datos NoSQL.</p>
+</li>
+<li><p>Programación orientada a objetos:<br>Desarrollo de sistema de inventarios utilizando como lenguaje de programación C# y como gestor de base de datos SQL, el sistema consistía en la creación de un CRUD (Create, Read, Update, Delete) es el que resume las funciones requeridas por un usuario para crear y gestionar datos. sistema de control de inventarios es posible saber cuánta mercancía se tiene en determinado momento y qué productos están por acabarse (eventual quiebre de stock), así como determinar los niveles de rotación de los productos e identificar aquellos próximos a cumplir su fecha de caducidad.</p>
+</li>
+</ul>
+<h2 id="Apariciones"><a href="#Apariciones" class="headerlink" title="Apariciones"></a>Apariciones</h2><ul>
+<li>Charla Team whoami - (Retos para conseguir un puesto de ethical hacker con c0d3r17): <a target="_blank" rel="noopener" href="https://youtu.be/6azrrjRFdEI?si=pXinqx3T9QYZUJsA">Ver video</a></li>
+<li>Charla Team whoami - (Experiencias hacking con c0d3r17): <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JFSYGdSUNpI&t=1090s">Ver Video</a></li>
+<li>Charla Comunitaria - (Ingeniería Social) En el canal más grande de habla hispana de s4vitar <a target="_blank" rel="noopener" href="https://twitch.tv/s4vitaar">Enlace</a> La charla no se subió debido a los temas que se trataron y algunas herramientas que se utilizaron.</li>
+<li>Podcast One Podcast - (piratería informática): <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XYuWT86ix-E">Ver podcast</a></li>
+<li>Podcast One Podcast - (Cosas impactantes de la deepweb): <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=uxphCzfOD14">Ver podcast</a> </li>
+<li>Podcast One Podcast - (La deepweb): <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=2shy9UKnyUY&t=50s">Ver podcast</a></li>
+</ul>
+<h2 id="Herramientas"><a href="#Herramientas" class="headerlink" title="Herramientas"></a>Herramientas</h2><p>Creador de las siguientes herramientas:</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://ewor01.notion.site/ewor01/Gu-a-por-ewor01-fd09caf6aba74b67b405a9a5bf9644f9">HackNotes</a> Es una herramienta de productividad diseñada en Notion para simplificar y agilizar el proceso de documentación de tus resoluciones de máquinas y desafíos en plataformas de hacking como: Hack The Box, TryHackMe, Proving Grounds, etc. Esta basada en esta web: <a target="_blank" rel="noopener" href="https://infosecmachines.io/">infosecmachines</a> hecha por: <a target="_blank" rel="noopener" href="https://github.com/JavierMolines">Javier Molines</a>, Siguiendo la excelente metodología de nuestro maestro: <a target="_blank" rel="noopener" href="https://twitter.com/s4vitar">s4vitar</a>, Esta herramienta es esencial para mantener un registro ordenado y completo de tus actividades de práctica de hacking ético, lo que te permite aprender, mejorar tus habilidades y avanzar en tu carrera de ciberseguridad. ¡Simplifica tu documentación y enfócate en lo que realmente importa: fortalecer tus habilidades de hacking ético! “Happy Hacking”</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://ewor01.notion.site/CyberTrack-by-ewor01-2180be6bb6854b55be9cdcc012f89180">CyberTrack</a> Este listado te permitirá mantener un registro organizado de tu preparación en hacking ético y te ayudará a seguir un plan de estudio efectivo a medida que te preparas para certificaciones.  Cabe mencionar  que se agradece mucho por el conocimiento que aportan a la comunidad y se toman como referencias a varios creadores de contenido y expertos en ciberseguridad como ser: <a target="_blank" rel="noopener" href="https://twitter.com/s4vitar">s4vitar</a>, <a target="_blank" rel="noopener" href="https://twitter.com/xerosec">xerosec</a>, <a target="_blank" rel="noopener" href="https://twitter.com/securiters">securiters</a>. Mantén un control detallado de tu preparación para certificaciones de seguridad cibernética, personalizando tu ruta de aprendizaje mejorando continuamente tus habilidades.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ewor01/nmapScanner">nmapScanner</a> Cliente de terminal hecho en Bash, para decubrir que puertos estan abiertos en una maquina y descubrir los servicios que corren para esos puertos, ideal para ahorrar tiempo a la hora de hacer pentesting. Este script realiza escaneos de puertos utilizando Nmap y proporciona funciones adicionales para analizar y copiar puertos abiertos a la clipboard. La funcion extractPorts que utilizamos para copiar los puertos a la clipboard fue creada por <a target="_blank" rel="noopener" href="https://twitter.com/s4vitar">s4vitar</a></p>
+</li>
+</ul>
+<h2 id="Asistencias"><a href="#Asistencias" class="headerlink" title="Asistencias"></a>Asistencias</h2><p>Asistente en los siguientes eventos de ciberseguridad:</p>
+<ul>
+<li>Cybersecurity Day – Campus Internacional de Ciberguridad (Online 2023)</li>
+<li>Conferencia de Seguridad Informática – DragonJAR (Online 2022)</li>
+<li>Intelcon 2022 – GINSEG CIBERINTELIGENCIA (Online 2022)</li>
+<li>III Congreso de Ciberseguridad – FOROS SANTANDER (Online 2022)</li>
+</ul>
+<p align="center">
+
+<img src="/assets/images/about/Cybersecurity-Day.png">
+</p>
+
+<p align="center">
+<img src="/assets/images/about/dragonjar.png">
+</p>
+
+<p align="center">
+<img src="/assets/images/about/IntelCon.png">
+</p>
+
+<p align="center">
+<img src="/assets/images/about/Congreso-Ciberseguridad.png">
+</p>
+
+<h2 id="Otros"><a href="#Otros" class="headerlink" title="Otros"></a>Otros</h2><ul>
+<li>Creador de contenido de ciberseguridad y hacking ético en la plataforma de Youtube (<a target="_blank" rel="noopener" href="https://youtube.com/ewor161">Enlace</a>)</li>
+<li>Streamer de ciberseguridad y hacking ético en la plataforma de Twitch (<a target="_blank" rel="noopener" href="https://twitch.tv/ewor01">Enlace</a>)</li>
+<li>¡Primer canal de ciberseguridad en Honduras! (Twitch, Youtube)</li>
+</ul>
+<h1 id="Correo-y-contacto-directo"><a href="#Correo-y-contacto-directo" class="headerlink" title="Correo y contacto directo"></a>Correo y contacto directo</h1><p>Estoy buscando oportunidades para adquirir <strong>experiencia profesional</strong> como pentester y estoy dispuesto a aceptar cualquier desafío que me permita desarrollar mis habilidades y conocimientos en este campo.<br>Si estás buscando a alguien con una <strong>pasión por la ciberseguridad y un gran interés en aprender</strong>, no duden en ponerse en contacto conmigo a través de la dirección de correo <code>ewor80@hotmail.com</code></p>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/ewor01_avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ewor01</div><div class="author-info-description">Contenido sobre ciberseguridad, CTFs, herramientas, investigaciones y charlas para quienes disfrutan aprender y explorar el mundo del hacking ético.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">- ¡Migración completada con éxito! Es posible que algunas imágenes tarden en cargar o que encuentres pequeños errores. Ya estoy trabajando en solucionarlos.
+</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/10/08/test-post/" title="Blue - Hack The Box"><img src="/img/default_prev.avif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Blue - Hack The Box"/></a><div class="content"><a class="title" href="/2025/10/08/test-post/" title="Blue - Hack The Box">Blue - Hack The Box</a><time datetime="2025-10-09T05:10:22.000Z" title="Created 2025-10-08 23:10:22">2025-10-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/07/hello-world/" title="Hello World"><img src="/img/default_prev.avif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2025/10/07/hello-world/" title="Hello World">Hello World</a><time datetime="2025-10-08T05:45:40.585Z" title="Created 2025-10-07 23:45:40">2025-10-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/hackthebox/"><span class="card-category-list-name">hackthebox</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/hackthebox/OSCP/"><span class="card-category-list-name">OSCP</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/hackthebox/OSCP/Facil/"><span class="card-category-list-name">Fácil</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/hackthebox/OSCP/Facil/Windows/"><span class="card-category-list-name">Windows</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li></ul></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/SMB-Enumeration/" style="font-size: 1.1em; color: #999">SMB Enumeration</a> <a href="/tags/Windows-Defender-Evasion/" style="font-size: 1.1em; color: #999">Windows Defender Evasion</a> <a href="/tags/Persistence/" style="font-size: 1.1em; color: #999">Persistence</a> <a href="/tags/Eternalblue-Exploitation-MS17-010/" style="font-size: 1.1em; color: #999">Eternalblue Exploitation(MS17-010)</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              octubre 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-10-09T06:06:29.269Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By ewor01</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="1" zIndex="-1" count="150" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="local-search-input"><input placeholder="Buscar" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.1"></script></div></div></body></html>
