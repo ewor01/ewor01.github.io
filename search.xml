@@ -55,9 +55,9 @@
             
             <tag> Active Directory </tag>
             
-            <tag> Pass The Hash </tag>
-            
             <tag> LSA Dump </tag>
+            
+            <tag> Pass The Hash </tag>
             
             <tag> Golden Ticket </tag>
             
@@ -88,11 +88,11 @@
             
             <tag> Active Directory </tag>
             
+            <tag> Pass The Hash </tag>
+            
             <tag> AS-Rep Roasting </tag>
             
             <tag> DCSync </tag>
-            
-            <tag> Pass The Hash </tag>
             
         </tags>
       
